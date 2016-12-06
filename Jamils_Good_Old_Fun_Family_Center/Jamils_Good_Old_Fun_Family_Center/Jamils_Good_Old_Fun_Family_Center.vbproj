@@ -103,9 +103,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Jamils_Good_Old_FunDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Jamils_Good_Old_FunDataSet.vb">
-      <DependentUpon>Jamils_Good_Old_FunDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -169,6 +166,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Debug\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Jamils_Good_Old_Fun.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

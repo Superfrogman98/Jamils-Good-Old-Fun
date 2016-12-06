@@ -27,7 +27,6 @@ Partial Class frmMain
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CloseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EmployeesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ViewEmployeesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NewEmployeeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CustomerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AttendenceToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -38,6 +37,8 @@ Partial Class frmMain
         Me.PrintSceduleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PrintSceduleToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.gpbEmployees = New System.Windows.Forms.GroupBox()
+        Me.lblDOH = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.lblEmail = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.lblSecondary = New System.Windows.Forms.Label()
@@ -50,18 +51,19 @@ Partial Class frmMain
         Me.lblPosition = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.dgvEmployees = New System.Windows.Forms.DataGridView()
-        Me.FirstName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.LastName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EmployeeDataBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.JamilsGoodOldFunDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Jamils_Good_Old_FunDataSet = New Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSet()
         Me.lblEmployeeName = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.FirstNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LastNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.JamilsGoodOldFunDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Jamils_Good_Old_FunDataSet = New Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSet()
         Me.EmployeeDataTableAdapter = New Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSetTableAdapters.EmployeeDataTableAdapter()
+        Me.btnEdit = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         Me.gpbEmployees.SuspendLayout()
         CType(Me.dgvEmployees, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -94,21 +96,15 @@ Partial Class frmMain
         '
         'EmployeesToolStripMenuItem
         '
-        Me.EmployeesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ViewEmployeesToolStripMenuItem, Me.NewEmployeeToolStripMenuItem})
+        Me.EmployeesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewEmployeeToolStripMenuItem})
         Me.EmployeesToolStripMenuItem.Name = "EmployeesToolStripMenuItem"
         Me.EmployeesToolStripMenuItem.Size = New System.Drawing.Size(76, 20)
         Me.EmployeesToolStripMenuItem.Text = "Employees"
         '
-        'ViewEmployeesToolStripMenuItem
-        '
-        Me.ViewEmployeesToolStripMenuItem.Name = "ViewEmployeesToolStripMenuItem"
-        Me.ViewEmployeesToolStripMenuItem.Size = New System.Drawing.Size(159, 22)
-        Me.ViewEmployeesToolStripMenuItem.Text = "View Employees"
-        '
         'NewEmployeeToolStripMenuItem
         '
         Me.NewEmployeeToolStripMenuItem.Name = "NewEmployeeToolStripMenuItem"
-        Me.NewEmployeeToolStripMenuItem.Size = New System.Drawing.Size(159, 22)
+        Me.NewEmployeeToolStripMenuItem.Size = New System.Drawing.Size(153, 22)
         Me.NewEmployeeToolStripMenuItem.Text = "New Employee"
         '
         'CustomerToolStripMenuItem
@@ -165,6 +161,9 @@ Partial Class frmMain
         'gpbEmployees
         '
         Me.gpbEmployees.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.gpbEmployees.Controls.Add(Me.btnEdit)
+        Me.gpbEmployees.Controls.Add(Me.lblDOH)
+        Me.gpbEmployees.Controls.Add(Me.Label9)
         Me.gpbEmployees.Controls.Add(Me.lblEmail)
         Me.gpbEmployees.Controls.Add(Me.Label12)
         Me.gpbEmployees.Controls.Add(Me.lblSecondary)
@@ -188,6 +187,24 @@ Partial Class frmMain
         Me.gpbEmployees.Size = New System.Drawing.Size(704, 513)
         Me.gpbEmployees.TabIndex = 0
         Me.gpbEmployees.TabStop = False
+        '
+        'lblDOH
+        '
+        Me.lblDOH.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.lblDOH.Location = New System.Drawing.Point(299, 121)
+        Me.lblDOH.Name = "lblDOH"
+        Me.lblDOH.Size = New System.Drawing.Size(102, 13)
+        Me.lblDOH.TabIndex = 23
+        Me.lblDOH.Text = "                              "
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(235, 121)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(58, 13)
+        Me.Label9.TabIndex = 22
+        Me.Label9.Text = "Hire Date: "
         '
         'lblEmail
         '
@@ -256,7 +273,7 @@ Partial Class frmMain
         'lblAddress
         '
         Me.lblAddress.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.lblAddress.Location = New System.Drawing.Point(452, 148)
+        Me.lblAddress.Location = New System.Drawing.Point(281, 143)
         Me.lblAddress.Name = "lblAddress"
         Me.lblAddress.Size = New System.Drawing.Size(120, 29)
         Me.lblAddress.TabIndex = 15
@@ -265,7 +282,7 @@ Partial Class frmMain
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(407, 148)
+        Me.Label6.Location = New System.Drawing.Point(236, 143)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(48, 13)
         Me.Label6.TabIndex = 14
@@ -296,7 +313,7 @@ Partial Class frmMain
         Me.dgvEmployees.AllowUserToResizeRows = False
         Me.dgvEmployees.AutoGenerateColumns = False
         Me.dgvEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvEmployees.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.FirstName, Me.LastName})
+        Me.dgvEmployees.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.FirstNameDataGridViewTextBoxColumn, Me.LastNameDataGridViewTextBoxColumn})
         Me.dgvEmployees.DataSource = Me.EmployeeDataBindingSource
         Me.dgvEmployees.Location = New System.Drawing.Point(0, 56)
         Me.dgvEmployees.Name = "dgvEmployees"
@@ -306,34 +323,10 @@ Partial Class frmMain
         Me.dgvEmployees.Size = New System.Drawing.Size(200, 451)
         Me.dgvEmployees.TabIndex = 11
         '
-        'FirstName
-        '
-        Me.FirstName.DataPropertyName = "First Name"
-        Me.FirstName.HeaderText = "First Name"
-        Me.FirstName.Name = "FirstName"
-        Me.FirstName.ReadOnly = True
-        '
-        'LastName
-        '
-        Me.LastName.DataPropertyName = "Last Name"
-        Me.LastName.HeaderText = "Last Name"
-        Me.LastName.Name = "LastName"
-        Me.LastName.ReadOnly = True
-        '
         'EmployeeDataBindingSource
         '
         Me.EmployeeDataBindingSource.DataMember = "EmployeeData"
         Me.EmployeeDataBindingSource.DataSource = Me.JamilsGoodOldFunDataSetBindingSource
-        '
-        'JamilsGoodOldFunDataSetBindingSource
-        '
-        Me.JamilsGoodOldFunDataSetBindingSource.DataSource = Me.Jamils_Good_Old_FunDataSet
-        Me.JamilsGoodOldFunDataSetBindingSource.Position = 0
-        '
-        'Jamils_Good_Old_FunDataSet
-        '
-        Me.Jamils_Good_Old_FunDataSet.DataSetName = "Jamils_Good_Old_FunDataSet"
-        Me.Jamils_Good_Old_FunDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'lblEmployeeName
         '
@@ -394,9 +387,42 @@ Partial Class frmMain
         Me.Label1.TabIndex = 5
         Me.Label1.Text = "Employees"
         '
+        'FirstNameDataGridViewTextBoxColumn
+        '
+        Me.FirstNameDataGridViewTextBoxColumn.DataPropertyName = "First Name"
+        Me.FirstNameDataGridViewTextBoxColumn.HeaderText = "First Name"
+        Me.FirstNameDataGridViewTextBoxColumn.Name = "FirstNameDataGridViewTextBoxColumn"
+        Me.FirstNameDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'LastNameDataGridViewTextBoxColumn
+        '
+        Me.LastNameDataGridViewTextBoxColumn.DataPropertyName = "Last Name"
+        Me.LastNameDataGridViewTextBoxColumn.HeaderText = "Last Name"
+        Me.LastNameDataGridViewTextBoxColumn.Name = "LastNameDataGridViewTextBoxColumn"
+        Me.LastNameDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'JamilsGoodOldFunDataSetBindingSource
+        '
+        Me.JamilsGoodOldFunDataSetBindingSource.DataSource = Me.Jamils_Good_Old_FunDataSet
+        Me.JamilsGoodOldFunDataSetBindingSource.Position = 0
+        '
+        'Jamils_Good_Old_FunDataSet
+        '
+        Me.Jamils_Good_Old_FunDataSet.DataSetName = "Jamils_Good_Old_FunDataSet"
+        Me.Jamils_Good_Old_FunDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'EmployeeDataTableAdapter
         '
         Me.EmployeeDataTableAdapter.ClearBeforeFill = True
+        '
+        'btnEdit
+        '
+        Me.btnEdit.Location = New System.Drawing.Point(592, 27)
+        Me.btnEdit.Name = "btnEdit"
+        Me.btnEdit.Size = New System.Drawing.Size(75, 23)
+        Me.btnEdit.TabIndex = 24
+        Me.btnEdit.Text = "Edit"
+        Me.btnEdit.UseVisualStyleBackColor = True
         '
         'frmMain
         '
@@ -424,7 +450,6 @@ Partial Class frmMain
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents FileToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CloseToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ViewEmployeesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents NewEmployeeToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CustomerToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AttendenceToolStripMenuItem As ToolStripMenuItem
@@ -442,13 +467,10 @@ Partial Class frmMain
     Friend WithEvents JamilsGoodOldFunDataSetBindingSource As BindingSource
     Friend WithEvents Jamils_Good_Old_FunDataSet As Jamils_Good_Old_FunDataSet
     Friend WithEvents EmployeeDataBindingSource As BindingSource
-    Friend WithEvents EmployeeDataTableAdapter As Jamils_Good_Old_FunDataSetTableAdapters.EmployeeDataTableAdapter
     Friend WithEvents lblAddress As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents lblPosition As Label
     Friend WithEvents Label5 As Label
-    Friend WithEvents FirstName As DataGridViewTextBoxColumn
-    Friend WithEvents LastName As DataGridViewTextBoxColumn
     Friend WithEvents lblEmail As Label
     Friend WithEvents Label12 As Label
     Friend WithEvents lblSecondary As Label
@@ -460,4 +482,10 @@ Partial Class frmMain
     Friend WithEvents CreateSceduleToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PrintSceduleToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PrintSceduleToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents LastNameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents FirstNameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents EmployeeDataTableAdapter As Jamils_Good_Old_FunDataSetTableAdapters.EmployeeDataTableAdapter
+    Friend WithEvents lblDOH As Label
+    Friend WithEvents Label9 As Label
+    Friend WithEvents btnEdit As Button
 End Class

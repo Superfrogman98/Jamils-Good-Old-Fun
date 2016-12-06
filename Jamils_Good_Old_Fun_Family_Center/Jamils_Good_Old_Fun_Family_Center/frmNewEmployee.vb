@@ -1,7 +1,7 @@
 ﻿Imports System.Data.OleDb
 
 Public Class frmNewEmployee
-
+    Dim database As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|Jamils_Good_Old_Fun.accdb")
 
 
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
@@ -26,29 +26,35 @@ Public Class frmNewEmployee
                             If txtState.Text.Trim <> "" Then
                                 If strZipcode <> "00000" Then
                                     If strMainPhone.Length = 12 Then
-                                        If txtEmail.Text.Trim <> "" And txtEmail.Text.Contains("@") And txtEmail.Text.Contains(".") And txtEmail.Text.EndsWith(".") = False Then
-                                            If strSecondaryPhone = "--" Then
-                                                strSecondaryPhone = "N/A"
+                                        If (strSecondaryPhone.Length > 2 And strSecondaryPhone.Length = 12) Or strSecondaryPhone.Length = 2 Then
+                                            If txtEmail.Text.Trim <> "" And txtEmail.Text.Contains("@") And txtEmail.Text.Contains(".") And txtEmail.Text.EndsWith(".") = False Then
+                                                If strSecondaryPhone = "--" Then
+                                                    strSecondaryPhone = "N/A"
+                                                End If
+
+                                                strAddress = txtStreet.Text & "," & txtCity.Text & "," & txtState.Text & "," & strZipcode
+
+                                                Try
+
+                                                    database.Open()
+                                                    Dim cmd As New OleDbCommand("insert into EmployeeData([First Name], [Last Name],[Position], Email, [Main Phone], [Secondary Phone],Address)values('" & txtFirstName.Text.Trim & "','" & txtLastName.Text.Trim & "','" & txtPosition.Text.Trim & "','" & txtEmail.Text.Trim & "','" & strMainPhone & "' ,'" & strSecondaryPhone & "','" & strAddress & "')", database)
+                                                    cmd.ExecuteNonQuery()
+                                                    MessageBox.Show("Employee Added to database")
+                                                    database.Close()
+                                                    frmMain.EmployeeDataTableAdapter.Fill(frmMain.Jamils_Good_Old_FunDataSet.EmployeeData)
+                                                    Me.Close()
+                                                Catch ex As Exception
+                                                    MessageBox.Show(ex.Message)
+                                                End Try
+                                            Else
+                                                MessageBox.Show("Invalid Email Address Entered", "Invalid Input")
+                                                Exit Sub
                                             End If
-
-                                            strAddress = txtStreet.Text & "," & txtCity.Text & "," & txtState.Text & "," & strZipcode
-
-                                            Try
-                                                Dim con As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source= ..\..\Jamils_Good_Old_Fun.accdb;")
-                                                con.Open()
-                                                Dim cmd As New OleDbCommand("insert into EmployeeData([First Name], [Last Name],[Position], Email, [Main Phone], [Secondary Phone],Address)values('" & txtFirstName.Text.Trim & "','" & txtLastName.Text.Trim & "','" & txtPosition.Text.Trim & "','" & txtEmail.Text.Trim & "','" & strMainPhone & "' ,'" & strSecondaryPhone & "','" & strAddress & "' )", con)
-                                                cmd.ExecuteNonQuery()
-                                                MessageBox.Show("Inserted Successfuly")
-                                                con.Close()
-                                                frmMain.EmployeeDataTableAdapter.Fill(frmMain.Jamils_Good_Old_FunDataSet.EmployeeData)
-                                            Catch
-                                                MessageBox.Show("Error")
-                                            End Try
                                         Else
-                                            MessageBox.Show("Invalid Email Address Entered", "Invalid Input")
+                                            MessageBox.Show("Secondary Phone Number Wrong Length or Not Blank", "Invalid Input")
                                             Exit Sub
-                                        End If
-                                    Else
+                                    End If
+                                Else
                                         MessageBox.Show("Main Phone Number Wrong Length ", "Invalid Input")
                                         Exit Sub
                                     End If

@@ -1,7 +1,7 @@
 ﻿Imports System.Data.OleDb
 
 Public Class frmNewEmployee
-    Dim database As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|Jamils_Good_Old_Fun.accdb")
+
 
 
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
@@ -18,6 +18,7 @@ Public Class frmNewEmployee
         strSecondaryPhone = txtSecondary1.Text & "-" & txtSecondary2.Text & "-" & txtSecondary3.Text
         Dim strAddress As String
 
+        'validates for blank fields, then posts the data to the database or gives an error message
         If txtFirstName.Text.Trim <> "" Then
             If txtLastName.Text.Trim <> "" Then
                 If txtPosition.Text.Trim <> "" Then
@@ -28,19 +29,17 @@ Public Class frmNewEmployee
                                     If strMainPhone.Length = 12 Then
                                         If (strSecondaryPhone.Length > 2 And strSecondaryPhone.Length = 12) Or strSecondaryPhone.Length = 2 Then
                                             If txtEmail.Text.Trim <> "" And txtEmail.Text.Contains("@") And txtEmail.Text.Contains(".") And txtEmail.Text.EndsWith(".") = False Then
+                                                'checks for a blank secondary phone field, if true then sets the fill text
                                                 If strSecondaryPhone = "--" Then
                                                     strSecondaryPhone = "N/A"
                                                 End If
-
                                                 strAddress = txtStreet.Text & "," & txtCity.Text & "," & txtState.Text & "," & strZipcode
-
                                                 Try
-
-                                                    database.Open()
-                                                    Dim cmd As New OleDbCommand("insert into EmployeeData([First Name], [Last Name],[Position], Email, [Main Phone], [Secondary Phone],Address)values('" & txtFirstName.Text.Trim & "','" & txtLastName.Text.Trim & "','" & txtPosition.Text.Trim & "','" & txtEmail.Text.Trim & "','" & strMainPhone & "' ,'" & strSecondaryPhone & "','" & strAddress & "')", database)
-                                                    cmd.ExecuteNonQuery()
+                                                    frmMain.database.Open()
+                                                    Dim addNewEmployee As New OleDbCommand("insert into EmployeeData([First Name], [Last Name],[Position], Email, [Main Phone], [Secondary Phone],Address,DOH)values('" & txtFirstName.Text.Trim & "','" & txtLastName.Text.Trim & "','" & txtPosition.Text.Trim & "','" & txtEmail.Text.Trim & "','" & strMainPhone & "' ,'" & strSecondaryPhone & "','" & strAddress & "','" & dateOfHire & "')", frmMain.database)
+                                                    addNewEmployee.ExecuteNonQuery()
                                                     MessageBox.Show("Employee Added to database")
-                                                    database.Close()
+                                                    frmMain.database.Close()
                                                     frmMain.EmployeeDataTableAdapter.Fill(frmMain.Jamils_Good_Old_FunDataSet.EmployeeData)
                                                     Me.Close()
                                                 Catch ex As Exception
@@ -99,5 +98,23 @@ Public Class frmNewEmployee
         Else
             e.Handled = True
         End If
+    End Sub
+    'clears all fields on load
+    Private Sub frmNewEmployee_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        txtFirstName.Text = ""
+        txtLastName.Text = ""
+        txtPosition.Text = ""
+        txtStreet.Text = ""
+        txtCity.Text = ""
+        txtState.Text = ""
+        nudZip.Value = 00000
+        txtMainPhone1.Text = ""
+        txtMainPhone2.Text = ""
+        txtMainPhone3.Text = ""
+        txtSecondary1.Text = ""
+        txtSecondary2.Text = ""
+        txtSecondary3.Text = ""
+        txtEmail.Text = ""
+
     End Sub
 End Class

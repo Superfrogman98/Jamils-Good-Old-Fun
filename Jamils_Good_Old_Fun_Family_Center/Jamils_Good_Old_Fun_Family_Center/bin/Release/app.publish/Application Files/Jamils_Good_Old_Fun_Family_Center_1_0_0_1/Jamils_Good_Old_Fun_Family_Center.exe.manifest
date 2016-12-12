@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="Jamils_Good_Old_Fun_Family_Center.exe" version="1.0.0.1" publicKeyToken="ebb5d2ffe33f5209" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="Jamils_Good_Old_Fun_Family_Center" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="Jamils_Good_Old_Fun_Family_Center.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Jamils_Good_Old_Fun_Family_Center.exe" size="101288">
+      <assemblyIdentity name="Jamils_Good_Old_Fun_Family_Center" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>5Nwr61O9tECVYsEr5x7rA5Lp1nMqIWMQ8ValtVl3+hM=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="Jamils_Good_Old_Fun.accdb" size="380928">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>QqSf0kj4C3zNv2HTcFuT+lDyywkR1aie1rT9Er27pUg=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Jamils_Good_Old_Fun_Family_Center.exe.config" size="1081">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>Jd/GUIF7DHPDtC/TM1IlO/I2y1jEk/CHGEkuuTjgu3Y=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=STHS\241848" issuerKeyHash="83f3dde4b20346e97fd8fabb33366d97b1658d08" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>XD2XIPTIXbdzJF4KIZhnLMYj/fSlkquxn2ClRvWFXX4=</DigestValue></Reference></SignedInfo><SignatureValue>iz11QR90PH2fqiVF/C74zis1b/zHdVAj4iQaEZe6ZM9Dw1HT6cmeamRSSRamrF2VmVuk5hC+/e8CxrKyapLwGAQQS7KLXynTwrlYLIVO7KZNKq94SLLW4URYez5qMkT+yduiD89blJTN1n8tdENTLfWbZ27vRyRQ+t6RYt0IEyo=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>ovjXKJ8YySQaX4+au+dC57Z8vLAFiVhqlmAEYoZAjFg0pfE8k0bbJUCMc7CGlZ//G01IbrIxIgnNlyYpby8in4AbJ0w9ouHCLL7+g7/vXhOD+gqnjSBBwUVbYLApPo0s5FjHfyDsHC726hX8rFdS0UELq4TOPG42/j0dbfQK2EM=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="7e5d85f546a5609fb1ab92a5f4fd23c62c6798210a5e2473b75dc8f420973d5c" Description="" Url=""><as:assemblyIdentity name="Jamils_Good_Old_Fun_Family_Center.exe" version="1.0.0.1" publicKeyToken="ebb5d2ffe33f5209" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=STHS\241848</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>TTtRl0nga0G2OyNLhUcktERk+rO73YQGtDejeojH53k=</DigestValue></Reference></SignedInfo><SignatureValue>ZPjq0F8HS3KqrU7BGFCl35XMLjBO2Zoixl59kqxxC+XlMXN8443+lbysw2QtYPie7x9QGYHisFjMteQUD8OBSAfk/vQRc9qdU2luJncGm+ve0je438CtKMvsTpCeCLqT/Bo79byHRNTxPJA2PcDSuVcOHKL4MY2RwiXIOZZ3VHw=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>ovjXKJ8YySQaX4+au+dC57Z8vLAFiVhqlmAEYoZAjFg0pfE8k0bbJUCMc7CGlZ//G01IbrIxIgnNlyYpby8in4AbJ0w9ouHCLL7+g7/vXhOD+gqnjSBBwUVbYLApPo0s5FjHfyDsHC726hX8rFdS0UELq4TOPG42/j0dbfQK2EM=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIBxTCCAS6gAwIBAgIQNrEwsiMqPItFX1TgaFEk4TANBgkqhkiG9w0BAQsFADAhMR8wHQYDVQQDHhYAUwBUAEgAUwBcADIANAAxADgANAA4MB4XDTE2MTIxMjE4NTc0MFoXDTE3MTIxMzAwNTc0MFowITEfMB0GA1UEAx4WAFMAVABIAFMAXAAyADQAMQA4ADQAODCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAovjXKJ8YySQaX4+au+dC57Z8vLAFiVhqlmAEYoZAjFg0pfE8k0bbJUCMc7CGlZ//G01IbrIxIgnNlyYpby8in4AbJ0w9ouHCLL7+g7/vXhOD+gqnjSBBwUVbYLApPo0s5FjHfyDsHC726hX8rFdS0UELq4TOPG42/j0dbfQK2EMCAwEAATANBgkqhkiG9w0BAQsFAAOBgQAsCqNstI4p17QZkqGiDfacEs1pLSFPudR15UsbFG67nthNl1Gd3hFxjjb0en6yPlOJkOvYkDv3Is8JQWrV1DPsxWWv/y5oMz98pPC+lOkGJycoTX9UzR8yPRf63qFbkJYXs8oWvZ2HaaHcvdRivkCkvHLPyFtFedJ8OKzKnHGBsA==</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

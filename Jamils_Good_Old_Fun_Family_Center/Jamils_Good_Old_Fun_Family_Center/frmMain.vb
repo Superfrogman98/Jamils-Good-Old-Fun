@@ -1,8 +1,13 @@
 ﻿'programmer: Max Buckel
 'function: manage the general operations of Jamil's good old fun family center
+Imports System.Data.OleDb
 Public Class frmMain
-    Dim currentEmployee As Integer = 0
+    Public database As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Jamils_Good_Old_Fun.accdb")
+    'Public database As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|Jamils_Good_Old_Fun.accdb")
+    Public dataAdapter As OleDbDataAdapter = New OleDbDataAdapter()
+    Public currentEmployee As Integer = 0
     Dim objNewEmployee As Object = frmNewEmployee
+    Dim objEditEmployee As Object = frmEditEmployee
 
     'closes the program
     Private Sub CloseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CloseToolStripMenuItem.Click
@@ -11,7 +16,11 @@ Public Class frmMain
 
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'loads names from the data base into the search field
-        Me.EmployeeDataTableAdapter.Fill(Me.Jamils_Good_Old_FunDataSet.EmployeeData)
+        Try
+            Me.EmployeeDataTableAdapter.Fill(Me.Jamils_Good_Old_FunDataSet.EmployeeData)
+        Catch ex As Exception
+            MessageBox.Show("Database Not Found")
+        End Try
     End Sub
 
 
@@ -37,7 +46,7 @@ Public Class frmMain
         If e.RowIndex <> -1 Then
             'fill in name field
             Try
-                lblEmployeeName.Text = Jamils_Good_Old_FunDataSet.EmployeeData(e.RowIndex).First_Name & " , " & Jamils_Good_Old_FunDataSet.EmployeeData(e.RowIndex).Last_Name
+                lblEmployeeName.Text = Jamils_Good_Old_FunDataSet.EmployeeData(e.RowIndex).First_Name & " " & Jamils_Good_Old_FunDataSet.EmployeeData(e.RowIndex).Last_Name
             Catch ex As Exception
                 lblEmployeeName.Text = "Not Found"
             End Try
@@ -84,5 +93,10 @@ Public Class frmMain
     'opens the form to enter a new employees data
     Private Sub NewEmployeeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NewEmployeeToolStripMenuItem.Click
         objNewEmployee.ShowDialog()
+    End Sub
+
+    'opens the form to edit employee data
+    Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
+        objEditEmployee.showDialog()
     End Sub
 End Class

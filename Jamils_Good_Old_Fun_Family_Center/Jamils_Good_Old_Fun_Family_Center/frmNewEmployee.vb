@@ -86,12 +86,7 @@ Public Class frmNewEmployee
             Exit Sub
         End If
     End Sub
-
-
-    Private Sub dtpDateOfHire_ValueChanged(sender As Object, e As EventArgs) Handles dtpDateOfHire.ValueChanged
-
-    End Sub
-
+    'only allows numbers and backspace to be put into the phone fields
     Private Sub valid_phone_Keys(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtMainPhone1.KeyPress, txtMainPhone2.KeyPress, txtMainPhone3.KeyPress, txtSecondary1.KeyPress, txtSecondary2.KeyPress, txtSecondary3.KeyPress
         If Char.IsDigit(e.KeyChar) Or e.KeyChar = "" Then
 

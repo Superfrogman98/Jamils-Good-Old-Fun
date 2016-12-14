@@ -37,6 +37,7 @@ Partial Class frmMain
         Me.PrintSceduleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PrintSceduleToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.gpbEmployees = New System.Windows.Forms.GroupBox()
+        Me.btnEdit = New System.Windows.Forms.Button()
         Me.lblDOH = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.lblEmail = New System.Windows.Forms.Label()
@@ -63,7 +64,7 @@ Partial Class frmMain
         Me.JamilsGoodOldFunDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Jamils_Good_Old_FunDataSet = New Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSet()
         Me.EmployeeDataTableAdapter = New Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSetTableAdapters.EmployeeDataTableAdapter()
-        Me.btnEdit = New System.Windows.Forms.Button()
+        Me.ChangeDatabaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.gpbEmployees.SuspendLayout()
         CType(Me.dgvEmployees, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -83,7 +84,7 @@ Partial Class frmMain
         '
         'FileToolStripMenuItem
         '
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CloseToolStripMenuItem})
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ChangeDatabaseToolStripMenuItem, Me.CloseToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
         Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
         Me.FileToolStripMenuItem.Text = "File"
@@ -91,7 +92,7 @@ Partial Class frmMain
         'CloseToolStripMenuItem
         '
         Me.CloseToolStripMenuItem.Name = "CloseToolStripMenuItem"
-        Me.CloseToolStripMenuItem.Size = New System.Drawing.Size(103, 22)
+        Me.CloseToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
         Me.CloseToolStripMenuItem.Text = "Close"
         '
         'EmployeesToolStripMenuItem
@@ -187,6 +188,15 @@ Partial Class frmMain
         Me.gpbEmployees.Size = New System.Drawing.Size(704, 513)
         Me.gpbEmployees.TabIndex = 0
         Me.gpbEmployees.TabStop = False
+        '
+        'btnEdit
+        '
+        Me.btnEdit.Location = New System.Drawing.Point(592, 27)
+        Me.btnEdit.Name = "btnEdit"
+        Me.btnEdit.Size = New System.Drawing.Size(75, 23)
+        Me.btnEdit.TabIndex = 24
+        Me.btnEdit.Text = "Edit"
+        Me.btnEdit.UseVisualStyleBackColor = True
         '
         'lblDOH
         '
@@ -415,14 +425,11 @@ Partial Class frmMain
         '
         Me.EmployeeDataTableAdapter.ClearBeforeFill = True
         '
-        'btnEdit
+        'ChangeDatabaseToolStripMenuItem
         '
-        Me.btnEdit.Location = New System.Drawing.Point(592, 27)
-        Me.btnEdit.Name = "btnEdit"
-        Me.btnEdit.Size = New System.Drawing.Size(75, 23)
-        Me.btnEdit.TabIndex = 24
-        Me.btnEdit.Text = "Edit"
-        Me.btnEdit.UseVisualStyleBackColor = True
+        Me.ChangeDatabaseToolStripMenuItem.Name = "ChangeDatabaseToolStripMenuItem"
+        Me.ChangeDatabaseToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
+        Me.ChangeDatabaseToolStripMenuItem.Text = "Change Database"
         '
         'frmMain
         '
@@ -488,4 +495,5 @@ Partial Class frmMain
     Friend WithEvents lblDOH As Label
     Friend WithEvents Label9 As Label
     Friend WithEvents btnEdit As Button
+    Friend WithEvents ChangeDatabaseToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -113,7 +113,7 @@ Public Class frmEditEmployee
                                                 End If
                                                 strAddress = txtStreet.Text & "," & txtCity.Text & "," & txtState.Text & "," & strZipcode
                                                 Try
-
+                                                    'gets the current employees id, creates a command to use to update the database, opens the database connection, the executes the command and confirms the update was completed, then closes the connection and updates the data table of employees
                                                     Dim employeeID As Integer = frmMain.Jamils_Good_Old_FunDataSet.EmployeeData(frmMain.currentEmployee).ID
                                                     updateCommand = New OleDbCommand("UPDATE EmployeeData SET [First Name] = ? ,[Last Name] = ?, [Position] = ?,Email = ?,[Main Phone] = ?, [Secondary Phone] = ?,Address= ?, DOH = ? WHERE ID = employeeID", frmMain.database)
                                                     updateCommand.Parameters.AddWithValue("firstName", txtFirstName.Text.Trim)
@@ -182,21 +182,17 @@ Public Class frmEditEmployee
             MessageBox.Show("No First Name Entered", "Invalid Input")
             Exit Sub
         End If
-
-
-
-
-
-
-
-
-
-
-
-
     End Sub
 
-    'removes the current viewed employee from the database
+    'only allows numbers and backspace to be put into the phone fields
+    Private Sub valid_phone_Keys(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtMainPhone1.KeyPress, txtMainPhone2.KeyPress, txtMainPhone3.KeyPress, txtSecondary1.KeyPress, txtSecondary2.KeyPress, txtSecondary3.KeyPress
+        If Char.IsDigit(e.KeyChar) Or e.KeyChar = "" Then
+
+        Else
+            e.Handled = True
+        End If
+    End Sub
+    'removes the current viewed employee from the database with a confirm box
     Private Sub btnRemove_Click(sender As Object, e As EventArgs) Handles btnRemove.Click
         Dim deleteCommand As OleDbCommand
         Dim confirmRemove As Integer

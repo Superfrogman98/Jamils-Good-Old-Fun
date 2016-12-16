@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Jamils_Good_Old_Fun_Family_Center.exe" size="109992">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Jamils_Good_Old_Fun_Family_Center.exe" size="112552">
       <assemblyIdentity name="Jamils_Good_Old_Fun_Family_Center" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>x+UxvbSIpQX/CINh9GgEWDUdEN18lbPynDgAB0yS4XE=</dsig:DigestValue>
+        <dsig:DigestValue>sNzbeCNa7mblyauqjbCsU1waDN1zoxPUVBxdX1owT50=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -25,6 +25,7 @@ Partial Class frmMain
         Me.components = New System.ComponentModel.Container()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ChangeDatabaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CloseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EmployeesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NewEmployeeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -33,7 +34,6 @@ Partial Class frmMain
         Me.EnterAttendenceToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ViewReportsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ScedualsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CreateSceduleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PrintSceduleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PrintSceduleToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.gpbEmployees = New System.Windows.Forms.GroupBox()
@@ -52,25 +52,35 @@ Partial Class frmMain
         Me.lblPosition = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.dgvEmployees = New System.Windows.Forms.DataGridView()
+        Me.FirstNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LastNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EmployeeDataBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.JamilsGoodOldFunDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Jamils_Good_Old_FunDataSet = New Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSet()
         Me.lblEmployeeName = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.FirstNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.LastNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.JamilsGoodOldFunDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Jamils_Good_Old_FunDataSet = New Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSet()
         Me.EmployeeDataTableAdapter = New Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSetTableAdapters.EmployeeDataTableAdapter()
-        Me.ChangeDatabaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.dgvSchedual = New System.Windows.Forms.DataGridView()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.blank = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colMon = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colTue = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colWednesday = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colThursday = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colFriday = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colSaturday = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colSunday = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MenuStrip1.SuspendLayout()
         Me.gpbEmployees.SuspendLayout()
         CType(Me.dgvEmployees, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmployeeDataBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.JamilsGoodOldFunDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Jamils_Good_Old_FunDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvSchedual, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -88,6 +98,12 @@ Partial Class frmMain
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
         Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
         Me.FileToolStripMenuItem.Text = "File"
+        '
+        'ChangeDatabaseToolStripMenuItem
+        '
+        Me.ChangeDatabaseToolStripMenuItem.Name = "ChangeDatabaseToolStripMenuItem"
+        Me.ChangeDatabaseToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
+        Me.ChangeDatabaseToolStripMenuItem.Text = "Change Database"
         '
         'CloseToolStripMenuItem
         '
@@ -119,7 +135,7 @@ Partial Class frmMain
         '
         Me.AttendenceToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EnterAttendenceToolStripMenuItem, Me.ViewReportsToolStripMenuItem})
         Me.AttendenceToolStripMenuItem.Name = "AttendenceToolStripMenuItem"
-        Me.AttendenceToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
+        Me.AttendenceToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.AttendenceToolStripMenuItem.Text = "Attendence"
         '
         'EnterAttendenceToolStripMenuItem
@@ -136,16 +152,10 @@ Partial Class frmMain
         '
         'ScedualsToolStripMenuItem
         '
-        Me.ScedualsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CreateSceduleToolStripMenuItem, Me.PrintSceduleToolStripMenuItem, Me.PrintSceduleToolStripMenuItem1})
+        Me.ScedualsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PrintSceduleToolStripMenuItem, Me.PrintSceduleToolStripMenuItem1})
         Me.ScedualsToolStripMenuItem.Name = "ScedualsToolStripMenuItem"
         Me.ScedualsToolStripMenuItem.Size = New System.Drawing.Size(70, 20)
         Me.ScedualsToolStripMenuItem.Text = "Schedule "
-        '
-        'CreateSceduleToolStripMenuItem
-        '
-        Me.CreateSceduleToolStripMenuItem.Name = "CreateSceduleToolStripMenuItem"
-        Me.CreateSceduleToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.CreateSceduleToolStripMenuItem.Text = "Create Scedule"
         '
         'PrintSceduleToolStripMenuItem
         '
@@ -162,6 +172,8 @@ Partial Class frmMain
         'gpbEmployees
         '
         Me.gpbEmployees.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.gpbEmployees.Controls.Add(Me.Label7)
+        Me.gpbEmployees.Controls.Add(Me.dgvSchedual)
         Me.gpbEmployees.Controls.Add(Me.btnEdit)
         Me.gpbEmployees.Controls.Add(Me.lblDOH)
         Me.gpbEmployees.Controls.Add(Me.Label9)
@@ -191,11 +203,11 @@ Partial Class frmMain
         '
         'btnEdit
         '
-        Me.btnEdit.Location = New System.Drawing.Point(592, 27)
+        Me.btnEdit.Location = New System.Drawing.Point(564, 27)
         Me.btnEdit.Name = "btnEdit"
-        Me.btnEdit.Size = New System.Drawing.Size(75, 23)
+        Me.btnEdit.Size = New System.Drawing.Size(103, 23)
         Me.btnEdit.TabIndex = 24
-        Me.btnEdit.Text = "Edit"
+        Me.btnEdit.Text = "Edit Employee"
         Me.btnEdit.UseVisualStyleBackColor = True
         '
         'lblDOH
@@ -333,10 +345,34 @@ Partial Class frmMain
         Me.dgvEmployees.Size = New System.Drawing.Size(200, 451)
         Me.dgvEmployees.TabIndex = 11
         '
+        'FirstNameDataGridViewTextBoxColumn
+        '
+        Me.FirstNameDataGridViewTextBoxColumn.DataPropertyName = "First Name"
+        Me.FirstNameDataGridViewTextBoxColumn.HeaderText = "First Name"
+        Me.FirstNameDataGridViewTextBoxColumn.Name = "FirstNameDataGridViewTextBoxColumn"
+        Me.FirstNameDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'LastNameDataGridViewTextBoxColumn
+        '
+        Me.LastNameDataGridViewTextBoxColumn.DataPropertyName = "Last Name"
+        Me.LastNameDataGridViewTextBoxColumn.HeaderText = "Last Name"
+        Me.LastNameDataGridViewTextBoxColumn.Name = "LastNameDataGridViewTextBoxColumn"
+        Me.LastNameDataGridViewTextBoxColumn.ReadOnly = True
+        '
         'EmployeeDataBindingSource
         '
         Me.EmployeeDataBindingSource.DataMember = "EmployeeData"
         Me.EmployeeDataBindingSource.DataSource = Me.JamilsGoodOldFunDataSetBindingSource
+        '
+        'JamilsGoodOldFunDataSetBindingSource
+        '
+        Me.JamilsGoodOldFunDataSetBindingSource.DataSource = Me.Jamils_Good_Old_FunDataSet
+        Me.JamilsGoodOldFunDataSetBindingSource.Position = 0
+        '
+        'Jamils_Good_Old_FunDataSet
+        '
+        Me.Jamils_Good_Old_FunDataSet.DataSetName = "Jamils_Good_Old_FunDataSet"
+        Me.Jamils_Good_Old_FunDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'lblEmployeeName
         '
@@ -397,39 +433,92 @@ Partial Class frmMain
         Me.Label1.TabIndex = 5
         Me.Label1.Text = "Employees"
         '
-        'FirstNameDataGridViewTextBoxColumn
-        '
-        Me.FirstNameDataGridViewTextBoxColumn.DataPropertyName = "First Name"
-        Me.FirstNameDataGridViewTextBoxColumn.HeaderText = "First Name"
-        Me.FirstNameDataGridViewTextBoxColumn.Name = "FirstNameDataGridViewTextBoxColumn"
-        Me.FirstNameDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'LastNameDataGridViewTextBoxColumn
-        '
-        Me.LastNameDataGridViewTextBoxColumn.DataPropertyName = "Last Name"
-        Me.LastNameDataGridViewTextBoxColumn.HeaderText = "Last Name"
-        Me.LastNameDataGridViewTextBoxColumn.Name = "LastNameDataGridViewTextBoxColumn"
-        Me.LastNameDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'JamilsGoodOldFunDataSetBindingSource
-        '
-        Me.JamilsGoodOldFunDataSetBindingSource.DataSource = Me.Jamils_Good_Old_FunDataSet
-        Me.JamilsGoodOldFunDataSetBindingSource.Position = 0
-        '
-        'Jamils_Good_Old_FunDataSet
-        '
-        Me.Jamils_Good_Old_FunDataSet.DataSetName = "Jamils_Good_Old_FunDataSet"
-        Me.Jamils_Good_Old_FunDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'EmployeeDataTableAdapter
         '
         Me.EmployeeDataTableAdapter.ClearBeforeFill = True
         '
-        'ChangeDatabaseToolStripMenuItem
+        'dgvSchedual
         '
-        Me.ChangeDatabaseToolStripMenuItem.Name = "ChangeDatabaseToolStripMenuItem"
-        Me.ChangeDatabaseToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
-        Me.ChangeDatabaseToolStripMenuItem.Text = "Change Database"
+        Me.dgvSchedual.AllowUserToAddRows = False
+        Me.dgvSchedual.AllowUserToDeleteRows = False
+        Me.dgvSchedual.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvSchedual.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.blank, Me.colMon, Me.colTue, Me.colWednesday, Me.colThursday, Me.colFriday, Me.colSaturday, Me.colSunday})
+        Me.dgvSchedual.Location = New System.Drawing.Point(209, 214)
+        Me.dgvSchedual.Name = "dgvSchedual"
+        Me.dgvSchedual.ReadOnly = True
+        Me.dgvSchedual.RowHeadersVisible = False
+        Me.dgvSchedual.Size = New System.Drawing.Size(489, 290)
+        Me.dgvSchedual.TabIndex = 25
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Me.Label7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.Label7.Location = New System.Drawing.Point(209, 183)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Padding = New System.Windows.Forms.Padding(160, 0, 160, 6)
+        Me.Label7.Size = New System.Drawing.Size(489, 28)
+        Me.Label7.TabIndex = 26
+        Me.Label7.Text = "Employee Schedule"
+        '
+        'blank
+        '
+        Me.blank.HeaderText = ""
+        Me.blank.Name = "blank"
+        Me.blank.ReadOnly = True
+        Me.blank.Width = 56
+        '
+        'colMon
+        '
+        Me.colMon.HeaderText = "Monday"
+        Me.colMon.Name = "colMon"
+        Me.colMon.ReadOnly = True
+        Me.colMon.Width = 60
+        '
+        'colTue
+        '
+        Me.colTue.HeaderText = "Tuesday"
+        Me.colTue.Name = "colTue"
+        Me.colTue.ReadOnly = True
+        Me.colTue.Width = 60
+        '
+        'colWednesday
+        '
+        Me.colWednesday.HeaderText = "Wednesday"
+        Me.colWednesday.Name = "colWednesday"
+        Me.colWednesday.ReadOnly = True
+        Me.colWednesday.Width = 70
+        '
+        'colThursday
+        '
+        Me.colThursday.HeaderText = "Thursday"
+        Me.colThursday.Name = "colThursday"
+        Me.colThursday.ReadOnly = True
+        Me.colThursday.Width = 60
+        '
+        'colFriday
+        '
+        Me.colFriday.HeaderText = "Friday"
+        Me.colFriday.Name = "colFriday"
+        Me.colFriday.ReadOnly = True
+        Me.colFriday.Width = 60
+        '
+        'colSaturday
+        '
+        Me.colSaturday.HeaderText = "Saturday"
+        Me.colSaturday.Name = "colSaturday"
+        Me.colSaturday.ReadOnly = True
+        Me.colSaturday.Width = 60
+        '
+        'colSunday
+        '
+        Me.colSunday.HeaderText = "Sunday"
+        Me.colSunday.Name = "colSunday"
+        Me.colSunday.ReadOnly = True
+        Me.colSunday.Width = 60
         '
         'frmMain
         '
@@ -449,6 +538,7 @@ Partial Class frmMain
         CType(Me.EmployeeDataBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.JamilsGoodOldFunDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Jamils_Good_Old_FunDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvSchedual, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -486,7 +576,6 @@ Partial Class frmMain
     Friend WithEvents Label8 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents ScedualsToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents CreateSceduleToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PrintSceduleToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PrintSceduleToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents LastNameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
@@ -496,4 +585,14 @@ Partial Class frmMain
     Friend WithEvents Label9 As Label
     Friend WithEvents btnEdit As Button
     Friend WithEvents ChangeDatabaseToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Label7 As Label
+    Friend WithEvents dgvSchedual As DataGridView
+    Friend WithEvents blank As DataGridViewTextBoxColumn
+    Friend WithEvents colMon As DataGridViewTextBoxColumn
+    Friend WithEvents colTue As DataGridViewTextBoxColumn
+    Friend WithEvents colWednesday As DataGridViewTextBoxColumn
+    Friend WithEvents colThursday As DataGridViewTextBoxColumn
+    Friend WithEvents colFriday As DataGridViewTextBoxColumn
+    Friend WithEvents colSaturday As DataGridViewTextBoxColumn
+    Friend WithEvents colSunday As DataGridViewTextBoxColumn
 End Class

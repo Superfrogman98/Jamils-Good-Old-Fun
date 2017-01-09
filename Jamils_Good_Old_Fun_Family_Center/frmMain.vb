@@ -29,6 +29,7 @@ Public Class frmMain
         Try
             'trys filling the table from the default database, upon fail the catch will causes the connection string to switch and the connection to update, this should allow the program to switch between working in debug and compiled versions
             Me.EmployeeDataTableAdapter.Fill(Me.Jamils_Good_Old_FunDataSet.EmployeeData)
+
         Catch ex As Exception
             'MessageBox.Show("Database not found: Try 1")
             connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|Jamils_Good_Old_Fun.accdb" 'connection string for the debug/release folder
@@ -61,11 +62,16 @@ Public Class frmMain
     'when the user clicks on a cell, updates the data on the side
     Private Sub dgvEmployees_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvEmployees.CellClick
         Dim strAddress(4) As String
-        currentEmployee = e.RowIndex
+        currentEmployee = e.RowIndex  'sets current employee for editing button to work
+        Me.EmployeeSchedualTableAdapter.Fill(Me.Jamils_Good_Old_FunDataSet.EmployeeSchedual)
+        EmployeeSchedualBindingSource.Filter = "EmployeeID = '" & Jamils_Good_Old_FunDataSet.EmployeeData(e.RowIndex).ID & "'"
+        EmployeeSchedualBindingSource.Sort = "Day, [Start Time]" 'default sorts the order by day then by start time
+
         If e.RowIndex <> -1 Then
             'fill in name field
             Try
                 lblEmployeeName.Text = Jamils_Good_Old_FunDataSet.EmployeeData(e.RowIndex).First_Name & " " & Jamils_Good_Old_FunDataSet.EmployeeData(e.RowIndex).Last_Name
+
             Catch ex As Exception
                 lblEmployeeName.Text = "Not Found"
             End Try

@@ -104,6 +104,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmDaySelect.Designer.vb">
+      <DependentUpon>frmDaySelect.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDaySelect.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmAttendanceReport.Designer.vb">
       <DependentUpon>frmAttendanceReport.vb</DependentUpon>
     </Compile>
@@ -140,6 +146,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Jamils_Good_Old_FunDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Jamils_Good_Old_FunDataSet.vb">
+      <DependentUpon>Jamils_Good_Old_FunDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -157,6 +166,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmDaySelect.resx">
+      <DependentUpon>frmDaySelect.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAttendanceReport.resx">
       <DependentUpon>frmAttendanceReport.vb</DependentUpon>
     </EmbeddedResource>

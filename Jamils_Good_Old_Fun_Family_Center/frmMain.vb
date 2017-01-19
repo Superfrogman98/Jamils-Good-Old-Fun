@@ -10,10 +10,15 @@ Public Class frmMain
 
     'variable to keep track of the current viewed employee
     Public currentEmployee As Integer = 0
+    'tracks the day column sort order
+    Dim colOneSortOrder As Boolean = True
+    Public selectedScheduleRow As Integer = 0
 
     'seperate forms to be opened 
     Dim objNewEmployee As Object = frmNewEmployee 'form for creating a new employee
     Dim objEditEmployee As Object = frmEditEmployee
+    Dim objDaySelect As Object = frmDaySelect
+
 
     'closes the program
     Private Sub CloseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CloseToolStripMenuItem.Click
@@ -29,7 +34,6 @@ Public Class frmMain
         Try
             'trys filling the table from the default database, upon fail the catch will causes the connection string to switch and the connection to update, this should allow the program to switch between working in debug and compiled versions
             Me.EmployeeDataTableAdapter.Fill(Me.Jamils_Good_Old_FunDataSet.EmployeeData)
-
         Catch ex As Exception
             'MessageBox.Show("Database not found: Try 1")
             connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|Jamils_Good_Old_Fun.accdb" 'connection string for the debug/release folder
@@ -41,6 +45,7 @@ Public Class frmMain
                 MessageBox.Show("Database Not Found: Try 2")
             End Try
         End Try
+        default_Schedule_Fill()
     End Sub
 
     'searches the datatable for the employee that is put into the field
@@ -60,13 +65,10 @@ Public Class frmMain
     End Sub
 
     'when the user clicks on a cell, updates the data on the side
-    Private Sub dgvEmployees_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvEmployees.CellClick
+    Private Sub dgvEmployees_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvEmployees.CellClick, MyBase.Load
         Dim strAddress(4) As String
         currentEmployee = e.RowIndex  'sets current employee for editing button to work
-        Me.EmployeeSchedualTableAdapter.Fill(Me.Jamils_Good_Old_FunDataSet.EmployeeSchedual)
-        EmployeeSchedualBindingSource.Filter = "EmployeeID = '" & Jamils_Good_Old_FunDataSet.EmployeeData(e.RowIndex).ID & "'"
-        EmployeeSchedualBindingSource.Sort = "Day, [Start Time]" 'default sorts the order by day then by start time
-
+        default_Schedule_Fill()
         If e.RowIndex <> -1 Then
             'fill in name field
             Try
@@ -114,7 +116,6 @@ Public Class frmMain
             End Try
         End If
     End Sub
-
     'opens the form to enter a new employees data
     Private Sub NewEmployeeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NewEmployeeToolStripMenuItem.Click
         objNewEmployee.ShowDialog()
@@ -165,6 +166,83 @@ Public Class frmMain
     'uses the new database function to allow the user to change the connected database
     Private Sub ChangeDatabaseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ChangeDatabaseToolStripMenuItem.Click
         select_New_Database()
+    End Sub
+
+    Private Sub dgvSchedual_ColumnHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgvSchedule.ColumnHeaderMouseClick
+
+        If (e.ColumnIndex = 0 And colOneSortOrder = True) Then
+            EmployeeScheduleBindingSource.Sort = "Day DESC, [Start Time] ASC" 'sorts the order by day Descending then by start time Ascending
+            colOneSortOrder = False
+        ElseIf (e.ColumnIndex = 0 And colOneSortOrder = False) Then
+            EmployeeScheduleBindingSource.Sort = "Day ASC, [Start Time] ASC" 'sorts the order by day then by start time both ascending
+            colOneSortOrder = True
+        End If
+    End Sub
+
+    Private Sub default_Schedule_Fill()
+        Me.EmployeeScheduleTableAdapter.Fill(Me.Jamils_Good_Old_FunDataSet.EmployeeSchedule)
+        EmployeeScheduleBindingSource.Filter = "EmployeeID = '" & Jamils_Good_Old_FunDataSet.EmployeeData(currentEmployee).ID & "'"
+        EmployeeScheduleBindingSource.Sort = "Day, [Start Time]" 'default sorts the order by day then by start time
+    End Sub
+
+    Private Sub btnEditSchedule_Click(sender As Object, e As EventArgs) Handles btnEditSchedule.Click
+        btnEditSchedule.Enabled = False
+        btnEditSchedule.Text = "Editing"
+        btnSubmit.Visible = True
+        dgvSchedule.ReadOnly = False
+        dgvSchedule.Columns(0).ReadOnly = True
+        dgvSchedule.AllowUserToAddRows = True
+        dgvSchedule.EditMode = DataGridViewEditMode.EditOnKeystroke
+        dgvSchedule.AllowUserToDeleteRows = True
+    End Sub
+
+    Private Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
+
+        Dim updateCommand As OleDbCommand
+        Dim scheduleID As Integer
+        btnEditSchedule.Enabled = True
+        btnEditSchedule.Text = "Edit Schedule"
+        btnSubmit.Visible = False
+        dgvSchedule.ReadOnly = True
+        dgvSchedule.AllowUserToAddRows = False
+        dgvSchedule.EditMode = DataGridViewEditMode.EditProgrammatically
+        dgvSchedule.AllowUserToDeleteRows = False
+        database.Open()
+        For i As Integer = 0 To dgvSchedule.RowCount - 1
+
+
+            scheduleID = Jamils_Good_Old_FunDataSet.EmployeeSchedule(i).ID
+            updateCommand = New OleDbCommand("UPDATE EmployeeSchedule SET [Day] = ? , [Start TIme] = ?, [Stop Time] = ?, Description = ? WHERE ID = scheduleID", database)
+            updateCommand.Parameters.AddWithValue("day", dgvSchedule.Rows(i).Cells(0).Value)
+            updateCommand.Parameters.AddWithValue("startTime", dgvSchedule.Rows(i).Cells(2).Value)
+            updateCommand.Parameters.AddWithValue("stopTime", dgvSchedule.Rows(i).Cells(3).Value)
+            updateCommand.Parameters.AddWithValue("Description", dgvSchedule.Rows(i).Cells(1).Value)
+            updateCommand.Parameters.AddWithValue("ID", scheduleID)
+
+            Try
+                updateCommand.ExecuteNonQuery()
+
+            Catch ex As Exception
+                MessageBox.Show("Error With Updating schedule: " & ex.ToString)
+
+            End Try
+            updateCommand.Dispose()
+        Next
+        database.Close()
+        Me.EmployeeScheduleTableAdapter.Fill(Me.Jamils_Good_Old_FunDataSet.EmployeeSchedule)
+    End Sub
+
+    Private Sub dgvSchedule_CellBeginEdit(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSchedule.CellClick
+        If (e.ColumnIndex = 0 And btnEditSchedule.Enabled = False) Then
+            If (e.RowIndex > -1) Then
+                selectedScheduleRow = e.RowIndex
+                Dim intDayLocationY As Integer = (Me.Location.Y + 271 + 22 + (e.RowIndex * 22)) '57 difference to account for title bar and padding
+                Dim intDayLocationX As Integer = (Me.Location.X + 230) ' 21 differece to account for border and padding
+                Dim pntDay As New Point(intDayLocationX, intDayLocationY)
+                frmDaySelect.Location = pntDay
+                frmDaySelect.ShowDialog()
+            End If
+        End If
     End Sub
 End Class
 

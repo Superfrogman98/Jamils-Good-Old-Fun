@@ -16,7 +16,7 @@ Represents a strongly typed in-memory cache of data.
 Represents the strongly named DataTable class.
 </summary>
 </member>
-<member name="T:Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSet.EmployeeSchedualDataTable">
+<member name="T:Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSet.EmployeeScheduleDataTable">
 <summary>
 Represents the strongly named DataTable class.
 </summary>
@@ -26,7 +26,7 @@ Represents the strongly named DataTable class.
 Represents strongly named DataRow class.
 </summary>
 </member>
-<member name="T:Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSet.EmployeeSchedualRow">
+<member name="T:Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSet.EmployeeScheduleRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
@@ -36,7 +36,7 @@ Represents strongly named DataRow class.
 Row event argument class
 </summary>
 </member>
-<member name="T:Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSet.EmployeeSchedualRowChangeEvent">
+<member name="T:Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSet.EmployeeScheduleRowChangeEvent">
 <summary>
 Row event argument class
 </summary>
@@ -46,7 +46,7 @@ Row event argument class
 Represents the connection and commands used to retrieve and save data.
 </summary>
 </member>
-<member name="T:Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSetTableAdapters.EmployeeSchedualTableAdapter">
+<member name="T:Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSetTableAdapters.EmployeeScheduleTableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>

@@ -27,7 +27,7 @@ Partial Public Class Jamils_Good_Old_FunDataSet
     
     Private tableEmployeeData As EmployeeDataDataTable
     
-    Private tableEmployeeSchedual As EmployeeSchedualDataTable
+    Private tableEmployeeSchedule As EmployeeScheduleDataTable
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -61,8 +61,8 @@ Partial Public Class Jamils_Good_Old_FunDataSet
             If (Not (ds.Tables("EmployeeData")) Is Nothing) Then
                 MyBase.Tables.Add(New EmployeeDataDataTable(ds.Tables("EmployeeData")))
             End If
-            If (Not (ds.Tables("EmployeeSchedual")) Is Nothing) Then
-                MyBase.Tables.Add(New EmployeeSchedualDataTable(ds.Tables("EmployeeSchedual")))
+            If (Not (ds.Tables("EmployeeSchedule")) Is Nothing) Then
+                MyBase.Tables.Add(New EmployeeScheduleDataTable(ds.Tables("EmployeeSchedule")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -95,9 +95,9 @@ Partial Public Class Jamils_Good_Old_FunDataSet
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property EmployeeSchedual() As EmployeeSchedualDataTable
+    Public ReadOnly Property EmployeeSchedule() As EmployeeScheduleDataTable
         Get
-            Return Me.tableEmployeeSchedual
+            Return Me.tableEmployeeSchedule
         End Get
     End Property
     
@@ -171,8 +171,8 @@ Partial Public Class Jamils_Good_Old_FunDataSet
             If (Not (ds.Tables("EmployeeData")) Is Nothing) Then
                 MyBase.Tables.Add(New EmployeeDataDataTable(ds.Tables("EmployeeData")))
             End If
-            If (Not (ds.Tables("EmployeeSchedual")) Is Nothing) Then
-                MyBase.Tables.Add(New EmployeeSchedualDataTable(ds.Tables("EmployeeSchedual")))
+            If (Not (ds.Tables("EmployeeSchedule")) Is Nothing) Then
+                MyBase.Tables.Add(New EmployeeScheduleDataTable(ds.Tables("EmployeeSchedule")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -212,10 +212,10 @@ Partial Public Class Jamils_Good_Old_FunDataSet
                 Me.tableEmployeeData.InitVars
             End If
         End If
-        Me.tableEmployeeSchedual = CType(MyBase.Tables("EmployeeSchedual"),EmployeeSchedualDataTable)
+        Me.tableEmployeeSchedule = CType(MyBase.Tables("EmployeeSchedule"),EmployeeScheduleDataTable)
         If (initTable = true) Then
-            If (Not (Me.tableEmployeeSchedual) Is Nothing) Then
-                Me.tableEmployeeSchedual.InitVars
+            If (Not (Me.tableEmployeeSchedule) Is Nothing) Then
+                Me.tableEmployeeSchedule.InitVars
             End If
         End If
     End Sub
@@ -230,8 +230,8 @@ Partial Public Class Jamils_Good_Old_FunDataSet
         Me.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
         Me.tableEmployeeData = New EmployeeDataDataTable()
         MyBase.Tables.Add(Me.tableEmployeeData)
-        Me.tableEmployeeSchedual = New EmployeeSchedualDataTable()
-        MyBase.Tables.Add(Me.tableEmployeeSchedual)
+        Me.tableEmployeeSchedule = New EmployeeScheduleDataTable()
+        MyBase.Tables.Add(Me.tableEmployeeSchedule)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -242,7 +242,7 @@ Partial Public Class Jamils_Good_Old_FunDataSet
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Private Function ShouldSerializeEmployeeSchedual() As Boolean
+    Private Function ShouldSerializeEmployeeSchedule() As Boolean
         Return false
     End Function
     
@@ -308,7 +308,7 @@ Partial Public Class Jamils_Good_Old_FunDataSet
     Public Delegate Sub EmployeeDataRowChangeEventHandler(ByVal sender As Object, ByVal e As EmployeeDataRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Delegate Sub EmployeeSchedualRowChangeEventHandler(ByVal sender As Object, ByVal e As EmployeeSchedualRowChangeEvent)
+    Public Delegate Sub EmployeeScheduleRowChangeEventHandler(ByVal sender As Object, ByVal e As EmployeeScheduleRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
@@ -690,8 +690,8 @@ Partial Public Class Jamils_Good_Old_FunDataSet
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class EmployeeSchedualDataTable
-        Inherits Global.System.Data.TypedTableBase(Of EmployeeSchedualRow)
+    Partial Public Class EmployeeScheduleDataTable
+        Inherits Global.System.Data.TypedTableBase(Of EmployeeScheduleRow)
         
         Private columnID As Global.System.Data.DataColumn
         
@@ -709,7 +709,7 @@ Partial Public Class Jamils_Good_Old_FunDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
             MyBase.New
-            Me.TableName = "EmployeeSchedual"
+            Me.TableName = "EmployeeSchedule"
             Me.BeginInit
             Me.InitClass
             Me.EndInit
@@ -799,50 +799,50 @@ Partial Public Class Jamils_Good_Old_FunDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As EmployeeSchedualRow
+        Public Default ReadOnly Property Item(ByVal index As Integer) As EmployeeScheduleRow
             Get
-                Return CType(Me.Rows(index),EmployeeSchedualRow)
+                Return CType(Me.Rows(index),EmployeeScheduleRow)
             End Get
         End Property
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event EmployeeSchedualRowChanging As EmployeeSchedualRowChangeEventHandler
+        Public Event EmployeeScheduleRowChanging As EmployeeScheduleRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event EmployeeSchedualRowChanged As EmployeeSchedualRowChangeEventHandler
+        Public Event EmployeeScheduleRowChanged As EmployeeScheduleRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event EmployeeSchedualRowDeleting As EmployeeSchedualRowChangeEventHandler
+        Public Event EmployeeScheduleRowDeleting As EmployeeScheduleRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event EmployeeSchedualRowDeleted As EmployeeSchedualRowChangeEventHandler
+        Public Event EmployeeScheduleRowDeleted As EmployeeScheduleRowChangeEventHandler
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Sub AddEmployeeSchedualRow(ByVal row As EmployeeSchedualRow)
+        Public Overloads Sub AddEmployeeScheduleRow(ByVal row As EmployeeScheduleRow)
             Me.Rows.Add(row)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddEmployeeSchedualRow(ByVal EmployeeID As Integer, ByVal Day As String, ByVal Start_TIme As Integer, ByVal Stop_Time As Integer, ByVal Description As String) As EmployeeSchedualRow
-            Dim rowEmployeeSchedualRow As EmployeeSchedualRow = CType(Me.NewRow,EmployeeSchedualRow)
+        Public Overloads Function AddEmployeeScheduleRow(ByVal EmployeeID As Integer, ByVal Day As String, ByVal Start_TIme As Integer, ByVal Stop_Time As Integer, ByVal Description As String) As EmployeeScheduleRow
+            Dim rowEmployeeScheduleRow As EmployeeScheduleRow = CType(Me.NewRow,EmployeeScheduleRow)
             Dim columnValuesArray() As Object = New Object() {Nothing, EmployeeID, Day, Start_TIme, Stop_Time, Description}
-            rowEmployeeSchedualRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowEmployeeSchedualRow)
-            Return rowEmployeeSchedualRow
+            rowEmployeeScheduleRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowEmployeeScheduleRow)
+            Return rowEmployeeScheduleRow
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function FindByID(ByVal ID As Integer) As EmployeeSchedualRow
-            Return CType(Me.Rows.Find(New Object() {ID}),EmployeeSchedualRow)
+        Public Function FindByID(ByVal ID As Integer) As EmployeeScheduleRow
+            Return CType(Me.Rows.Find(New Object() {ID}),EmployeeScheduleRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As EmployeeSchedualDataTable = CType(MyBase.Clone,EmployeeSchedualDataTable)
+            Dim cln As EmployeeScheduleDataTable = CType(MyBase.Clone,EmployeeScheduleDataTable)
             cln.InitVars
             Return cln
         End Function
@@ -850,7 +850,7 @@ Partial Public Class Jamils_Good_Old_FunDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New EmployeeSchedualDataTable()
+            Return New EmployeeScheduleDataTable()
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -891,28 +891,28 @@ Partial Public Class Jamils_Good_Old_FunDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function NewEmployeeSchedualRow() As EmployeeSchedualRow
-            Return CType(Me.NewRow,EmployeeSchedualRow)
+        Public Function NewEmployeeScheduleRow() As EmployeeScheduleRow
+            Return CType(Me.NewRow,EmployeeScheduleRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New EmployeeSchedualRow(builder)
+            Return New EmployeeScheduleRow(builder)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(EmployeeSchedualRow)
+            Return GetType(EmployeeScheduleRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanged(e)
-            If (Not (Me.EmployeeSchedualRowChangedEvent) Is Nothing) Then
-                RaiseEvent EmployeeSchedualRowChanged(Me, New EmployeeSchedualRowChangeEvent(CType(e.Row,EmployeeSchedualRow), e.Action))
+            If (Not (Me.EmployeeScheduleRowChangedEvent) Is Nothing) Then
+                RaiseEvent EmployeeScheduleRowChanged(Me, New EmployeeScheduleRowChangeEvent(CType(e.Row,EmployeeScheduleRow), e.Action))
             End If
         End Sub
         
@@ -920,8 +920,8 @@ Partial Public Class Jamils_Good_Old_FunDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanging(e)
-            If (Not (Me.EmployeeSchedualRowChangingEvent) Is Nothing) Then
-                RaiseEvent EmployeeSchedualRowChanging(Me, New EmployeeSchedualRowChangeEvent(CType(e.Row,EmployeeSchedualRow), e.Action))
+            If (Not (Me.EmployeeScheduleRowChangingEvent) Is Nothing) Then
+                RaiseEvent EmployeeScheduleRowChanging(Me, New EmployeeScheduleRowChangeEvent(CType(e.Row,EmployeeScheduleRow), e.Action))
             End If
         End Sub
         
@@ -929,8 +929,8 @@ Partial Public Class Jamils_Good_Old_FunDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleted(e)
-            If (Not (Me.EmployeeSchedualRowDeletedEvent) Is Nothing) Then
-                RaiseEvent EmployeeSchedualRowDeleted(Me, New EmployeeSchedualRowChangeEvent(CType(e.Row,EmployeeSchedualRow), e.Action))
+            If (Not (Me.EmployeeScheduleRowDeletedEvent) Is Nothing) Then
+                RaiseEvent EmployeeScheduleRowDeleted(Me, New EmployeeScheduleRowChangeEvent(CType(e.Row,EmployeeScheduleRow), e.Action))
             End If
         End Sub
         
@@ -938,14 +938,14 @@ Partial Public Class Jamils_Good_Old_FunDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleting(e)
-            If (Not (Me.EmployeeSchedualRowDeletingEvent) Is Nothing) Then
-                RaiseEvent EmployeeSchedualRowDeleting(Me, New EmployeeSchedualRowChangeEvent(CType(e.Row,EmployeeSchedualRow), e.Action))
+            If (Not (Me.EmployeeScheduleRowDeletingEvent) Is Nothing) Then
+                RaiseEvent EmployeeScheduleRowDeleting(Me, New EmployeeScheduleRowChangeEvent(CType(e.Row,EmployeeScheduleRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub RemoveEmployeeSchedualRow(ByVal row As EmployeeSchedualRow)
+        Public Sub RemoveEmployeeScheduleRow(ByVal row As EmployeeScheduleRow)
             Me.Rows.Remove(row)
         End Sub
         
@@ -972,7 +972,7 @@ Partial Public Class Jamils_Good_Old_FunDataSet
             type.Attributes.Add(attribute1)
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "EmployeeSchedualDataTable"
+            attribute2.FixedValue = "EmployeeScheduleDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -1262,26 +1262,26 @@ Partial Public Class Jamils_Good_Old_FunDataSet
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
-    Partial Public Class EmployeeSchedualRow
+    Partial Public Class EmployeeScheduleRow
         Inherits Global.System.Data.DataRow
         
-        Private tableEmployeeSchedual As EmployeeSchedualDataTable
+        Private tableEmployeeSchedule As EmployeeScheduleDataTable
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
             MyBase.New(rb)
-            Me.tableEmployeeSchedual = CType(Me.Table,EmployeeSchedualDataTable)
+            Me.tableEmployeeSchedule = CType(Me.Table,EmployeeScheduleDataTable)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property ID() As Integer
             Get
-                Return CType(Me(Me.tableEmployeeSchedual.IDColumn),Integer)
+                Return CType(Me(Me.tableEmployeeSchedule.IDColumn),Integer)
             End Get
             Set
-                Me(Me.tableEmployeeSchedual.IDColumn) = value
+                Me(Me.tableEmployeeSchedule.IDColumn) = value
             End Set
         End Property
         
@@ -1290,13 +1290,13 @@ Partial Public Class Jamils_Good_Old_FunDataSet
         Public Property EmployeeID() As Integer
             Get
                 Try 
-                    Return CType(Me(Me.tableEmployeeSchedual.EmployeeIDColumn),Integer)
+                    Return CType(Me(Me.tableEmployeeSchedule.EmployeeIDColumn),Integer)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'EmployeeID' in table 'EmployeeSchedual' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'EmployeeID' in table 'EmployeeSchedule' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableEmployeeSchedual.EmployeeIDColumn) = value
+                Me(Me.tableEmployeeSchedule.EmployeeIDColumn) = value
             End Set
         End Property
         
@@ -1305,13 +1305,13 @@ Partial Public Class Jamils_Good_Old_FunDataSet
         Public Property Day() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableEmployeeSchedual.DayColumn),String)
+                    Return CType(Me(Me.tableEmployeeSchedule.DayColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Day' in table 'EmployeeSchedual' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Day' in table 'EmployeeSchedule' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableEmployeeSchedual.DayColumn) = value
+                Me(Me.tableEmployeeSchedule.DayColumn) = value
             End Set
         End Property
         
@@ -1320,13 +1320,13 @@ Partial Public Class Jamils_Good_Old_FunDataSet
         Public Property Start_TIme() As Integer
             Get
                 Try 
-                    Return CType(Me(Me.tableEmployeeSchedual.Start_TImeColumn),Integer)
+                    Return CType(Me(Me.tableEmployeeSchedule.Start_TImeColumn),Integer)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Start TIme' in table 'EmployeeSchedual' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Start TIme' in table 'EmployeeSchedule' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableEmployeeSchedual.Start_TImeColumn) = value
+                Me(Me.tableEmployeeSchedule.Start_TImeColumn) = value
             End Set
         End Property
         
@@ -1335,13 +1335,13 @@ Partial Public Class Jamils_Good_Old_FunDataSet
         Public Property Stop_Time() As Integer
             Get
                 Try 
-                    Return CType(Me(Me.tableEmployeeSchedual.Stop_TimeColumn),Integer)
+                    Return CType(Me(Me.tableEmployeeSchedule.Stop_TimeColumn),Integer)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Stop Time' in table 'EmployeeSchedual' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Stop Time' in table 'EmployeeSchedule' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableEmployeeSchedual.Stop_TimeColumn) = value
+                Me(Me.tableEmployeeSchedule.Stop_TimeColumn) = value
             End Set
         End Property
         
@@ -1350,74 +1350,74 @@ Partial Public Class Jamils_Good_Old_FunDataSet
         Public Property Description() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableEmployeeSchedual.DescriptionColumn),String)
+                    Return CType(Me(Me.tableEmployeeSchedule.DescriptionColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Description' in table 'EmployeeSchedual' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Description' in table 'EmployeeSchedule' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableEmployeeSchedual.DescriptionColumn) = value
+                Me(Me.tableEmployeeSchedule.DescriptionColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsEmployeeIDNull() As Boolean
-            Return Me.IsNull(Me.tableEmployeeSchedual.EmployeeIDColumn)
+            Return Me.IsNull(Me.tableEmployeeSchedule.EmployeeIDColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetEmployeeIDNull()
-            Me(Me.tableEmployeeSchedual.EmployeeIDColumn) = Global.System.Convert.DBNull
+            Me(Me.tableEmployeeSchedule.EmployeeIDColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsDayNull() As Boolean
-            Return Me.IsNull(Me.tableEmployeeSchedual.DayColumn)
+            Return Me.IsNull(Me.tableEmployeeSchedule.DayColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetDayNull()
-            Me(Me.tableEmployeeSchedual.DayColumn) = Global.System.Convert.DBNull
+            Me(Me.tableEmployeeSchedule.DayColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsStart_TImeNull() As Boolean
-            Return Me.IsNull(Me.tableEmployeeSchedual.Start_TImeColumn)
+            Return Me.IsNull(Me.tableEmployeeSchedule.Start_TImeColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetStart_TImeNull()
-            Me(Me.tableEmployeeSchedual.Start_TImeColumn) = Global.System.Convert.DBNull
+            Me(Me.tableEmployeeSchedule.Start_TImeColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsStop_TimeNull() As Boolean
-            Return Me.IsNull(Me.tableEmployeeSchedual.Stop_TimeColumn)
+            Return Me.IsNull(Me.tableEmployeeSchedule.Stop_TimeColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetStop_TimeNull()
-            Me(Me.tableEmployeeSchedual.Stop_TimeColumn) = Global.System.Convert.DBNull
+            Me(Me.tableEmployeeSchedule.Stop_TimeColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsDescriptionNull() As Boolean
-            Return Me.IsNull(Me.tableEmployeeSchedual.DescriptionColumn)
+            Return Me.IsNull(Me.tableEmployeeSchedule.DescriptionColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetDescriptionNull()
-            Me(Me.tableEmployeeSchedual.DescriptionColumn) = Global.System.Convert.DBNull
+            Me(Me.tableEmployeeSchedule.DescriptionColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -1461,16 +1461,16 @@ Partial Public Class Jamils_Good_Old_FunDataSet
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Class EmployeeSchedualRowChangeEvent
+    Public Class EmployeeScheduleRowChangeEvent
         Inherits Global.System.EventArgs
         
-        Private eventRow As EmployeeSchedualRow
+        Private eventRow As EmployeeScheduleRow
         
         Private eventAction As Global.System.Data.DataRowAction
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub New(ByVal row As EmployeeSchedualRow, ByVal action As Global.System.Data.DataRowAction)
+        Public Sub New(ByVal row As EmployeeScheduleRow, ByVal action As Global.System.Data.DataRowAction)
             MyBase.New
             Me.eventRow = row
             Me.eventAction = action
@@ -1478,7 +1478,7 @@ Partial Public Class Jamils_Good_Old_FunDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property Row() As EmployeeSchedualRow
+        Public ReadOnly Property Row() As EmployeeScheduleRow
             Get
                 Return Me.eventRow
             End Get
@@ -2071,7 +2071,7 @@ Namespace Jamils_Good_Old_FunDataSetTableAdapters
      Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
      Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class EmployeeSchedualTableAdapter
+    Partial Public Class EmployeeScheduleTableAdapter
         Inherits Global.System.ComponentModel.Component
         
         Private WithEvents _adapter As Global.System.Data.OleDb.OleDbDataAdapter
@@ -2188,7 +2188,7 @@ Namespace Jamils_Good_Old_FunDataSetTableAdapters
             Me._adapter = New Global.System.Data.OleDb.OleDbDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "EmployeeSchedual"
+            tableMapping.DataSetTable = "EmployeeSchedule"
             tableMapping.ColumnMappings.Add("ID", "ID")
             tableMapping.ColumnMappings.Add("EmployeeID", "EmployeeID")
             tableMapping.ColumnMappings.Add("Day", "Day")
@@ -2198,7 +2198,7 @@ Namespace Jamils_Good_Old_FunDataSetTableAdapters
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM `EmployeeSchedual` WHERE ((`ID` = ?) AND ((? = 1 AND `EmployeeID` IS "& _ 
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM `EmployeeSchedule` WHERE ((`ID` = ?) AND ((? = 1 AND `EmployeeID` IS "& _ 
                 "NULL) OR (`EmployeeID` = ?)) AND ((? = 1 AND `Day` IS NULL) OR (`Day` = ?)) AND "& _ 
                 "((? = 1 AND `Start TIme` IS NULL) OR (`Start TIme` = ?)) AND ((? = 1 AND `Stop T"& _ 
                 "ime` IS NULL) OR (`Stop Time` = ?)) AND ((? = 1 AND `Description` IS NULL) OR (`"& _ 
@@ -2217,7 +2217,7 @@ Namespace Jamils_Good_Old_FunDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Description", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Description", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO `EmployeeSchedual` (`EmployeeID`, `Day`, `Start TIme`, `Stop Time`, `"& _ 
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO `EmployeeSchedule` (`EmployeeID`, `Day`, `Start TIme`, `Stop Time`, `"& _ 
                 "Description`) VALUES (?, ?, ?, ?, ?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("EmployeeID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "EmployeeID", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -2227,7 +2227,7 @@ Namespace Jamils_Good_Old_FunDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Description", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Description", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE `EmployeeSchedual` SET `EmployeeID` = ?, `Day` = ?, `Start TIme` = ?, `Sto"& _ 
+            Me._adapter.UpdateCommand.CommandText = "UPDATE `EmployeeSchedule` SET `EmployeeID` = ?, `Day` = ?, `Start TIme` = ?, `Sto"& _ 
                 "p Time` = ?, `Description` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `EmployeeID` IS"& _ 
                 " NULL) OR (`EmployeeID` = ?)) AND ((? = 1 AND `Day` IS NULL) OR (`Day` = ?)) AND"& _ 
                 " ((? = 1 AND `Start TIme` IS NULL) OR (`Start TIme` = ?)) AND ((? = 1 AND `Stop "& _ 
@@ -2266,7 +2266,7 @@ Namespace Jamils_Good_Old_FunDataSetTableAdapters
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT ID, EmployeeID, [Day], [Start TIme], [Stop Time], Description FROM Employe"& _ 
-                "eSchedual"
+                "eSchedule"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -2274,7 +2274,7 @@ Namespace Jamils_Good_Old_FunDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As Jamils_Good_Old_FunDataSet.EmployeeSchedualDataTable) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As Jamils_Good_Old_FunDataSet.EmployeeScheduleDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -2287,9 +2287,9 @@ Namespace Jamils_Good_Old_FunDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As Jamils_Good_Old_FunDataSet.EmployeeSchedualDataTable
+        Public Overloads Overridable Function GetData() As Jamils_Good_Old_FunDataSet.EmployeeScheduleDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As Jamils_Good_Old_FunDataSet.EmployeeSchedualDataTable = New Jamils_Good_Old_FunDataSet.EmployeeSchedualDataTable()
+            Dim dataTable As Jamils_Good_Old_FunDataSet.EmployeeScheduleDataTable = New Jamils_Good_Old_FunDataSet.EmployeeScheduleDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
@@ -2297,7 +2297,7 @@ Namespace Jamils_Good_Old_FunDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataTable As Jamils_Good_Old_FunDataSet.EmployeeSchedualDataTable) As Integer
+        Public Overloads Overridable Function Update(ByVal dataTable As Jamils_Good_Old_FunDataSet.EmployeeScheduleDataTable) As Integer
             Return Me.Adapter.Update(dataTable)
         End Function
         
@@ -2305,7 +2305,7 @@ Namespace Jamils_Good_Old_FunDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
         Public Overloads Overridable Function Update(ByVal dataSet As Jamils_Good_Old_FunDataSet) As Integer
-            Return Me.Adapter.Update(dataSet, "EmployeeSchedual")
+            Return Me.Adapter.Update(dataSet, "EmployeeSchedule")
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2520,7 +2520,7 @@ Namespace Jamils_Good_Old_FunDataSetTableAdapters
         
         Private _employeeDataTableAdapter As EmployeeDataTableAdapter
         
-        Private _employeeSchedualTableAdapter As EmployeeSchedualTableAdapter
+        Private _employeeScheduleTableAdapter As EmployeeScheduleTableAdapter
         
         Private _backupDataSetBeforeUpdate As Boolean
         
@@ -2556,12 +2556,12 @@ Namespace Jamils_Good_Old_FunDataSetTableAdapters
          Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
             "a", "System.Drawing.Design.UITypeEditor")>  _
-        Public Property EmployeeSchedualTableAdapter() As EmployeeSchedualTableAdapter
+        Public Property EmployeeScheduleTableAdapter() As EmployeeScheduleTableAdapter
             Get
-                Return Me._employeeSchedualTableAdapter
+                Return Me._employeeScheduleTableAdapter
             End Get
             Set
-                Me._employeeSchedualTableAdapter = value
+                Me._employeeScheduleTableAdapter = value
             End Set
         End Property
         
@@ -2588,9 +2588,9 @@ Namespace Jamils_Good_Old_FunDataSetTableAdapters
                             AndAlso (Not (Me._employeeDataTableAdapter.Connection) Is Nothing)) Then
                     Return Me._employeeDataTableAdapter.Connection
                 End If
-                If ((Not (Me._employeeSchedualTableAdapter) Is Nothing)  _
-                            AndAlso (Not (Me._employeeSchedualTableAdapter.Connection) Is Nothing)) Then
-                    Return Me._employeeSchedualTableAdapter.Connection
+                If ((Not (Me._employeeScheduleTableAdapter) Is Nothing)  _
+                            AndAlso (Not (Me._employeeScheduleTableAdapter.Connection) Is Nothing)) Then
+                    Return Me._employeeScheduleTableAdapter.Connection
                 End If
                 Return Nothing
             End Get
@@ -2608,7 +2608,7 @@ Namespace Jamils_Good_Old_FunDataSetTableAdapters
                 If (Not (Me._employeeDataTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
-                If (Not (Me._employeeSchedualTableAdapter) Is Nothing) Then
+                If (Not (Me._employeeScheduleTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
                 Return count
@@ -2631,12 +2631,12 @@ Namespace Jamils_Good_Old_FunDataSetTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
-            If (Not (Me._employeeSchedualTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.EmployeeSchedual.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+            If (Not (Me._employeeScheduleTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.EmployeeSchedule.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._employeeSchedualTableAdapter.Update(updatedRows))
+                    result = (result + Me._employeeScheduleTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -2658,11 +2658,11 @@ Namespace Jamils_Good_Old_FunDataSetTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._employeeSchedualTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.EmployeeSchedual.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+            If (Not (Me._employeeScheduleTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.EmployeeSchedule.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._employeeSchedualTableAdapter.Update(addedRows))
+                    result = (result + Me._employeeScheduleTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -2676,11 +2676,11 @@ Namespace Jamils_Good_Old_FunDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Function UpdateDeletedRows(ByVal dataSet As Jamils_Good_Old_FunDataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._employeeSchedualTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.EmployeeSchedual.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+            If (Not (Me._employeeScheduleTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.EmployeeSchedule.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._employeeSchedualTableAdapter.Update(deletedRows))
+                    result = (result + Me._employeeScheduleTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -2738,8 +2738,8 @@ Namespace Jamils_Good_Old_FunDataSetTableAdapters
                 Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
                         "tring.")
             End If
-            If ((Not (Me._employeeSchedualTableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._employeeSchedualTableAdapter.Connection) = false)) Then
+            If ((Not (Me._employeeScheduleTableAdapter) Is Nothing)  _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._employeeScheduleTableAdapter.Connection) = false)) Then
                 Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
                         "tring.")
             End If
@@ -2784,13 +2784,13 @@ Namespace Jamils_Good_Old_FunDataSetTableAdapters
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._employeeDataTableAdapter.Adapter)
                     End If
                 End If
-                If (Not (Me._employeeSchedualTableAdapter) Is Nothing) Then
-                    revertConnections.Add(Me._employeeSchedualTableAdapter, Me._employeeSchedualTableAdapter.Connection)
-                    Me._employeeSchedualTableAdapter.Connection = CType(workConnection,Global.System.Data.OleDb.OleDbConnection)
-                    Me._employeeSchedualTableAdapter.Transaction = CType(workTransaction,Global.System.Data.OleDb.OleDbTransaction)
-                    If Me._employeeSchedualTableAdapter.Adapter.AcceptChangesDuringUpdate Then
-                        Me._employeeSchedualTableAdapter.Adapter.AcceptChangesDuringUpdate = false
-                        adaptersWithAcceptChangesDuringUpdate.Add(Me._employeeSchedualTableAdapter.Adapter)
+                If (Not (Me._employeeScheduleTableAdapter) Is Nothing) Then
+                    revertConnections.Add(Me._employeeScheduleTableAdapter, Me._employeeScheduleTableAdapter.Connection)
+                    Me._employeeScheduleTableAdapter.Connection = CType(workConnection,Global.System.Data.OleDb.OleDbConnection)
+                    Me._employeeScheduleTableAdapter.Transaction = CType(workTransaction,Global.System.Data.OleDb.OleDbTransaction)
+                    If Me._employeeScheduleTableAdapter.Adapter.AcceptChangesDuringUpdate Then
+                        Me._employeeScheduleTableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        adaptersWithAcceptChangesDuringUpdate.Add(Me._employeeScheduleTableAdapter.Adapter)
                     End If
                 End If
                 '
@@ -2857,9 +2857,9 @@ Namespace Jamils_Good_Old_FunDataSetTableAdapters
                     Me._employeeDataTableAdapter.Connection = CType(revertConnections(Me._employeeDataTableAdapter),Global.System.Data.OleDb.OleDbConnection)
                     Me._employeeDataTableAdapter.Transaction = Nothing
                 End If
-                If (Not (Me._employeeSchedualTableAdapter) Is Nothing) Then
-                    Me._employeeSchedualTableAdapter.Connection = CType(revertConnections(Me._employeeSchedualTableAdapter),Global.System.Data.OleDb.OleDbConnection)
-                    Me._employeeSchedualTableAdapter.Transaction = Nothing
+                If (Not (Me._employeeScheduleTableAdapter) Is Nothing) Then
+                    Me._employeeScheduleTableAdapter.Connection = CType(revertConnections(Me._employeeScheduleTableAdapter),Global.System.Data.OleDb.OleDbConnection)
+                    Me._employeeScheduleTableAdapter.Transaction = Nothing
                 End If
                 If (0 < adaptersWithAcceptChangesDuringUpdate.Count) Then
                     Dim adapters((adaptersWithAcceptChangesDuringUpdate.Count) - 1) As Global.System.Data.Common.DataAdapter

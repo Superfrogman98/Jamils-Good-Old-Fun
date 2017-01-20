@@ -25,5 +25,13 @@ To Do
 	
 -Allow user to print schedules
 
--Allow entering of Customer attendence by day, and hour
+-Allow entering of Customer attendence by date, and hour
 
+-Allow user to generate report of customer attendence
+
+	-Yearly view, show a graph of attendence over a year using each months averages as plot points
+	-Monthly view, show the attendence over a full month using each days average as plot points
+	-Weekly view, show the view for a single week, using each days average as plot points
+	-Hourly Averages, single day, single week, single month, year
+	
+-Allow User to print the attendence reports

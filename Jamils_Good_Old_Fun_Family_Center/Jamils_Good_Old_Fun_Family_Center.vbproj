@@ -104,10 +104,10 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmDaySelect.Designer.vb">
-      <DependentUpon>frmDaySelect.vb</DependentUpon>
+    <Compile Include="frmAddScheduleItem.Designer.vb">
+      <DependentUpon>frmAddScheduleItem.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmDaySelect.vb">
+    <Compile Include="frmAddScheduleItem.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmAttendanceReport.Designer.vb">
@@ -166,8 +166,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="frmDaySelect.resx">
-      <DependentUpon>frmDaySelect.vb</DependentUpon>
+    <EmbeddedResource Include="frmAddScheduleItem.resx">
+      <DependentUpon>frmAddScheduleItem.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAttendanceReport.resx">
       <DependentUpon>frmAttendanceReport.vb</DependentUpon>

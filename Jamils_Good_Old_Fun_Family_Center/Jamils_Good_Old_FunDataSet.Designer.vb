@@ -705,6 +705,10 @@ Partial Public Class Jamils_Good_Old_FunDataSet
         
         Private columnDescription As Global.System.Data.DataColumn
         
+        Private columndayID As Global.System.Data.DataColumn
+        
+        Private columnKEY As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -789,6 +793,22 @@ Partial Public Class Jamils_Good_Old_FunDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property dayIDColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columndayID
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property KEYColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnKEY
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -825,9 +845,9 @@ Partial Public Class Jamils_Good_Old_FunDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddEmployeeScheduleRow(ByVal EmployeeID As Integer, ByVal Day As String, ByVal Start_TIme As Integer, ByVal Stop_Time As Integer, ByVal Description As String) As EmployeeScheduleRow
+        Public Overloads Function AddEmployeeScheduleRow(ByVal EmployeeID As Integer, ByVal Day As String, ByVal Start_TIme As Integer, ByVal Stop_Time As Integer, ByVal Description As String, ByVal dayID As Integer, ByVal KEY As String) As EmployeeScheduleRow
             Dim rowEmployeeScheduleRow As EmployeeScheduleRow = CType(Me.NewRow,EmployeeScheduleRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, EmployeeID, Day, Start_TIme, Stop_Time, Description}
+            Dim columnValuesArray() As Object = New Object() {Nothing, EmployeeID, Day, Start_TIme, Stop_Time, Description, dayID, KEY}
             rowEmployeeScheduleRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowEmployeeScheduleRow)
             Return rowEmployeeScheduleRow
@@ -862,6 +882,8 @@ Partial Public Class Jamils_Good_Old_FunDataSet
             Me.columnStart_TIme = MyBase.Columns("Start TIme")
             Me.columnStop_Time = MyBase.Columns("Stop Time")
             Me.columnDescription = MyBase.Columns("Description")
+            Me.columndayID = MyBase.Columns("dayID")
+            Me.columnKEY = MyBase.Columns("KEY")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -879,6 +901,10 @@ Partial Public Class Jamils_Good_Old_FunDataSet
             MyBase.Columns.Add(Me.columnStop_Time)
             Me.columnDescription = New Global.System.Data.DataColumn("Description", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnDescription)
+            Me.columndayID = New Global.System.Data.DataColumn("dayID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columndayID)
+            Me.columnKEY = New Global.System.Data.DataColumn("KEY", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnKEY)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID}, true))
             Me.columnID.AutoIncrement = true
             Me.columnID.AutoIncrementSeed = -1
@@ -887,6 +913,7 @@ Partial Public Class Jamils_Good_Old_FunDataSet
             Me.columnID.Unique = true
             Me.columnDay.MaxLength = 255
             Me.columnDescription.MaxLength = 255
+            Me.columnKEY.MaxLength = 536870910
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1362,6 +1389,36 @@ Partial Public Class Jamils_Good_Old_FunDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property dayID() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tableEmployeeSchedule.dayIDColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'dayID' in table 'EmployeeSchedule' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableEmployeeSchedule.dayIDColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property KEY() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableEmployeeSchedule.KEYColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'KEY' in table 'EmployeeSchedule' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableEmployeeSchedule.KEYColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsEmployeeIDNull() As Boolean
             Return Me.IsNull(Me.tableEmployeeSchedule.EmployeeIDColumn)
         End Function
@@ -1418,6 +1475,30 @@ Partial Public Class Jamils_Good_Old_FunDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetDescriptionNull()
             Me(Me.tableEmployeeSchedule.DescriptionColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsdayIDNull() As Boolean
+            Return Me.IsNull(Me.tableEmployeeSchedule.dayIDColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetdayIDNull()
+            Me(Me.tableEmployeeSchedule.dayIDColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsKEYNull() As Boolean
+            Return Me.IsNull(Me.tableEmployeeSchedule.KEYColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetKEYNull()
+            Me(Me.tableEmployeeSchedule.KEYColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -2195,6 +2276,8 @@ Namespace Jamils_Good_Old_FunDataSetTableAdapters
             tableMapping.ColumnMappings.Add("Start TIme", "Start TIme")
             tableMapping.ColumnMappings.Add("Stop Time", "Stop Time")
             tableMapping.ColumnMappings.Add("Description", "Description")
+            tableMapping.ColumnMappings.Add("dayID", "dayID")
+            tableMapping.ColumnMappings.Add("KEY", "KEY")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -2202,7 +2285,7 @@ Namespace Jamils_Good_Old_FunDataSetTableAdapters
                 "NULL) OR (`EmployeeID` = ?)) AND ((? = 1 AND `Day` IS NULL) OR (`Day` = ?)) AND "& _ 
                 "((? = 1 AND `Start TIme` IS NULL) OR (`Start TIme` = ?)) AND ((? = 1 AND `Stop T"& _ 
                 "ime` IS NULL) OR (`Stop Time` = ?)) AND ((? = 1 AND `Description` IS NULL) OR (`"& _ 
-                "Description` = ?)))"
+                "Description` = ?)) AND ((? = 1 AND `dayID` IS NULL) OR (`dayID` = ?)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_EmployeeID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "EmployeeID", Global.System.Data.DataRowVersion.Original, true, Nothing))
@@ -2215,30 +2298,37 @@ Namespace Jamils_Good_Old_FunDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Stop_Time", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Stop Time", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Description", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Description", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Description", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Description", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_dayID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dayID", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_dayID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dayID", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO `EmployeeSchedule` (`EmployeeID`, `Day`, `Start TIme`, `Stop Time`, `"& _ 
-                "Description`) VALUES (?, ?, ?, ?, ?)"
+                "Description`, `dayID`, `KEY`) VALUES (?, ?, ?, ?, ?, ?, ?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("EmployeeID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "EmployeeID", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Day", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Day", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Start_TIme", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Start TIme", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Stop_Time", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Stop Time", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Description", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Description", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("dayID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dayID", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("KEY", Global.System.Data.OleDb.OleDbType.LongVarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "KEY", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE `EmployeeSchedule` SET `EmployeeID` = ?, `Day` = ?, `Start TIme` = ?, `Sto"& _ 
-                "p Time` = ?, `Description` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `EmployeeID` IS"& _ 
-                " NULL) OR (`EmployeeID` = ?)) AND ((? = 1 AND `Day` IS NULL) OR (`Day` = ?)) AND"& _ 
-                " ((? = 1 AND `Start TIme` IS NULL) OR (`Start TIme` = ?)) AND ((? = 1 AND `Stop "& _ 
-                "Time` IS NULL) OR (`Stop Time` = ?)) AND ((? = 1 AND `Description` IS NULL) OR ("& _ 
-                "`Description` = ?)))"
+                "p Time` = ?, `Description` = ?, `dayID` = ?, `KEY` = ? WHERE ((`ID` = ?) AND ((?"& _ 
+                " = 1 AND `EmployeeID` IS NULL) OR (`EmployeeID` = ?)) AND ((? = 1 AND `Day` IS N"& _ 
+                "ULL) OR (`Day` = ?)) AND ((? = 1 AND `Start TIme` IS NULL) OR (`Start TIme` = ?)"& _ 
+                ") AND ((? = 1 AND `Stop Time` IS NULL) OR (`Stop Time` = ?)) AND ((? = 1 AND `De"& _ 
+                "scription` IS NULL) OR (`Description` = ?)) AND ((? = 1 AND `dayID` IS NULL) OR "& _ 
+                "(`dayID` = ?)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("EmployeeID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "EmployeeID", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Day", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Day", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Start_TIme", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Start TIme", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Stop_Time", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Stop Time", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Description", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Description", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("dayID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dayID", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("KEY", Global.System.Data.OleDb.OleDbType.LongVarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "KEY", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_EmployeeID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "EmployeeID", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_EmployeeID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "EmployeeID", Global.System.Data.DataRowVersion.Original, false, Nothing))
@@ -2250,6 +2340,8 @@ Namespace Jamils_Good_Old_FunDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Stop_Time", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Stop Time", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Description", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Description", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Description", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Description", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_dayID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dayID", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_dayID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dayID", Global.System.Data.DataRowVersion.Original, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2265,8 +2357,8 @@ Namespace Jamils_Good_Old_FunDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT ID, EmployeeID, [Day], [Start TIme], [Stop Time], Description FROM Employe"& _ 
-                "eSchedule"
+            Me._commandCollection(0).CommandText = "SELECT        ID, EmployeeID, [Day], [Start TIme], [Stop Time], Description, dayI"& _ 
+                "D, [KEY]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            EmployeeSchedule"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -2326,7 +2418,7 @@ Namespace Jamils_Good_Old_FunDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_ID As Integer, ByVal Original_EmployeeID As Global.System.Nullable(Of Integer), ByVal Original_Day As String, ByVal Original_Start_TIme As Global.System.Nullable(Of Integer), ByVal Original_Stop_Time As Global.System.Nullable(Of Integer), ByVal Original_Description As String) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_ID As Integer, ByVal Original_EmployeeID As Global.System.Nullable(Of Integer), ByVal Original_Day As String, ByVal Original_Start_TIme As Global.System.Nullable(Of Integer), ByVal Original_Stop_Time As Global.System.Nullable(Of Integer), ByVal Original_Description As String, ByVal Original_dayID As Global.System.Nullable(Of Integer)) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ID,Integer)
             If (Original_EmployeeID.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
@@ -2363,6 +2455,13 @@ Namespace Jamils_Good_Old_FunDataSetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
                 Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_Description,String)
             End If
+            If (Original_dayID.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_dayID.Value,Integer)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = Global.System.DBNull.Value
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -2382,7 +2481,7 @@ Namespace Jamils_Good_Old_FunDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal EmployeeID As Global.System.Nullable(Of Integer), ByVal Day As String, ByVal Start_TIme As Global.System.Nullable(Of Integer), ByVal Stop_Time As Global.System.Nullable(Of Integer), ByVal Description As String) As Integer
+        Public Overloads Overridable Function Insert(ByVal EmployeeID As Global.System.Nullable(Of Integer), ByVal Day As String, ByVal Start_TIme As Global.System.Nullable(Of Integer), ByVal Stop_Time As Global.System.Nullable(Of Integer), ByVal Description As String, ByVal dayID As Global.System.Nullable(Of Integer), ByVal KEY As String) As Integer
             If (EmployeeID.HasValue = true) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = CType(EmployeeID.Value,Integer)
             Else
@@ -2408,6 +2507,16 @@ Namespace Jamils_Good_Old_FunDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(4).Value = CType(Description,String)
             End If
+            If (dayID.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(dayID.Value,Integer)
+            Else
+                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
+            End If
+            If (KEY Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(6).Value = CType(KEY,String)
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -2427,7 +2536,7 @@ Namespace Jamils_Good_Old_FunDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal EmployeeID As Global.System.Nullable(Of Integer), ByVal Day As String, ByVal Start_TIme As Global.System.Nullable(Of Integer), ByVal Stop_Time As Global.System.Nullable(Of Integer), ByVal Description As String, ByVal Original_ID As Integer, ByVal Original_EmployeeID As Global.System.Nullable(Of Integer), ByVal Original_Day As String, ByVal Original_Start_TIme As Global.System.Nullable(Of Integer), ByVal Original_Stop_Time As Global.System.Nullable(Of Integer), ByVal Original_Description As String) As Integer
+        Public Overloads Overridable Function Update(ByVal EmployeeID As Global.System.Nullable(Of Integer), ByVal Day As String, ByVal Start_TIme As Global.System.Nullable(Of Integer), ByVal Stop_Time As Global.System.Nullable(Of Integer), ByVal Description As String, ByVal dayID As Global.System.Nullable(Of Integer), ByVal KEY As String, ByVal Original_ID As Integer, ByVal Original_EmployeeID As Global.System.Nullable(Of Integer), ByVal Original_Day As String, ByVal Original_Start_TIme As Global.System.Nullable(Of Integer), ByVal Original_Stop_Time As Global.System.Nullable(Of Integer), ByVal Original_Description As String, ByVal Original_dayID As Global.System.Nullable(Of Integer)) As Integer
             If (EmployeeID.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = CType(EmployeeID.Value,Integer)
             Else
@@ -2453,41 +2562,58 @@ Namespace Jamils_Good_Old_FunDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Description,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_ID,Integer)
-            If (Original_EmployeeID.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_EmployeeID.Value,Integer)
+            If (dayID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(dayID.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
             End If
-            If (Original_Day Is Nothing) Then
+            If (KEY Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(KEY,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_ID,Integer)
+            If (Original_EmployeeID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_EmployeeID.Value,Integer)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(8).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_Day,String)
             End If
-            If (Original_Start_TIme.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_Start_TIme.Value,Integer)
-            Else
+            If (Original_Day Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(10).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_Day,String)
             End If
-            If (Original_Stop_Time.HasValue = true) Then
+            If (Original_Start_TIme.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(12).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_Stop_Time.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_Start_TIme.Value,Integer)
             Else
                 Me.Adapter.UpdateCommand.Parameters(12).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
             End If
-            If (Original_Description Is Nothing) Then
+            If (Original_Stop_Time.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_Stop_Time.Value,Integer)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(14).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Description Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_Description,String)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_Description,String)
+            End If
+            If (Original_dayID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_dayID.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _

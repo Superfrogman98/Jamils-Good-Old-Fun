@@ -42,8 +42,6 @@ Partial Class frmMain
         Me.btnEditSchedule = New System.Windows.Forms.Button()
         Me.dgvSchedule = New System.Windows.Forms.DataGridView()
         Me.EmployeeScheduleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.JamilsGoodOldFunDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Jamils_Good_Old_FunDataSet = New Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSet()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.btnEdit = New System.Windows.Forms.Button()
         Me.lblDOH = New System.Windows.Forms.Label()
@@ -60,8 +58,6 @@ Partial Class frmMain
         Me.lblPosition = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.dgvEmployees = New System.Windows.Forms.DataGridView()
-        Me.FirstNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.LastNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EmployeeDataBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.lblEmployeeName = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -69,22 +65,27 @@ Partial Class frmMain
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.EmployeeScheduleBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.JamilsGoodOldFunDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Jamils_Good_Old_FunDataSet = New Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSet()
+        Me.FirstNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LastNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EmployeeDataTableAdapter = New Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSetTableAdapters.EmployeeDataTableAdapter()
         Me.EmployeeScheduleTableAdapter = New Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSetTableAdapters.EmployeeScheduleTableAdapter()
-        Me.EmployeeScheduleBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dayID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MenuStrip1.SuspendLayout()
         Me.gpbEmployees.SuspendLayout()
         CType(Me.dgvSchedule, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmployeeScheduleBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.JamilsGoodOldFunDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Jamils_Good_Old_FunDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvEmployees, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmployeeDataBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmployeeScheduleBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.JamilsGoodOldFunDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Jamils_Good_Old_FunDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -213,7 +214,7 @@ Partial Class frmMain
         Me.btnSubmit.Name = "btnSubmit"
         Me.btnSubmit.Size = New System.Drawing.Size(114, 23)
         Me.btnSubmit.TabIndex = 1
-        Me.btnSubmit.Text = "Submit Changes"
+        Me.btnSubmit.Text = "Stop Editing"
         Me.btnSubmit.UseVisualStyleBackColor = True
         Me.btnSubmit.Visible = False
         '
@@ -236,8 +237,9 @@ Partial Class frmMain
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.dgvSchedule.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvSchedule.AutoGenerateColumns = False
+        Me.dgvSchedule.CausesValidation = False
         Me.dgvSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvSchedule.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4})
+        Me.dgvSchedule.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.dayID})
         Me.dgvSchedule.DataSource = Me.EmployeeScheduleBindingSource
         Me.dgvSchedule.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke
         Me.dgvSchedule.Location = New System.Drawing.Point(209, 214)
@@ -252,16 +254,6 @@ Partial Class frmMain
         '
         Me.EmployeeScheduleBindingSource.DataMember = "EmployeeSchedule"
         Me.EmployeeScheduleBindingSource.DataSource = Me.JamilsGoodOldFunDataSetBindingSource
-        '
-        'JamilsGoodOldFunDataSetBindingSource
-        '
-        Me.JamilsGoodOldFunDataSetBindingSource.DataSource = Me.Jamils_Good_Old_FunDataSet
-        Me.JamilsGoodOldFunDataSetBindingSource.Position = 0
-        '
-        'Jamils_Good_Old_FunDataSet
-        '
-        Me.Jamils_Good_Old_FunDataSet.DataSetName = "Jamils_Good_Old_FunDataSet"
-        Me.Jamils_Good_Old_FunDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Label7
         '
@@ -421,22 +413,6 @@ Partial Class frmMain
         Me.dgvEmployees.Size = New System.Drawing.Size(200, 451)
         Me.dgvEmployees.TabIndex = 11
         '
-        'FirstNameDataGridViewTextBoxColumn
-        '
-        Me.FirstNameDataGridViewTextBoxColumn.DataPropertyName = "First Name"
-        Me.FirstNameDataGridViewTextBoxColumn.HeaderText = "First Name"
-        Me.FirstNameDataGridViewTextBoxColumn.Name = "FirstNameDataGridViewTextBoxColumn"
-        Me.FirstNameDataGridViewTextBoxColumn.ReadOnly = True
-        Me.FirstNameDataGridViewTextBoxColumn.Width = 99
-        '
-        'LastNameDataGridViewTextBoxColumn
-        '
-        Me.LastNameDataGridViewTextBoxColumn.DataPropertyName = "Last Name"
-        Me.LastNameDataGridViewTextBoxColumn.HeaderText = "Last Name"
-        Me.LastNameDataGridViewTextBoxColumn.Name = "LastNameDataGridViewTextBoxColumn"
-        Me.LastNameDataGridViewTextBoxColumn.ReadOnly = True
-        Me.LastNameDataGridViewTextBoxColumn.Width = 98
-        '
         'EmployeeDataBindingSource
         '
         Me.EmployeeDataBindingSource.DataMember = "EmployeeData"
@@ -501,6 +477,37 @@ Partial Class frmMain
         Me.Label1.TabIndex = 5
         Me.Label1.Text = "Employees"
         '
+        'EmployeeScheduleBindingSource1
+        '
+        Me.EmployeeScheduleBindingSource1.DataMember = "EmployeeSchedule"
+        Me.EmployeeScheduleBindingSource1.DataSource = Me.JamilsGoodOldFunDataSetBindingSource
+        '
+        'JamilsGoodOldFunDataSetBindingSource
+        '
+        Me.JamilsGoodOldFunDataSetBindingSource.DataSource = Me.Jamils_Good_Old_FunDataSet
+        Me.JamilsGoodOldFunDataSetBindingSource.Position = 0
+        '
+        'Jamils_Good_Old_FunDataSet
+        '
+        Me.Jamils_Good_Old_FunDataSet.DataSetName = "Jamils_Good_Old_FunDataSet"
+        Me.Jamils_Good_Old_FunDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'FirstNameDataGridViewTextBoxColumn
+        '
+        Me.FirstNameDataGridViewTextBoxColumn.DataPropertyName = "First Name"
+        Me.FirstNameDataGridViewTextBoxColumn.HeaderText = "First Name"
+        Me.FirstNameDataGridViewTextBoxColumn.Name = "FirstNameDataGridViewTextBoxColumn"
+        Me.FirstNameDataGridViewTextBoxColumn.ReadOnly = True
+        Me.FirstNameDataGridViewTextBoxColumn.Width = 99
+        '
+        'LastNameDataGridViewTextBoxColumn
+        '
+        Me.LastNameDataGridViewTextBoxColumn.DataPropertyName = "Last Name"
+        Me.LastNameDataGridViewTextBoxColumn.HeaderText = "Last Name"
+        Me.LastNameDataGridViewTextBoxColumn.Name = "LastNameDataGridViewTextBoxColumn"
+        Me.LastNameDataGridViewTextBoxColumn.ReadOnly = True
+        Me.LastNameDataGridViewTextBoxColumn.Width = 98
+        '
         'EmployeeDataTableAdapter
         '
         Me.EmployeeDataTableAdapter.ClearBeforeFill = True
@@ -508,11 +515,6 @@ Partial Class frmMain
         'EmployeeScheduleTableAdapter
         '
         Me.EmployeeScheduleTableAdapter.ClearBeforeFill = True
-        '
-        'EmployeeScheduleBindingSource1
-        '
-        Me.EmployeeScheduleBindingSource1.DataMember = "EmployeeSchedule"
-        Me.EmployeeScheduleBindingSource1.DataSource = Me.JamilsGoodOldFunDataSetBindingSource
         '
         'DataGridViewTextBoxColumn1
         '
@@ -546,6 +548,13 @@ Partial Class frmMain
         Me.DataGridViewTextBoxColumn4.ReadOnly = True
         Me.DataGridViewTextBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         '
+        'dayID
+        '
+        Me.dayID.DataPropertyName = "dayID"
+        Me.dayID.HeaderText = "dayID"
+        Me.dayID.Name = "dayID"
+        Me.dayID.ReadOnly = True
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -562,11 +571,11 @@ Partial Class frmMain
         Me.gpbEmployees.PerformLayout()
         CType(Me.dgvSchedule, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmployeeScheduleBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.JamilsGoodOldFunDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Jamils_Good_Old_FunDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvEmployees, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmployeeDataBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmployeeScheduleBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.JamilsGoodOldFunDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Jamils_Good_Old_FunDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -620,6 +629,7 @@ Partial Class frmMain
     Friend WithEvents EmployeeScheduleBindingSource1 As BindingSource
     Friend WithEvents LastNameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents FirstNameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents dayID As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn

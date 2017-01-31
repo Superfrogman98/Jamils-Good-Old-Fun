@@ -1,5 +1,8 @@
-﻿Imports System.Data.OleDb
+﻿'programmer: Max Buckel
+'function: Edit an existing employees data in the database
 
+
+Imports System.Data.OleDb
 Public Class frmEditEmployee
     Private Sub frmEditEmployee_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 

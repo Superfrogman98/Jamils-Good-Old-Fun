@@ -160,4 +160,4 @@ H:\Jamils_good_old_fun-Working version\Jamils_Good_Old_Fun_Family_Center\obj\Deb
 H:\Jamils_good_old_fun-Working version\Jamils_Good_Old_Fun_Family_Center\obj\Debug\Jamils_Good_Old_Fun_Family_Center.vbproj.GenerateResource.Cache
 H:\Jamils_good_old_fun-Working version\Jamils_Good_Old_Fun_Family_Center\obj\Debug\Jamils_Good_Old_Fun_Family_Center.exe.manifest
 H:\Jamils_good_old_fun-Working version\Jamils_Good_Old_Fun_Family_Center\obj\Debug\Jamils_Good_Old_Fun_Family_Center.application
-H:\Jamils_good_old_fun-Working version\Jamils_Good_Old_Fun_Family_Center\obj\Debug\Jamils_Good_Old_Fun_Family_Center.frmDaySelect.resources
+H:\Jamils_good_old_fun-Working version\Jamils_Good_Old_Fun_Family_Center\obj\Debug\Jamils_Good_Old_Fun_Family_Center.frmAddScheduleItem.resources

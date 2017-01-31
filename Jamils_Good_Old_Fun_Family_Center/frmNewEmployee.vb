@@ -1,5 +1,7 @@
-﻿Imports System.Data.OleDb
+﻿'programmer: Max Buckel
+'function: create a new employee, add it to the database, then update the list
 
+Imports System.Data.OleDb
 Public Class frmNewEmployee
 
 

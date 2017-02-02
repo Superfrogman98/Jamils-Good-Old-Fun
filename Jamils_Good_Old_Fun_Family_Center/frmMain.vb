@@ -197,9 +197,6 @@ Public Class frmMain
         dgvSchedule.SelectionMode = DataGridViewSelectionMode.FullRowSelect
     End Sub
 
-
-
-
     Private Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
         btnEditSchedule.Enabled = True
         btnEditSchedule.Text = "Edit Schedule"
@@ -210,16 +207,17 @@ Public Class frmMain
     End Sub
 
     Private Sub dgvSchedule_CellBeginEdit(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSchedule.CellClick
+        Dim intDayLocationY As Integer
         If (btnEditSchedule.Enabled = False) Then
             If (e.RowIndex > -1) Then
                 selectedScheduleRow = e.RowIndex
-                Dim intDayLocationY As Integer = (Me.Location.Y + 271 + 44 + (e.RowIndex * 22)) '57 difference to account for title bar and padding
+                intDayLocationY = (Me.Location.Y + 271 + 44 - dgvSchedule.VerticalScrollingOffset + (e.RowIndex * 22)) '57 difference to account for title bar and padding
                 Dim intDayLocationX As Integer = (Me.Location.X + 230) ' 21 differece to account for border and padding
-                Dim pntDay As New Point(intDayLocationX, intDayLocationY)
-                frmAddScheduleItem.Location = pntDay
-                frmAddScheduleItem.ShowDialog()
+                    Dim pntDay As New Point(intDayLocationX, intDayLocationY)
+                    frmAddScheduleItem.Location = pntDay
+                    frmAddScheduleItem.ShowDialog()
+                End If
             End If
-        End If
     End Sub
 End Class
 

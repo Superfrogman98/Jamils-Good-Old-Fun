@@ -67,7 +67,7 @@ Public Class frmAddScheduleItem
                 insertCommand.Dispose()
             End If
             frmMain.database.Close()
-            frmMain.default_Schedule_Fill()
+            frmMain.EmployeeScheduleTableAdapter.Fill(frmMain.Jamils_Good_Old_FunDataSet.EmployeeSchedule)
             Me.Close()
         ElseIf (uniqueTime = False) Then
             MessageBox.Show("The schedule item that you have created or changed overlaps with another schedule item, plese correct this!", "Invalid Entry")
@@ -101,38 +101,40 @@ Public Class frmAddScheduleItem
     End Sub
 
     Private Sub nudStart_ValueChanged(sender As Object, e As EventArgs) Handles nudStart.Leave
-        nudStop.Minimum = nudStart.Value
-        Debug.Write("Stop Minimum changed- ")
         Dim valueEnd As Integer
-        If (nudStart.Value.ToString.Length() > 2) Then
-            valueEnd = Int(nudStart.Value.ToString.Remove(0, nudStart.Value.ToString.Length() - 2))
-        Else
+        If (nudStart.Value.ToString.Length() <= 2) Then
             valueEnd = nudStart.Value
+        Else
+            valueEnd = Int(nudStart.Value.ToString.Remove(0, nudStart.Value.ToString.Length() - 2))
+
         End If
-        If (valueEnd > 59) Then
-            MessageBox.Show("Last Two numbers of start time should be less than 60")
-            nudStart.Value = nudStart.Value + (59 - valueEnd)
+        If (valueEnd > 59 And valueEnd < 99) Then
+            nudStart.Value = nudStart.Value + (100 - valueEnd)
+
         End If
-        Debug.Write(vbNewLine)
+        nudStop.Minimum = nudStart.Value
     End Sub
 
     Private Sub nudStop_ValueChanged(sender As Object, e As EventArgs) Handles nudStop.Leave
-        nudStart.Maximum = nudStop.Value
-        Debug.Write("Start Maximum changed- ")
-        Dim valueEnd As Integer = Int(nudStop.Value.ToString.Remove(0, nudStop.Value.ToString.Length() - 2))
 
-        If (valueEnd > 59) Then
-            MessageBox.Show("Last Two numbers of stop time should be less than 60")
-            nudStop.Value = nudStop.Value + (59 - valueEnd)
+        Dim valueEnd As Integer
+        If (nudStop.Value.ToString.Length() <= 2) Then
+            valueEnd = nudStop.Value
+        Else
+            valueEnd = Int(nudStop.Value.ToString.Remove(0, nudStop.Value.ToString.Length() - 2))
         End If
-        Debug.Write(vbNewLine)
+        If (valueEnd > 59 And valueEnd < 99) Then
+            nudStop.Value = nudStop.Value + (100 - valueEnd)
+        End If
+        nudStart.Maximum = nudStop.Value
     End Sub
+
 
     Private Sub frmAddScheduleItem_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         nudStart.Maximum = 2359
         nudStop.Maximum = 2359
         nudStart.Minimum = 0
-        nudStop.Minimum = 0
+        nudStop.Minimum = 15
         'fills in values when row is selected in edit mode
         Try
             Debug.Write("Loading Day Value- ")
@@ -155,7 +157,7 @@ Public Class frmAddScheduleItem
             nudStart.Value = frmMain.dgvSchedule.Rows(frmMain.selectedScheduleRow).Cells(2).Value
             Debug.Write(" loaded for editing" & vbNewLine)
         Catch ex As Exception
-            nudStart.Value = 0
+            nudStart.Value = nudStart.Minimum
         End Try
 
         Try
@@ -163,7 +165,7 @@ Public Class frmAddScheduleItem
             nudStop.Value = frmMain.dgvSchedule.Rows(frmMain.selectedScheduleRow).Cells(3).Value
             Debug.Write(" loaded for editing" & vbNewLine)
         Catch ex As Exception
-            nudStop.Value = 0
+            nudStop.Value = nudStop.Minimum
         End Try
         If (frmMain.selectedScheduleRow = frmMain.dgvSchedule.RowCount - 1) Then
             btnDelete.Enabled = False

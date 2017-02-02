@@ -137,7 +137,7 @@ Public Class frmEditEmployee
                                                     End Try
 
                                                     frmMain.database.Close()
-
+                                                    updateCommand.Dispose()
                                                     frmMain.EmployeeDataTableAdapter.Fill(frmMain.Jamils_Good_Old_FunDataSet.EmployeeData)
                                                     Me.Close()
 

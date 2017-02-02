@@ -18,7 +18,7 @@ Public Class frmAddScheduleItem
         'unique key for updating row, works across employees
         Dim key As String
         If (frmMain.selectedScheduleRow < frmMain.dgvSchedule.RowCount - 1) Then
-            key = frmMain.Jamils_Good_Old_FunDataSet.EmployeeData(frmMain.currentEmployee).ID & frmMain.Jamils_Good_Old_FunDataSet.EmployeeSchedule(frmMain.selectedScheduleRow).Day & frmMain.Jamils_Good_Old_FunDataSet.EmployeeSchedule(frmMain.selectedScheduleRow).Start_TIme
+            key = frmMain.Jamils_Good_Old_FunDataSet.EmployeeData(frmMain.currentEmployee).ID & frmMain.dgvSchedule.Rows(frmMain.selectedScheduleRow).Cells(0).Value & frmMain.dgvSchedule.Rows(frmMain.selectedScheduleRow).Cells(2).Value
         Else
             key = frmMain.Jamils_Good_Old_FunDataSet.EmployeeData(frmMain.currentEmployee).ID & day & nudStart.Value
         End If
@@ -36,7 +36,7 @@ Public Class frmAddScheduleItem
         If (uniqueTime = True And txtDescription.Text.Trim <> "") Then
             If (frmMain.selectedScheduleRow < frmMain.dgvSchedule.RowCount - 1) Then
                 frmMain.database.Open()
-                MessageBox.Show("1 " & day & "," & dayID & "," & nudStart.Value & "," & nudStop.Value & "," & txtDescription.Text & "," & frmMain.currentEmployee)
+                'MessageBox.Show("1 " & day & "," & dayID & "," & nudStart.Value & "," & nudStop.Value & "," & txtDescription.Text & "," & frmMain.currentEmployee)
                 updateCommand = New OleDbCommand("UPDATE EmployeeSchedule SET [Day] = ? , [Start TIme] = ?, [Stop Time] = ?, Description = ? , dayID= ? WHERE [KEY] = ?", frmMain.database)
                 updateCommand.Parameters.AddWithValue("day", day)
                 updateCommand.Parameters.AddWithValue("startTime", nudStart.Value)
@@ -55,7 +55,7 @@ Public Class frmAddScheduleItem
                 updateCommand.Dispose()
             Else
                 frmMain.database.Open()
-                MessageBox.Show("2 " & day & "," & dayID & "," & nudStart.Value & "," & nudStop.Value & "," & txtDescription.Text & "," & frmMain.currentEmployee)
+                'MessageBox.Show("2 " & day & "," & dayID & "," & nudStart.Value & "," & nudStop.Value & "," & txtDescription.Text & "," & frmMain.currentEmployee)
                 insertCommand = New OleDbCommand("insert into EmployeeSchedule( EmployeeID, [Day], [Start TIme],[Stop Time], Description, dayID )values('" & frmMain.Jamils_Good_Old_FunDataSet.EmployeeData(frmMain.currentEmployee).ID & "','" & day & "','" & nudStart.Value & "','" & nudStop.Value & "','" & txtDescription.Text.Trim & "','" & dayID & "')", frmMain.database)
                 'trys using the command, if there is an error a message is displayed
                 Try
@@ -90,6 +90,7 @@ Public Class frmAddScheduleItem
                 deleteCommand.Parameters.AddWithValue("[KEY]", key)
                 deleteCommand.ExecuteNonQuery()
                 frmMain.database.Close()
+                deleteCommand.Dispose()
                 MessageBox.Show("Schedule Item Has Been Removed", "Action Complete", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 frmMain.EmployeeScheduleTableAdapter.Fill(frmMain.Jamils_Good_Old_FunDataSet.EmployeeSchedule)
                 Me.Close()
@@ -101,22 +102,30 @@ Public Class frmAddScheduleItem
 
     Private Sub nudStart_ValueChanged(sender As Object, e As EventArgs) Handles nudStart.Leave
         nudStop.Minimum = nudStart.Value
-        Dim valueEnd As Integer = Int(nudStart.Value.ToString.Remove(0, nudStart.Value.ToString.Length() - 2))
-
+        Debug.Write("Stop Minimum changed- ")
+        Dim valueEnd As Integer
+        If (nudStart.Value.ToString.Length() > 2) Then
+            valueEnd = Int(nudStart.Value.ToString.Remove(0, nudStart.Value.ToString.Length() - 2))
+        Else
+            valueEnd = nudStart.Value
+        End If
         If (valueEnd > 59) Then
             MessageBox.Show("Last Two numbers of start time should be less than 60")
             nudStart.Value = nudStart.Value + (59 - valueEnd)
         End If
+        Debug.Write(vbNewLine)
     End Sub
 
     Private Sub nudStop_ValueChanged(sender As Object, e As EventArgs) Handles nudStop.Leave
         nudStart.Maximum = nudStop.Value
+        Debug.Write("Start Maximum changed- ")
         Dim valueEnd As Integer = Int(nudStop.Value.ToString.Remove(0, nudStop.Value.ToString.Length() - 2))
 
         If (valueEnd > 59) Then
             MessageBox.Show("Last Two numbers of stop time should be less than 60")
             nudStop.Value = nudStop.Value + (59 - valueEnd)
         End If
+        Debug.Write(vbNewLine)
     End Sub
 
     Private Sub frmAddScheduleItem_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -126,25 +135,33 @@ Public Class frmAddScheduleItem
         nudStop.Minimum = 0
         'fills in values when row is selected in edit mode
         Try
-            cbxDay.SelectedIndex = frmMain.dgvSchedule.Rows(frmMain.selectedScheduleRow).Cells(4).Value
+            Debug.Write("Loading Day Value- ")
+            cbxDay.SelectedIndex = Int(frmMain.dgvSchedule.Rows(frmMain.selectedScheduleRow).Cells(4).Value)
+            Debug.Write(" loaded for editing" & vbNewLine)
         Catch ex As Exception
             cbxDay.SelectedIndex = 0
         End Try
 
         Try
+            Debug.Write("Loading Description Text- ")
             txtDescription.Text = frmMain.dgvSchedule.Rows(frmMain.selectedScheduleRow).Cells(1).Value
+            Debug.Write(" loaded for editing" & vbNewLine)
         Catch ex As Exception
             txtDescription.Text = ""
         End Try
 
         Try
+            Debug.Write("Loading Start time Value- ")
             nudStart.Value = frmMain.dgvSchedule.Rows(frmMain.selectedScheduleRow).Cells(2).Value
+            Debug.Write(" loaded for editing" & vbNewLine)
         Catch ex As Exception
             nudStart.Value = 0
         End Try
 
         Try
+            Debug.Write("Loading Stop time Value- ")
             nudStop.Value = frmMain.dgvSchedule.Rows(frmMain.selectedScheduleRow).Cells(3).Value
+            Debug.Write(" loaded for editing" & vbNewLine)
         Catch ex As Exception
             nudStop.Value = 0
         End Try

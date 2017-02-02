@@ -43,6 +43,7 @@ Public Class frmNewEmployee
                                                     MessageBox.Show("Employee Added to database")
                                                     frmMain.database.Close()
                                                     frmMain.EmployeeDataTableAdapter.Fill(frmMain.Jamils_Good_Old_FunDataSet.EmployeeData)
+                                                    addNewEmployee.Dispose()
                                                     Me.Close()
                                                 Catch ex As Exception
                                                     MessageBox.Show(ex.Message)

@@ -71,6 +71,7 @@ Partial Class frmAddScheduleItem
         '
         'nudStart
         '
+        Me.nudStart.Increment = New Decimal(New Integer() {15, 0, 0, 0})
         Me.nudStart.Location = New System.Drawing.Point(287, 2)
         Me.nudStart.Maximum = New Decimal(New Integer() {2359, 0, 0, 0})
         Me.nudStart.Name = "nudStart"
@@ -79,6 +80,7 @@ Partial Class frmAddScheduleItem
         '
         'nudStop
         '
+        Me.nudStop.Increment = New Decimal(New Integer() {15, 0, 0, 0})
         Me.nudStop.Location = New System.Drawing.Point(389, 2)
         Me.nudStop.Maximum = New Decimal(New Integer() {2359, 0, 0, 0})
         Me.nudStop.Name = "nudStop"

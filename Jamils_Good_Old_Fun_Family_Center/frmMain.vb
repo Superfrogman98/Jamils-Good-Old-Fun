@@ -33,17 +33,18 @@ Public Class frmMain
         database = New OleDbConnection(connectionString)
         Me.EmployeeDataTableAdapter.Connection = database
         Try
-            'trys filling the table from the default database, upon fail the catch will causes the connection string to switch and the connection to update, this should allow the program to switch between working in debug and compiled versions
+            Debug.Write("Datatable fill, connection string from settings file- ")
+
             Me.EmployeeDataTableAdapter.Fill(Me.Jamils_Good_Old_FunDataSet.EmployeeData)
+            Debug.Write(" Succeded")
         Catch ex As Exception
-            'MessageBox.Show("Database not found: Try 1")
             connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|Jamils_Good_Old_Fun.accdb" 'connection string for the debug/release folder
             database = New OleDbConnection(connectionString)
             Try
                 Me.EmployeeDataTableAdapter.Connection = database
                 Me.EmployeeDataTableAdapter.Fill(Me.Jamils_Good_Old_FunDataSet.EmployeeData)
             Catch ex2 As Exception
-                MessageBox.Show("Database Not Found: Try 2")
+                MessageBox.Show("Database Not Found, try setting connection manualy")
             End Try
         End Try
         default_Schedule_Fill()
@@ -66,7 +67,7 @@ Public Class frmMain
     End Sub
 
     'when the user clicks on a cell, updates the data on the side
-    Private Sub dgvEmployees_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvEmployees.CellClick, MyBase.Load
+    Private Sub dgvEmployees_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvEmployees.CellEnter
         Dim strAddress(4) As String
         currentEmployee = e.RowIndex  'sets current employee for editing button to work
         default_Schedule_Fill()

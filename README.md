@@ -13,8 +13,6 @@ Features
 
 To Do
 
--Finish the Schedule editor
-
 -Make Schedules viewable in multiple ways
 
     -Overall, shows all employees and their tasks for the week

@@ -19,7 +19,7 @@ Public Class frmMain
     Dim objNewEmployee As Object = frmNewEmployee 'form for creating a new employee
     Dim objEditEmployee As Object = frmEditEmployee
     Dim objAddScheduleItem As Object = frmAddScheduleItem
-
+    Dim objViewSchedule As Object = frmScheduleViewer
 
     'closes the program
     Private Sub CloseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CloseToolStripMenuItem.Click
@@ -141,16 +141,16 @@ Public Class frmMain
             'if no file is selected then message will be displayed
             If openFileDialog1.FileName = "" Then
                 MessageBox.Show("No File was selected")
+            Else
+                Dim dbNameWithPath As String = openFileDialog1.FileName 'openFileDialog1.FileName is where the selected file is stored
+                connectionString = "Provider=Microsoft.ace.OLEDB.12.0;Data Source=" & dbNameWithPath
+                My.Settings.Database = connectionString 'sets the settings of the program to persist with the selected file across multiple instances
+
+                database = New OleDbConnection(connectionString)
+                'trys filling the table from the database the user selected, upon fail the catch will causes the connection string to switch to the default database
+                Me.EmployeeDataTableAdapter.Connection = database
+                Me.EmployeeDataTableAdapter.Fill(Me.Jamils_Good_Old_FunDataSet.EmployeeData)
             End If
-
-            Dim dbNameWithPath As String = openFileDialog1.FileName 'openFileDialog1.FileName is where the selected file is stored
-            connectionString = "Provider=Microsoft.ace.OLEDB.12.0;Data Source=" & dbNameWithPath
-            My.Settings.Database = connectionString 'sets the settings of the program to persist with the selected file across multiple instances
-
-            database = New OleDbConnection(connectionString)
-            'trys filling the table from the database the user selected, upon fail the catch will causes the connection string to switch to the default database
-            Me.EmployeeDataTableAdapter.Connection = database
-            Me.EmployeeDataTableAdapter.Fill(Me.Jamils_Good_Old_FunDataSet.EmployeeData)
         Catch ex As Exception
             MessageBox.Show("New database connection failed")
             connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Jamils_Good_Old_Fun.accdb"
@@ -213,11 +213,15 @@ Public Class frmMain
                 selectedScheduleRow = e.RowIndex
                 intDayLocationY = (Me.Location.Y + 271 + 44 - dgvSchedule.VerticalScrollingOffset + (e.RowIndex * 22)) '57 difference to account for title bar and padding
                 Dim intDayLocationX As Integer = (Me.Location.X + 230) ' 21 differece to account for border and padding
-                    Dim pntDay As New Point(intDayLocationX, intDayLocationY)
-                    frmAddScheduleItem.Location = pntDay
+                Dim pntDay As New Point(intDayLocationX, intDayLocationY)
+                frmAddScheduleItem.Location = pntDay
                     frmAddScheduleItem.ShowDialog()
                 End If
             End If
+    End Sub
+
+    Private Sub PrintSceduleToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PrintSceduleToolStripMenuItem.Click
+        objViewSchedule.showDialog()
     End Sub
 End Class
 

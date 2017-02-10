@@ -81,6 +81,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
@@ -141,6 +142,12 @@
     <Compile Include="frmNewEmployee.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmScheduleViewer.Designer.vb">
+      <DependentUpon>frmScheduleViewer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmScheduleViewer.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Jamils_Good_Old_FunDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -183,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmNewEmployee.resx">
       <DependentUpon>frmNewEmployee.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmScheduleViewer.resx">
+      <DependentUpon>frmScheduleViewer.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

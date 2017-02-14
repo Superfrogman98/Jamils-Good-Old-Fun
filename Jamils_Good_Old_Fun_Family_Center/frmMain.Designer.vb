@@ -36,7 +36,6 @@ Partial Class frmMain
         Me.ViewReportsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ScedualsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PrintSceduleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PrintSceduleToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.gpbEmployees = New System.Windows.Forms.GroupBox()
         Me.btnSubmit = New System.Windows.Forms.Button()
         Me.btnEditSchedule = New System.Windows.Forms.Button()
@@ -157,7 +156,7 @@ Partial Class frmMain
         '
         'ScedualsToolStripMenuItem
         '
-        Me.ScedualsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PrintSceduleToolStripMenuItem, Me.PrintSceduleToolStripMenuItem1})
+        Me.ScedualsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PrintSceduleToolStripMenuItem})
         Me.ScedualsToolStripMenuItem.Name = "ScedualsToolStripMenuItem"
         Me.ScedualsToolStripMenuItem.Size = New System.Drawing.Size(70, 20)
         Me.ScedualsToolStripMenuItem.Text = "Schedule "
@@ -167,12 +166,6 @@ Partial Class frmMain
         Me.PrintSceduleToolStripMenuItem.Name = "PrintSceduleToolStripMenuItem"
         Me.PrintSceduleToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.PrintSceduleToolStripMenuItem.Text = "View Scedule"
-        '
-        'PrintSceduleToolStripMenuItem1
-        '
-        Me.PrintSceduleToolStripMenuItem1.Name = "PrintSceduleToolStripMenuItem1"
-        Me.PrintSceduleToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
-        Me.PrintSceduleToolStripMenuItem1.Text = "Print Scedule"
         '
         'gpbEmployees
         '
@@ -616,7 +609,6 @@ Partial Class frmMain
     Friend WithEvents Label4 As Label
     Friend WithEvents ScedualsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PrintSceduleToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents PrintSceduleToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents EmployeeDataTableAdapter As Jamils_Good_Old_FunDataSetTableAdapters.EmployeeDataTableAdapter
     Friend WithEvents lblDOH As Label
     Friend WithEvents Label9 As Label

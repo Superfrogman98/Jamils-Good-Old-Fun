@@ -35,6 +35,7 @@ Partial Class frmScheduleViewer
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.btnPrint = New System.Windows.Forms.Button()
         Me.DirectorySearcher1 = New System.DirectoryServices.DirectorySearcher()
+        Me.cbxAllEmployees = New System.Windows.Forms.CheckBox()
         CType(Me.EmployeeDataBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Jamils_Good_Old_FunDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -54,7 +55,7 @@ Partial Class frmScheduleViewer
         Me.tlpSchedule.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 559.0!))
         Me.tlpSchedule.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 559.0!))
         Me.tlpSchedule.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 559.0!))
-        Me.tlpSchedule.Size = New System.Drawing.Size(1120, 560)
+        Me.tlpSchedule.Size = New System.Drawing.Size(1141, 560)
         Me.tlpSchedule.TabIndex = 0
         '
         'cbxViewSelect
@@ -122,6 +123,7 @@ Partial Class frmScheduleViewer
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.cbxAllEmployees)
         Me.GroupBox1.Controls.Add(Me.btnRefresh)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.btnPrint)
@@ -148,6 +150,16 @@ Partial Class frmScheduleViewer
         Me.DirectorySearcher1.ClientTimeout = System.TimeSpan.Parse("-00:00:01")
         Me.DirectorySearcher1.ServerPageTimeLimit = System.TimeSpan.Parse("-00:00:01")
         Me.DirectorySearcher1.ServerTimeLimit = System.TimeSpan.Parse("-00:00:01")
+        '
+        'cbxAllEmployees
+        '
+        Me.cbxAllEmployees.AutoSize = True
+        Me.cbxAllEmployees.Location = New System.Drawing.Point(442, 20)
+        Me.cbxAllEmployees.Name = "cbxAllEmployees"
+        Me.cbxAllEmployees.Size = New System.Drawing.Size(117, 17)
+        Me.cbxAllEmployees.TabIndex = 7
+        Me.cbxAllEmployees.Text = "View All Employees"
+        Me.cbxAllEmployees.UseVisualStyleBackColor = True
         '
         'frmScheduleViewer
         '
@@ -178,4 +190,5 @@ Partial Class frmScheduleViewer
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents btnPrint As Button
     Friend WithEvents DirectorySearcher1 As DirectoryServices.DirectorySearcher
+    Friend WithEvents cbxAllEmployees As CheckBox
 End Class

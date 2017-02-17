@@ -101,30 +101,19 @@ Public Class frmScheduleViewer
 
                     End If
                 Next
-
-                Dim singleEmployeeItems(0) As scheduleItem
+                'loops through the schedule items and counts the number or rows needed for each day, only counts a day once per employee
                 For currentID As Integer = 0 To validIDs.Length() - 1
-                    ReDim singleEmployeeItems(0)
-
-                    For i As Integer = 0 To scheduleItems.Length() - 1
-                        If (scheduleItems(i).employeeID <> validIDs(currentID) Or i = scheduleItems.Length() - 1) Then
-                            ReDim Preserve singleEmployeeItems(singleEmployeeItems.Length() - 1)
-                            For x As Integer = 0 To days.Length() - 1
-                                For y As Integer = 0 To singleEmployeeItems.Length() - 1
-                                    If (singleEmployeeItems(y).dayID = x) Then
-                                        days(scheduleItems(y).dayID) += 1
-                                        Exit For
-                                    End If
-                                Next
-                            Next
-                        Else
-                            ReDim Preserve singleEmployeeItems(singleEmployeeItems.Length())
-                            singleEmployeeItems(i) = scheduleItems(i)
-                        End If
+                    For x As Integer = 0 To days.Length() - 1
+                        For y As Integer = 0 To scheduleItems.Length() - 1
+                            If (scheduleItems(y).dayID = x And scheduleItems(y).employeeID = validIDs(currentID)) Then
+                                days(scheduleItems(y).dayID) += 1
+                                Exit For
+                            End If
+                        Next
                     Next
                 Next
             Else
-                scheduleItems = scheduleItems.OrderBy(Function(c) c.dayID).ToArray
+                'scheduleItems = scheduleItems.OrderBy(Function(c) c.dayID).ToArray
                 For x As Integer = 0 To days.Length() - 1
                     For i As Integer = 0 To scheduleItems.Length() - 1
                         If (scheduleItems(i).dayID = x) Then

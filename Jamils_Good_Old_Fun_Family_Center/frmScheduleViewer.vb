@@ -85,12 +85,12 @@ Public Class frmScheduleViewer
             End While
 
 
-            Dim days() As Integer = {0, 0, 0, 0, 0, 0, 0}
+            Dim days() As Integer = {0, 0, 0, 0, 0, 0, 0} ' keeps track of the necessary row counts for each day
             Dim validIDs() As Integer = {scheduleItems(0).employeeID}
 
             If (singleEmployee = False) Then
                 scheduleItems = scheduleItems.OrderBy(Function(c) c.employeeID).ToArray 'sorts the schedule items by the employeeid ascending
-                'puts all the employee IDs into an array
+                'puts all the employee IDs into an array from the structures
                 Dim currentIDIndex As Integer = 1
                 For i As Integer = 1 To scheduleItems.Length() - 1
                     If (scheduleItems(i).employeeID <> scheduleItems(i - 1).employeeID) Then
@@ -112,8 +112,32 @@ Public Class frmScheduleViewer
                         Next
                     Next
                 Next
-            Else
-                'scheduleItems = scheduleItems.OrderBy(Function(c) c.dayID).ToArray
+
+                Dim currentRow As Integer = 1
+                For i As Integer = 0 To days.Length() - 1
+                    If (days(i) > 0) Then
+                        For x As Integer = 0 To days(i)
+                            tlpSchedule.RowStyles.Add(New RowStyle(SizeType.Absolute, 40))
+
+                        Next
+                        Dim singleDay As New Label
+                        singleDay.Name = "txt" + dayNames(i)
+                        singleDay.Text = dayNames(i)
+                        singleDay.Height = days(i) * 40
+                        singleDay.Margin = New Padding(0, 0, 0, 0)
+                        singleDay.TextAlign = ContentAlignment.MiddleCenter
+                        tlpSchedule.Controls.Add(singleDay, 0, currentRow)
+                        tlpSchedule.SetRowSpan(singleDay, days(i))
+                        currentRow += days(i)
+                        MessageBox.Show(dayNames(i) & " rowcount: " & days(i))
+                    End If
+                Next
+                Dim endBox As New Label
+                endBox.Name = "txtEndBox"
+                endBox.Height = 1
+                tlpSchedule.Controls.Add(endBox, 0, currentRow)
+
+            Else 'if only one employee is checked will go here and run once
                 For x As Integer = 0 To days.Length() - 1
                     For i As Integer = 0 To scheduleItems.Length() - 1
                         If (scheduleItems(i).dayID = x) Then
@@ -122,27 +146,29 @@ Public Class frmScheduleViewer
                         End If
                     Next
                 Next
+                Dim currentRow As Integer = 1
+                For i As Integer = 0 To days.Length() - 1
+                    If (days(i) > 0) Then
+                        tlpSchedule.RowStyles.Add(New RowStyle(SizeType.Absolute, 40))
+                        Dim singleDay As New Label
+                        singleDay.Name = "txt" + dayNames(i)
+                        singleDay.Text = dayNames(i)
+                        singleDay.Height = 42
+                        singleDay.Margin = New Padding(0, 0, 0, 0)
+                        tlpSchedule.Controls.Add(singleDay, 0, currentRow)
+                        currentRow += 1
+                        MessageBox.Show(dayNames(i) & " rowcount: " & days(i))
+                    End If
+
+                Next
+                Dim endBox As New Label
+                endBox.Name = "txtEndBox"
+                endBox.Height = 1
+                tlpSchedule.Controls.Add(endBox, 0, currentRow)
 
             End If
-
-
-            For i As Integer = 0 To days.Length() - 1
-                If (days(i) > 0) Then
-                    MessageBox.Show(dayNames(i) & " rowcount: " & days(i))
-                End If
-
-            Next
-
-
-            'tlpSchedule.RowStyles.Add(New RowStyle(SizeType.Absolute, 40))
-            'Dim singleDay As New Label
-            'singleDay.Name = "txt" + days(viewSelected)
-            'singleDay.Text = days(viewSelected)
-            'singleDay.Height = 42
-            'singleDay.Margin = New Padding(0, 0, 0, 0)
-            'tlpSchedule.Controls.Add(singleDay, 0, 0)
         Else
-                Dim L As New Label
+            Dim L As New Label
             L.Name = "txtNoItems"
             L.Text = "No Scheduled Items For This Employee"
             L.Width = 1120

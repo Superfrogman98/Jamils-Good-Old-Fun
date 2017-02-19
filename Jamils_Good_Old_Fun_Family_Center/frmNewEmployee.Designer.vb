@@ -59,6 +59,7 @@ Partial Class frmNewEmployee
         Me.Label8 = New System.Windows.Forms.Label()
         Me.btnClose = New System.Windows.Forms.Button()
         Me.btnSubmit = New System.Windows.Forms.Button()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -198,6 +199,7 @@ Partial Class frmNewEmployee
         Me.GroupBox3.Controls.Add(Me.nudZip)
         Me.GroupBox3.Controls.Add(Me.Label7)
         Me.GroupBox3.Controls.Add(Me.Label6)
+        Me.GroupBox3.Controls.Add(Me.TextBox1)
         Me.GroupBox3.Controls.Add(Me.txtState)
         Me.GroupBox3.Controls.Add(Me.Label4)
         Me.GroupBox3.Controls.Add(Me.txtStreet)
@@ -211,7 +213,7 @@ Partial Class frmNewEmployee
         '
         'nudZip
         '
-        Me.nudZip.Location = New System.Drawing.Point(438, 11)
+        Me.nudZip.Location = New System.Drawing.Point(438, 12)
         Me.nudZip.Maximum = New Decimal(New Integer() {99999, 0, 0, 0})
         Me.nudZip.Name = "nudZip"
         Me.nudZip.Size = New System.Drawing.Size(75, 20)
@@ -229,7 +231,7 @@ Partial Class frmNewEmployee
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(298, 13)
+        Me.Label6.Location = New System.Drawing.Point(296, 13)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(35, 13)
         Me.Label6.TabIndex = 10
@@ -237,7 +239,7 @@ Partial Class frmNewEmployee
         '
         'txtState
         '
-        Me.txtState.Location = New System.Drawing.Point(331, 13)
+        Me.txtState.Location = New System.Drawing.Point(331, 10)
         Me.txtState.MaxLength = 100
         Me.txtState.Name = "txtState"
         Me.txtState.Size = New System.Drawing.Size(48, 20)
@@ -385,7 +387,7 @@ Partial Class frmNewEmployee
         '
         'btnClose
         '
-        Me.btnClose.Location = New System.Drawing.Point(450, 227)
+        Me.btnClose.Location = New System.Drawing.Point(450, 200)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(75, 23)
         Me.btnClose.TabIndex = 15
@@ -394,19 +396,27 @@ Partial Class frmNewEmployee
         '
         'btnSubmit
         '
-        Me.btnSubmit.Location = New System.Drawing.Point(369, 227)
+        Me.btnSubmit.Location = New System.Drawing.Point(365, 200)
         Me.btnSubmit.Name = "btnSubmit"
         Me.btnSubmit.Size = New System.Drawing.Size(75, 23)
         Me.btnSubmit.TabIndex = 14
         Me.btnSubmit.Text = "Submit"
         Me.btnSubmit.UseVisualStyleBackColor = True
         '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(331, 10)
+        Me.TextBox1.MaxLength = 100
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(48, 20)
+        Me.TextBox1.TabIndex = 11
+        '
         'frmNewEmployee
         '
         Me.AcceptButton = Me.btnSubmit
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(537, 262)
+        Me.ClientSize = New System.Drawing.Size(534, 257)
         Me.Controls.Add(Me.btnSubmit)
         Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.GroupBox4)
@@ -414,6 +424,7 @@ Partial Class frmNewEmployee
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximumSize = New System.Drawing.Size(550, 296)
         Me.Name = "frmNewEmployee"
         Me.Text = "New Employee"
         Me.GroupBox1.ResumeLayout(False)
@@ -466,4 +477,5 @@ Partial Class frmNewEmployee
     Friend WithEvents Label11 As Label
     Friend WithEvents txtMainPhone3 As TextBox
     Friend WithEvents txtMainPhone2 As TextBox
+    Friend WithEvents TextBox1 As TextBox
 End Class

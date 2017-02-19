@@ -32,6 +32,7 @@ Public Class frmMain
         'loads names from the data base into the search field
         database = New OleDbConnection(connectionString)
         Me.EmployeeDataTableAdapter.Connection = database
+        Me.EmployeeScheduleTableAdapter.Connection = database
         Try
             Debug.Write("Datatable fill, connection string from settings file- ")
 
@@ -42,6 +43,7 @@ Public Class frmMain
             database = New OleDbConnection(connectionString)
             Try
                 Me.EmployeeDataTableAdapter.Connection = database
+                Me.EmployeeScheduleTableAdapter.Connection = database
                 Me.EmployeeDataTableAdapter.Fill(Me.Jamils_Good_Old_FunDataSet.EmployeeData)
             Catch ex2 As Exception
                 MessageBox.Show("Database Not Found, try setting connection manualy")
@@ -69,50 +71,52 @@ Public Class frmMain
     'when the user clicks on a cell, updates the data on the side
     Private Sub dgvEmployees_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvEmployees.CellEnter
         Dim strAddress(4) As String
-        currentEmployee = e.RowIndex  'sets current employee for editing button to work
+
         default_Schedule_Fill()
         If e.RowIndex <> -1 Then
+            currentEmployee = dgvEmployees.Rows(e.RowIndex).Cells(2).Value  'sets current employee for editing button to work
+            Dim currentEmployeeData() As DataRow = Jamils_Good_Old_FunDataSet.EmployeeData.Select("ID=" & currentEmployee) 'creates a temporary copy of the row to use to find the employees index in the database
+            currentEmployee = Jamils_Good_Old_FunDataSet.EmployeeData.Rows.IndexOf(currentEmployeeData(0)) ' sets the currentEmployee value to the database index value
             'fill in name field
             Try
-                lblEmployeeName.Text = Jamils_Good_Old_FunDataSet.EmployeeData(e.RowIndex).First_Name & " " & Jamils_Good_Old_FunDataSet.EmployeeData(e.RowIndex).Last_Name
-
+                lblEmployeeName.Text = Jamils_Good_Old_FunDataSet.EmployeeData(currentEmployee).First_Name & " " & Jamils_Good_Old_FunDataSet.EmployeeData(currentEmployee).Last_Name
             Catch ex As Exception
                 lblEmployeeName.Text = "Not Found"
             End Try
             'fill in position field
             Try
-                lblPosition.Text = Jamils_Good_Old_FunDataSet.EmployeeData(e.RowIndex).Position
+                lblPosition.Text = Jamils_Good_Old_FunDataSet.EmployeeData(currentEmployee).Position
             Catch ex As Exception
                 lblPosition.Text = "Not Found"
             End Try
             'fill in address field
             Try
-                strAddress = Split(Jamils_Good_Old_FunDataSet.EmployeeData(e.RowIndex).Address, ",")
+                strAddress = Split(Jamils_Good_Old_FunDataSet.EmployeeData(currentEmployee).Address, ",")
                 lblAddress.Text = strAddress(0) & vbNewLine & strAddress(1) & ", " & strAddress(2) & " " & strAddress(3)
             Catch ex As Exception
                 lblAddress.Text = "Not Found"
             End Try
             'fill in main phone field
             Try
-                lblMain.Text = Jamils_Good_Old_FunDataSet.EmployeeData(e.RowIndex).Main_Phone
+                lblMain.Text = Jamils_Good_Old_FunDataSet.EmployeeData(currentEmployee).Main_Phone
             Catch ex As Exception
                 lblMain.Text = "Not Found"
             End Try
             'fill in second phone field
             Try
-                lblSecondary.Text = Jamils_Good_Old_FunDataSet.EmployeeData(e.RowIndex).Secondary_Phone
+                lblSecondary.Text = Jamils_Good_Old_FunDataSet.EmployeeData(currentEmployee).Secondary_Phone
             Catch ex As Exception
                 lblSecondary.Text = "N/A"
             End Try
             'fill in email field
             Try
-                lblEmail.Text = Jamils_Good_Old_FunDataSet.EmployeeData(e.RowIndex).Email
+                lblEmail.Text = Jamils_Good_Old_FunDataSet.EmployeeData(currentEmployee).Email
             Catch ex As Exception
                 lblEmail.Text = "Not Found"
             End Try
             'fill in date of hire field
             Try
-                lblDOH.Text = Jamils_Good_Old_FunDataSet.EmployeeData(e.RowIndex).DOH
+                lblDOH.Text = Jamils_Good_Old_FunDataSet.EmployeeData(currentEmployee).DOH
             Catch ex As Exception
                 lblDOH.Text = "Not Found"
             End Try
@@ -149,6 +153,7 @@ Public Class frmMain
                 database = New OleDbConnection(connectionString)
                 'trys filling the table from the database the user selected, upon fail the catch will causes the connection string to switch to the default database
                 Me.EmployeeDataTableAdapter.Connection = database
+                Me.EmployeeScheduleTableAdapter.Connection = database
                 Me.EmployeeDataTableAdapter.Fill(Me.Jamils_Good_Old_FunDataSet.EmployeeData)
             End If
         Catch ex As Exception
@@ -157,6 +162,7 @@ Public Class frmMain
             database = New OleDbConnection(connectionString)
             Try
                 Me.EmployeeDataTableAdapter.Connection = database
+                Me.EmployeeScheduleTableAdapter.Connection = database
                 Me.EmployeeDataTableAdapter.Fill(Me.Jamils_Good_Old_FunDataSet.EmployeeData)
             Catch ex2 As Exception
                 MessageBox.Show("No Database Not Found")
@@ -220,7 +226,7 @@ Public Class frmMain
             End If
     End Sub
 
-    Private Sub PrintSceduleToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PrintSceduleToolStripMenuItem.Click
+    Private Sub viewScheduleToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles viewScheduleToolStripMenuItem.Click
         objViewSchedule.showDialog()
     End Sub
 End Class

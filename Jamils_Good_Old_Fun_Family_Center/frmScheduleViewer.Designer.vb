@@ -33,9 +33,9 @@ Partial Class frmScheduleViewer
         Me.EmployeeDataTableAdapter = New Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSetTableAdapters.EmployeeDataTableAdapter()
         Me.btnRefresh = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.cbxAllEmployees = New System.Windows.Forms.CheckBox()
         Me.btnPrint = New System.Windows.Forms.Button()
         Me.DirectorySearcher1 = New System.DirectoryServices.DirectorySearcher()
-        Me.cbxAllEmployees = New System.Windows.Forms.CheckBox()
         CType(Me.EmployeeDataBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Jamils_Good_Old_FunDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -45,6 +45,7 @@ Partial Class frmScheduleViewer
         '
         Me.tlpSchedule.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar
         Me.tlpSchedule.AllowDrop = True
+        Me.tlpSchedule.AutoSize = True
         Me.tlpSchedule.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.[Single]
         Me.tlpSchedule.ColumnCount = 1
         Me.tlpSchedule.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
@@ -136,6 +137,16 @@ Partial Class frmScheduleViewer
         Me.GroupBox1.TabIndex = 5
         Me.GroupBox1.TabStop = False
         '
+        'cbxAllEmployees
+        '
+        Me.cbxAllEmployees.AutoSize = True
+        Me.cbxAllEmployees.Location = New System.Drawing.Point(442, 20)
+        Me.cbxAllEmployees.Name = "cbxAllEmployees"
+        Me.cbxAllEmployees.Size = New System.Drawing.Size(117, 17)
+        Me.cbxAllEmployees.TabIndex = 7
+        Me.cbxAllEmployees.Text = "View All Employees"
+        Me.cbxAllEmployees.UseVisualStyleBackColor = True
+        '
         'btnPrint
         '
         Me.btnPrint.Location = New System.Drawing.Point(1053, 15)
@@ -151,16 +162,6 @@ Partial Class frmScheduleViewer
         Me.DirectorySearcher1.ServerPageTimeLimit = System.TimeSpan.Parse("-00:00:01")
         Me.DirectorySearcher1.ServerTimeLimit = System.TimeSpan.Parse("-00:00:01")
         '
-        'cbxAllEmployees
-        '
-        Me.cbxAllEmployees.AutoSize = True
-        Me.cbxAllEmployees.Location = New System.Drawing.Point(442, 20)
-        Me.cbxAllEmployees.Name = "cbxAllEmployees"
-        Me.cbxAllEmployees.Size = New System.Drawing.Size(117, 17)
-        Me.cbxAllEmployees.TabIndex = 7
-        Me.cbxAllEmployees.Text = "View All Employees"
-        Me.cbxAllEmployees.UseVisualStyleBackColor = True
-        '
         'frmScheduleViewer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -168,13 +169,16 @@ Partial Class frmScheduleViewer
         Me.ClientSize = New System.Drawing.Size(1154, 613)
         Me.Controls.Add(Me.tlpSchedule)
         Me.Controls.Add(Me.GroupBox1)
+        Me.MaximumSize = New System.Drawing.Size(1170, 652)
         Me.Name = "frmScheduleViewer"
+        Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show
         Me.Text = "Schedule Viewer"
         CType(Me.EmployeeDataBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Jamils_Good_Old_FunDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 

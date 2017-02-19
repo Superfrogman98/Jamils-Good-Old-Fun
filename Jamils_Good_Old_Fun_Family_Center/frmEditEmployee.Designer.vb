@@ -423,6 +423,7 @@ Partial Class frmEditEmployee
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
+        Me.MaximumSize = New System.Drawing.Size(541, 279)
         Me.Name = "frmEditEmployee"
         Me.Text = "Editing Employee: "
         Me.GroupBox4.ResumeLayout(False)

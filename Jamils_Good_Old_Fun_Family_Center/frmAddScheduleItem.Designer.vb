@@ -40,7 +40,7 @@ Partial Class frmAddScheduleItem
         Me.btnOK.Name = "btnOK"
         Me.btnOK.Size = New System.Drawing.Size(75, 23)
         Me.btnOK.TabIndex = 0
-        Me.btnOK.Text = "OK"
+        Me.btnOK.Text = "Ok"
         Me.btnOK.UseVisualStyleBackColor = True
         '
         'btnCancel

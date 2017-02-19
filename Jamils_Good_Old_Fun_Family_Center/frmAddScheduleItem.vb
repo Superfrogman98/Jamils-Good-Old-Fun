@@ -47,7 +47,7 @@ Public Class frmAddScheduleItem
                 'trys using the command, if there is an error a message is displayed
                 Try
                     updateCommand.ExecuteNonQuery()
-
+                    MessageBox.Show("Schedule Updated")
                 Catch ex As Exception
                     MessageBox.Show("Error With Updating schedule:  " & ex.ToString)
                 End Try
@@ -81,8 +81,6 @@ Public Class frmAddScheduleItem
         Dim confirmRemove As Integer
         Dim key As String = frmMain.Jamils_Good_Old_FunDataSet.EmployeeData(frmMain.currentEmployee).ID & frmMain.dgvSchedule.Rows(frmMain.selectedScheduleRow).Cells(0).Value & frmMain.dgvSchedule.Rows(frmMain.selectedScheduleRow).Cells(2).Value
         confirmRemove = MessageBox.Show("Are you sure you would Like to remove this schedule item? This action cannot be undone!", "Confirm Action", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
-        MessageBox.Show(frmMain.Jamils_Good_Old_FunDataSet.EmployeeData(frmMain.currentEmployee).ID & "," & frmMain.dgvSchedule.Rows(frmMain.selectedScheduleRow).Cells(0).Value & "," & frmMain.dgvSchedule.Rows(frmMain.selectedScheduleRow).Cells(2).Value)
-
         If confirmRemove = 6 Then
             Try
                 deleteCommand = New OleDbCommand("DELETE * FROM EmployeeSchedule WHERE [KEY] = ?", frmMain.database)
@@ -173,4 +171,5 @@ Public Class frmAddScheduleItem
             btnDelete.Enabled = True
         End If
     End Sub
+
 End Class

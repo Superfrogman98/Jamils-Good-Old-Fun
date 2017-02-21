@@ -91,8 +91,7 @@ Public Class frmScheduleViewer
             Dim timeColumnCount As Integer = (scheduleStopTime - scheduleStartTime) / 100
 
             'loops and creates the number of time columns needed and labels for each of them
-
-            dgvScheduleView.ColumnCount = 2 + timeColumnCount
+            dgvScheduleView.ColumnCount = timeColumnCount
             dgvScheduleView.Columns(0).Width = 90
             dgvScheduleView.RowCount = 1 + itemCount
             dgvScheduleView.Columns(0).HeaderCell.Value = "Day"
@@ -113,6 +112,11 @@ Public Class frmScheduleViewer
                 dgvScheduleView.Columns(i).HeaderCell.Value = currentTime & "-" & currentTime + 100
                 currentTime += 100
             Next
+
+            'test code, ends up romoveing all horizontal borders
+            dgvScheduleView.AdvancedCellBorderStyle.Bottom = DataGridViewAdvancedCellBorderStyle.None
+            dgvScheduleView.AdvancedCellBorderStyle.Top = DataGridViewAdvancedCellBorderStyle.None
+
 
             Dim days() As Integer = {0, 0, 0, 0, 0, 0, 0} ' keeps track of the necessary row counts for each day
             Dim validIDs() As Integer = {scheduleItems(0).employeeID} 'array to hold all the employeeids from the schedule items

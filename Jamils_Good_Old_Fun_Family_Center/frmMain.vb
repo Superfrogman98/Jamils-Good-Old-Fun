@@ -72,12 +72,13 @@ Public Class frmMain
     Private Sub dgvEmployees_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvEmployees.CellEnter
         Dim strAddress(4) As String
 
-        default_Schedule_Fill()
+
         If e.RowIndex <> -1 Then
             currentEmployee = dgvEmployees.Rows(e.RowIndex).Cells(2).Value  'sets current employee for editing button to work
             Dim currentEmployeeData() As DataRow = Jamils_Good_Old_FunDataSet.EmployeeData.Select("ID=" & currentEmployee) 'creates a temporary copy of the row to use to find the employees index in the database
             currentEmployee = Jamils_Good_Old_FunDataSet.EmployeeData.Rows.IndexOf(currentEmployeeData(0)) ' sets the currentEmployee value to the database index value
             'fill in name field
+            default_Schedule_Fill()
             Try
                 lblEmployeeName.Text = Jamils_Good_Old_FunDataSet.EmployeeData(currentEmployee).First_Name & " " & Jamils_Good_Old_FunDataSet.EmployeeData(currentEmployee).Last_Name
             Catch ex As Exception

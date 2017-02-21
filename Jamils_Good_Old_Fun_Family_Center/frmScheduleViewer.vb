@@ -45,7 +45,7 @@ Public Class frmScheduleViewer
 
     Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
         Dim dayNames() As String = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"}
-
+        Dim dayRowStart() As Integer = {0, 0, 0, 0, 0, 0, 0} 'holds the row that a day starts on for the schedule
 
         tlpSchedule.Visible = False ' sets the schedule to invisible so it can generate everything faster
         'counts how many valid items there will be
@@ -107,7 +107,7 @@ Public Class frmScheduleViewer
 
             Dim currentTime As Integer = scheduleStartTime
             For i As Integer = 1 To timeColumnCount
-                tlpSchedule.ColumnStyles.Add(New ColumnStyle(SizeType.Absolute, 100))
+                tlpSchedule.ColumnStyles.Add(New ColumnStyle(SizeType.Absolute, 150))
 
                 Dim singleTime As New Label
                 singleTime.Name = "txt" + currentTime.ToString()
@@ -132,8 +132,6 @@ Public Class frmScheduleViewer
                         ReDim Preserve validIDs(validIDs.Length())
                         validIDs(currentIDIndex) = scheduleItems(i).employeeID
                         currentIDIndex += 1
-                    Else
-
                     End If
                 Next
                 'loops through the schedule items and counts the number or rows needed for each day, only counts a day once per employee
@@ -151,10 +149,6 @@ Public Class frmScheduleViewer
                 Dim currentRow As Integer = 1
                 For i As Integer = 0 To days.Length() - 1
                     If (days(i) > 0) Then
-                        For x As Integer = 0 To days(i)
-                            tlpSchedule.RowStyles.Add(New RowStyle(SizeType.Absolute, 40))
-
-                        Next
                         Dim singleDay As New Label
                         singleDay.Name = "txt" + dayNames(i)
                         singleDay.Text = dayNames(i)
@@ -163,6 +157,7 @@ Public Class frmScheduleViewer
                         singleDay.TextAlign = ContentAlignment.MiddleCenter
                         tlpSchedule.Controls.Add(singleDay, 0, currentRow)
                         tlpSchedule.SetRowSpan(singleDay, days(i))
+                        dayRowStart(i) = tlpSchedule.GetCellPosition(tlpSchedule.Controls("txt" & dayNames(i))).Row.ToString()
                         currentRow += days(i)
                     End If
                 Next
@@ -170,6 +165,23 @@ Public Class frmScheduleViewer
                 endBox.Name = "txtEndBox"
                 endBox.Height = 1
                 tlpSchedule.Controls.Add(endBox, 0, currentRow)
+                'loops through the schedule items and counts the number or rows needed for each day, only counts a day once per employee
+                For currentID As Integer = 0 To validIDs.Length() - 1
+                    For x As Integer = 0 To days.Length() - 1
+                        For y As Integer = 0 To scheduleItems.Length() - 1
+                            If (scheduleItems(y).dayID = x And scheduleItems(y).employeeID = validIDs(currentID)) Then
+                                Dim scheduleLabel As New Label
+                                scheduleLabel.Name = "txt" & scheduleItems(y).employeeID & dayNames(scheduleItems(y).dayID) & scheduleItems(y).startTime.ToString()
+                                scheduleLabel.Text = scheduleItems(y).description & vbNewLine & scheduleItems(y).startTime.ToString() & " - " & scheduleItems(y).stopTime.ToString()
+                                scheduleLabel.Height = 40
+                                scheduleLabel.Width = 60
+                                scheduleLabel.Margin = New Padding(0, 0, 0, 0)
+                                scheduleLabel.TextAlign = ContentAlignment.MiddleCenter
+                                tlpSchedule.Controls.Add(scheduleLabel, 1 + scheduleItems(y).startTime / 100, dayRowStart(x))
+                            End If
+                        Next
+                    Next
+                Next
 
             Else 'if only one employee is checked will go here and run once
                 For x As Integer = 0 To days.Length() - 1
@@ -193,13 +205,11 @@ Public Class frmScheduleViewer
                         tlpSchedule.Controls.Add(singleDay, 0, currentRow)
                         currentRow += 1
                     End If
-
                 Next
                 Dim endBox As New Label
                 endBox.Name = "txtEndBox"
                 endBox.Height = 1
                 tlpSchedule.Controls.Add(endBox, 0, currentRow)
-
             End If
         Else
             Dim L As New Label

@@ -23,7 +23,8 @@ Partial Class frmScheduleViewer
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.tlpSchedule = New System.Windows.Forms.TableLayoutPanel()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.cbxViewSelect = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cbxEmployeeSelect = New System.Windows.Forms.ComboBox()
@@ -36,28 +37,12 @@ Partial Class frmScheduleViewer
         Me.cbxAllEmployees = New System.Windows.Forms.CheckBox()
         Me.btnPrint = New System.Windows.Forms.Button()
         Me.DirectorySearcher1 = New System.DirectoryServices.DirectorySearcher()
+        Me.dgvScheduleView = New System.Windows.Forms.DataGridView()
         CType(Me.EmployeeDataBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Jamils_Good_Old_FunDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.dgvScheduleView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'tlpSchedule
-        '
-        Me.tlpSchedule.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar
-        Me.tlpSchedule.AllowDrop = True
-        Me.tlpSchedule.AutoSize = True
-        Me.tlpSchedule.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.[Single]
-        Me.tlpSchedule.ColumnCount = 1
-        Me.tlpSchedule.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.tlpSchedule.Location = New System.Drawing.Point(6, 47)
-        Me.tlpSchedule.Name = "tlpSchedule"
-        Me.tlpSchedule.RowCount = 1
-        Me.tlpSchedule.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.tlpSchedule.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 559.0!))
-        Me.tlpSchedule.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 559.0!))
-        Me.tlpSchedule.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 559.0!))
-        Me.tlpSchedule.Size = New System.Drawing.Size(1141, 560)
-        Me.tlpSchedule.TabIndex = 0
         '
         'cbxViewSelect
         '
@@ -162,12 +147,32 @@ Partial Class frmScheduleViewer
         Me.DirectorySearcher1.ServerPageTimeLimit = System.TimeSpan.Parse("-00:00:01")
         Me.DirectorySearcher1.ServerTimeLimit = System.TimeSpan.Parse("-00:00:01")
         '
+        'dgvScheduleView
+        '
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Empty
+        Me.dgvScheduleView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvScheduleView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        Me.dgvScheduleView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvScheduleView.Location = New System.Drawing.Point(6, 47)
+        Me.dgvScheduleView.Name = "dgvScheduleView"
+        Me.dgvScheduleView.RowHeadersVisible = False
+        Me.dgvScheduleView.Size = New System.Drawing.Size(1141, 554)
+        Me.dgvScheduleView.TabIndex = 9
+        '
         'frmScheduleViewer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1154, 613)
-        Me.Controls.Add(Me.tlpSchedule)
+        Me.Controls.Add(Me.dgvScheduleView)
         Me.Controls.Add(Me.GroupBox1)
         Me.MaximumSize = New System.Drawing.Size(1170, 652)
         Me.Name = "frmScheduleViewer"
@@ -177,12 +182,10 @@ Partial Class frmScheduleViewer
         CType(Me.Jamils_Good_Old_FunDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.dgvScheduleView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents tlpSchedule As TableLayoutPanel
     Friend WithEvents cbxViewSelect As ComboBox
     Friend WithEvents Label1 As Label
     Friend WithEvents cbxEmployeeSelect As ComboBox
@@ -195,4 +198,5 @@ Partial Class frmScheduleViewer
     Friend WithEvents btnPrint As Button
     Friend WithEvents DirectorySearcher1 As DirectoryServices.DirectorySearcher
     Friend WithEvents cbxAllEmployees As CheckBox
+    Friend WithEvents dgvScheduleView As DataGridView
 End Class

@@ -65,6 +65,9 @@ Partial Class frmMain
         Me.lblPosition = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.dgvEmployees = New System.Windows.Forms.DataGridView()
+        Me.FirstNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LastNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EmployeeDataBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.lblEmployeeName = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -75,9 +78,6 @@ Partial Class frmMain
         Me.EmployeeScheduleBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.EmployeeDataTableAdapter = New Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSetTableAdapters.EmployeeDataTableAdapter()
         Me.EmployeeScheduleTableAdapter = New Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSetTableAdapters.EmployeeScheduleTableAdapter()
-        Me.FirstNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.LastNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MenuStrip1.SuspendLayout()
         Me.gpbEmployees.SuspendLayout()
         CType(Me.dgvSchedule, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -141,7 +141,7 @@ Partial Class frmMain
         '
         Me.AttendenceToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EnterAttendenceToolStripMenuItem, Me.ViewReportsToolStripMenuItem})
         Me.AttendenceToolStripMenuItem.Name = "AttendenceToolStripMenuItem"
-        Me.AttendenceToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
+        Me.AttendenceToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.AttendenceToolStripMenuItem.Text = "Attendence"
         '
         'EnterAttendenceToolStripMenuItem
@@ -166,7 +166,7 @@ Partial Class frmMain
         'viewScheduleToolStripMenuItem
         '
         Me.viewScheduleToolStripMenuItem.Name = "viewScheduleToolStripMenuItem"
-        Me.viewScheduleToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.viewScheduleToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.viewScheduleToolStripMenuItem.Text = "View Schedule"
         '
         'HelpToolStripMenuItem
@@ -465,6 +465,30 @@ Partial Class frmMain
         Me.dgvEmployees.Size = New System.Drawing.Size(200, 451)
         Me.dgvEmployees.TabIndex = 11
         '
+        'FirstNameDataGridViewTextBoxColumn
+        '
+        Me.FirstNameDataGridViewTextBoxColumn.DataPropertyName = "First Name"
+        Me.FirstNameDataGridViewTextBoxColumn.HeaderText = "First Name"
+        Me.FirstNameDataGridViewTextBoxColumn.Name = "FirstNameDataGridViewTextBoxColumn"
+        Me.FirstNameDataGridViewTextBoxColumn.ReadOnly = True
+        Me.FirstNameDataGridViewTextBoxColumn.Width = 99
+        '
+        'LastNameDataGridViewTextBoxColumn
+        '
+        Me.LastNameDataGridViewTextBoxColumn.DataPropertyName = "Last Name"
+        Me.LastNameDataGridViewTextBoxColumn.HeaderText = "Last Name"
+        Me.LastNameDataGridViewTextBoxColumn.Name = "LastNameDataGridViewTextBoxColumn"
+        Me.LastNameDataGridViewTextBoxColumn.ReadOnly = True
+        Me.LastNameDataGridViewTextBoxColumn.Width = 98
+        '
+        'ID
+        '
+        Me.ID.DataPropertyName = "ID"
+        Me.ID.HeaderText = "ID"
+        Me.ID.Name = "ID"
+        Me.ID.ReadOnly = True
+        Me.ID.Visible = False
+        '
         'EmployeeDataBindingSource
         '
         Me.EmployeeDataBindingSource.DataMember = "EmployeeData"
@@ -541,30 +565,6 @@ Partial Class frmMain
         'EmployeeScheduleTableAdapter
         '
         Me.EmployeeScheduleTableAdapter.ClearBeforeFill = True
-        '
-        'FirstNameDataGridViewTextBoxColumn
-        '
-        Me.FirstNameDataGridViewTextBoxColumn.DataPropertyName = "First Name"
-        Me.FirstNameDataGridViewTextBoxColumn.HeaderText = "First Name"
-        Me.FirstNameDataGridViewTextBoxColumn.Name = "FirstNameDataGridViewTextBoxColumn"
-        Me.FirstNameDataGridViewTextBoxColumn.ReadOnly = True
-        Me.FirstNameDataGridViewTextBoxColumn.Width = 99
-        '
-        'LastNameDataGridViewTextBoxColumn
-        '
-        Me.LastNameDataGridViewTextBoxColumn.DataPropertyName = "Last Name"
-        Me.LastNameDataGridViewTextBoxColumn.HeaderText = "Last Name"
-        Me.LastNameDataGridViewTextBoxColumn.Name = "LastNameDataGridViewTextBoxColumn"
-        Me.LastNameDataGridViewTextBoxColumn.ReadOnly = True
-        Me.LastNameDataGridViewTextBoxColumn.Width = 98
-        '
-        'ID
-        '
-        Me.ID.DataPropertyName = "ID"
-        Me.ID.HeaderText = "ID"
-        Me.ID.Name = "ID"
-        Me.ID.ReadOnly = True
-        Me.ID.Visible = False
         '
         'frmMain
         '

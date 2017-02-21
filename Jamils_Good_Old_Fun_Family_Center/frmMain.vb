@@ -20,6 +20,9 @@ Public Class frmMain
     Dim objEditEmployee As Object = frmEditEmployee
     Dim objAddScheduleItem As Object = frmAddScheduleItem
     Dim objViewSchedule As Object = frmScheduleViewer
+    Dim objHelpPage As Object = frmHelp
+    Dim objEnterAttendence As Object = frmAttendenceEntry
+    Dim objViewReport As Object = frmAttendanceReport
 
     'closes the program
     Private Sub CloseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CloseToolStripMenuItem.Click
@@ -229,6 +232,18 @@ Public Class frmMain
 
     Private Sub viewScheduleToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles viewScheduleToolStripMenuItem.Click
         objViewSchedule.showDialog()
+    End Sub
+
+    Private Sub HelpToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HelpToolStripMenuItem.Click
+        objHelpPage.ShowDialog()
+    End Sub
+
+    Private Sub EnterAttendenceToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnterAttendenceToolStripMenuItem.Click
+        objEnterAttendence.ShowDialog()
+    End Sub
+
+    Private Sub ViewReportsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ViewReportsToolStripMenuItem.Click
+        objViewReport.ShowDialog()
     End Sub
 End Class
 

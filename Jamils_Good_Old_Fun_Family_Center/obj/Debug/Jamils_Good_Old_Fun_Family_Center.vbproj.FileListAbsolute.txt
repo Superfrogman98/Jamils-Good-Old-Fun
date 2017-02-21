@@ -22,3 +22,4 @@ C:\Users\Leana\Source\Repos\Jamils-Good-Old-Fun\Jamils_Good_Old_Fun_Family_Cente
 C:\Users\Leana\Source\Repos\Jamils-Good-Old-Fun\Jamils_Good_Old_Fun_Family_Center\obj\Debug\Jamils_Good_Old_Fun_Family_Center.exe
 C:\Users\Leana\Source\Repos\Jamils-Good-Old-Fun\Jamils_Good_Old_Fun_Family_Center\obj\Debug\Jamils_Good_Old_Fun_Family_Center.xml
 C:\Users\Leana\Source\Repos\Jamils-Good-Old-Fun\Jamils_Good_Old_Fun_Family_Center\obj\Debug\Jamils_Good_Old_Fun_Family_Center.pdb
+C:\Users\Leana\Source\Repos\Jamils-Good-Old-Fun\Jamils_Good_Old_Fun_Family_Center\obj\Debug\Jamils_Good_Old_Fun_Family_Center.frmHelp.resources

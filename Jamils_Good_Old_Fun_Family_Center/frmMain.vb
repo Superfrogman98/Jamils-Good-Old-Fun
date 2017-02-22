@@ -40,7 +40,7 @@ Public Class frmMain
             Debug.Write("Datatable fill, connection string from settings file- ")
 
             Me.EmployeeDataTableAdapter.Fill(Me.Jamils_Good_Old_FunDataSet.EmployeeData)
-            Debug.Write(" Succeded")
+            Debug.Write(" Succeded" & vbNewLine)
         Catch ex As Exception
             connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|Jamils_Good_Old_Fun.accdb" 'connection string for the debug/release folder
             database = New OleDbConnection(connectionString)
@@ -52,7 +52,6 @@ Public Class frmMain
                 MessageBox.Show("Database Not Found, try setting connection manualy")
             End Try
         End Try
-        default_Schedule_Fill()
     End Sub
 
     'searches the datatable for the employee that is put into the field
@@ -74,7 +73,7 @@ Public Class frmMain
     'when the user clicks on a cell, updates the data on the side
     Private Sub dgvEmployees_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvEmployees.CellEnter
         Dim strAddress(4) As String
-
+        default_Schedule_Fill()
 
         If e.RowIndex <> -1 Then
             currentEmployee = dgvEmployees.Rows(e.RowIndex).Cells(2).Value  'sets current employee for editing button to work
@@ -194,7 +193,7 @@ Public Class frmMain
     Public Sub default_Schedule_Fill()
         Me.EmployeeScheduleTableAdapter.Fill(Me.Jamils_Good_Old_FunDataSet.EmployeeSchedule)
         EmployeeScheduleBindingSource.Filter = "EmployeeID = '" & Jamils_Good_Old_FunDataSet.EmployeeData(currentEmployee).ID & "'"
-        EmployeeScheduleBindingSource.Sort = "Day, [Start Time]" 'default sorts the order by day then by start time
+        EmployeeScheduleBindingSource.Sort = "dayID, [Start Time]" 'default sorts the order by day then by start time
     End Sub
 
     Private Sub btnEditSchedule_Click(sender As Object, e As EventArgs) Handles btnEditSchedule.Click

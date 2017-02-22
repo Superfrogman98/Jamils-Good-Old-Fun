@@ -42,24 +42,24 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Jamils_Good_Old_Fun_Family_Center.exe" size="163240">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Jamils_Good_Old_Fun_Family_Center.exe" size="179112">
       <assemblyIdentity name="Jamils_Good_Old_Fun_Family_Center" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Bqli5H+o5re4dO5zg25fbYoxYp8cdXeC9JY3dr5q7Os=</dsig:DigestValue>
+        <dsig:DigestValue>CAGbTHPXYP+uaknV73mvp/gtNE+8o6WKMspwR3WCRRg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Jamils_Good_Old_Fun.accdb" size="475136">
+  <file name="Jamils_Good_Old_Fun.accdb" size="856064">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>G8OdCwY7GH+rczL0n2/ToQldTcjUt4Mj3FabCzU9JIQ=</dsig:DigestValue>
+      <dsig:DigestValue>Nl4UC1Pe1sA+lyoXa4iz7aI40MnJp9UofagtQzucAnU=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Jamils_Good_Old_Fun_Family_Center.exe.config" size="1893">

@@ -21,12 +21,22 @@ Represents the strongly named DataTable class.
 Represents the strongly named DataTable class.
 </summary>
 </member>
+<member name="T:Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSet.CustomerAttendanceDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
 <member name="T:Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSet.EmployeeDataRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
 </member>
 <member name="T:Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSet.EmployeeScheduleRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSet.CustomerAttendanceRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
@@ -41,12 +51,22 @@ Row event argument class
 Row event argument class
 </summary>
 </member>
+<member name="T:Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSet.CustomerAttendanceRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
 <member name="T:Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSetTableAdapters.EmployeeDataTableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>
 </member>
 <member name="T:Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSetTableAdapters.EmployeeScheduleTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSetTableAdapters.CustomerAttendanceTableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>

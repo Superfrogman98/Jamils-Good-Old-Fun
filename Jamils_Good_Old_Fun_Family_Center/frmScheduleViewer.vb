@@ -28,8 +28,8 @@ Public Class frmScheduleViewer
     Private Sub frmScheduleViewer_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.EmployeeDataTableAdapter.Fill(Me.Jamils_Good_Old_FunDataSet.EmployeeData)
         employeeSelected = cbxEmployeeSelect.SelectedValue
-        viewSelected = 0
-        cbxViewSelect.SelectedIndex = 0
+        viewSelected = 7
+        cbxViewSelect.SelectedIndex = 7
     End Sub
 
     'changes the employee that the user is viewing
@@ -45,8 +45,7 @@ Public Class frmScheduleViewer
 
     Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
         Dim dayNames() As String = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"}
-
-        tlpSchedule.Visible = False ' sets the schedule to invisible so it can generate everything faster
+        Dim dayRowStart() As Integer = {0, 0, 0, 0, 0, 0, 0} 'holds the row that a day starts on for the schedule
 
         'for loop to count how many items there will be so that the amount can be used to set the length of the scheduleItems array
         Dim itemCount As Integer = 0
@@ -55,22 +54,9 @@ Public Class frmScheduleViewer
                 itemCount += 1
             End If
         Next
-
-
         Dim scheduleItems(itemCount - 1) As scheduleItem ' array to hold all the valid schedule items structures
-
-        'clear past items from grid view 
-        tlpSchedule.Controls.Clear()
-        tlpSchedule.ColumnStyles.Clear()
-        tlpSchedule.RowStyles.Clear()
-        tlpSchedule.ColumnCount = 1
-        tlpSchedule.AutoScroll = False
-
         'only trys to fill grid if there are items, if not will just put a message
         If (itemCount > 0) Then
-            'set scroll bars for schedule
-            tlpSchedule.AutoScroll = True
-
             Dim currentRowCounter As Integer = 0 ' variable to go through rows in the schedule table in the database
             Dim matchingItems As Integer = 0 'variable to store the count of created valid
             Dim scheduleStartTime As Integer = 2300 'variable for the schedule generation so excess blank rows at the start aren't made 
@@ -105,12 +91,15 @@ Public Class frmScheduleViewer
             Dim timeColumnCount As Integer = (scheduleStopTime - scheduleStartTime) / 100
 
             'loops and creates the number of time columns needed and labels for each of them
-            tlpSchedule.ColumnCount = 2 + timeColumnCount
-            tlpSchedule.ColumnStyles.Add(New ColumnStyle(SizeType.Absolute, 90))
+            dgvScheduleView.ColumnCount = timeColumnCount
+            dgvScheduleView.Columns(0).Width = 90
+            dgvScheduleView.RowCount = itemCount
+            dgvScheduleView.Columns(0).HeaderCell.Value = "Day"
             Dim timeStart As Integer = 1
             'adds a row to the schedule in multi employee mode so that names can be put beside a row
             If (singleEmployee = False) Then
-                tlpSchedule.ColumnCount += 1
+                dgvScheduleView.ColumnCount += 1
+                dgvScheduleView.Columns(1).HeaderCell.Value = "Employee Name"
                 timeStart += 1
             End If
 
@@ -119,19 +108,10 @@ Public Class frmScheduleViewer
 
             'for loop to create the time labels
             For i As Integer = timeStart To timeColumnCount
-                tlpSchedule.ColumnStyles.Add(New ColumnStyle(SizeType.Absolute, 150))
-
-                Dim singleTime As New Label
-                singleTime.Name = "txt" & currentTime.ToString()
-                singleTime.Text = currentTime & "-" & currentTime + 100
-                singleTime.Margin = New Padding(0, 0, 0, 0)
-                singleTime.TextAlign = ContentAlignment.MiddleCenter
-                tlpSchedule.Controls.Add(singleTime, i, 0)
+                dgvScheduleView.Columns(i).Width = 150
+                dgvScheduleView.Columns(i).HeaderCell.Value = currentTime & "-" & currentTime + 100
                 currentTime += 100
             Next
-            'end box to add an ending border line
-            tlpSchedule.ColumnStyles.Add(New ColumnStyle(SizeType.Absolute, 1))
-
             Dim days() As Integer = {0, 0, 0, 0, 0, 0, 0} ' keeps track of the necessary row counts for each day
             Dim validIDs() As Integer = {scheduleItems(0).employeeID} 'array to hold all the employeeids from the schedule items
 
@@ -163,61 +143,41 @@ Public Class frmScheduleViewer
                 Dim currentRow As Integer = 1
                 For i As Integer = 0 To days.Length() - 1
                     If (days(i) > 0) Then
-                        Dim singleDay As New Label
-                        singleDay.Name = "txt" & dayNames(i)
-                        singleDay.Text = dayNames(i)
-                        singleDay.Height = days(i) * 40
-                        singleDay.Margin = New Padding(0, 0, 0, 0)
-                        singleDay.TextAlign = ContentAlignment.MiddleCenter
-                        tlpSchedule.Controls.Add(singleDay, 0, currentRow)
-                        tlpSchedule.SetRowSpan(singleDay, days(i))
-                        currentRow += days(i)
+                        For x As Integer = 0 To days(i)
+                            'dgvScheduleView.Rows(currentRow).Cells(0).Value = dayNames(i)
+                            currentRow += 1
+                        Next
                     End If
                 Next
-
                 'puts employee name in second box in multiple employee view
-                currentRow = 1
-                For currentday As Integer = 0 To days.Length() - 1
-                    If days(currentday) > 0 Then
-                        For currentID As Integer = 0 To validIDs.Length() - 1
-                            For currentScheduleitem As Integer = 0 To scheduleItems.Length() - 1
-                                If (scheduleItems(currentScheduleitem).employeeID = validIDs(currentID) & scheduleItems(currentScheduleitem).dayID = currentday) Then
-                                    Dim singleName As New Label
-                                    singleName.Name = "txt" & validIDs(currentID) & dayNames(currentday)
-                                    Dim currentEmployeeData() As DataRow = frmMain.Jamils_Good_Old_FunDataSet.EmployeeData.Select("ID=" & validIDs(currentID))
-                                    Dim rowIndex As Integer = frmMain.Jamils_Good_Old_FunDataSet.EmployeeData.Rows.IndexOf(currentEmployeeData(0))
-                                    singleName.Text = frmMain.Jamils_Good_Old_FunDataSet.EmployeeData(rowIndex).First_Name & " " & frmMain.Jamils_Good_Old_FunDataSet.EmployeeData(rowIndex).Last_Name
-                                    singleName.Height = 40
-                                    singleName.Margin = New Padding(0, 0, 0, 0)
-                                    singleName.TextAlign = ContentAlignment.MiddleCenter
-                                    tlpSchedule.Controls.Add(singleName, 1, currentRow)
-                                    currentRow += 1
-                                    Exit For
-                                End If
-                            Next
-                        Next
-                    End If
-                Next
-                'creates a bottom border for the schedule lines
-                Dim endBox As New Label
-                endBox.Name = "txtEndBox"
-                endBox.Height = 1
-                tlpSchedule.Controls.Add(endBox, 0, currentRow)
-                'loops through the schedule items and creates labels for each item
-                For currentID As Integer = 0 To validIDs.Length() - 1
-                    For x As Integer = 0 To days.Length() - 1
-                        For y As Integer = 0 To scheduleItems.Length() - 1
-                            If (scheduleItems(y).dayID = x And scheduleItems(y).employeeID = validIDs(currentID)) Then
-                                Dim scheduleLabel As New Label
-                                scheduleLabel.Name = "txt" & scheduleItems(y).employeeID & dayNames(scheduleItems(y).dayID) & scheduleItems(y).startTime.ToString()
-                                scheduleLabel.Text = scheduleItems(y).description & vbNewLine & scheduleItems(y).startTime.ToString() & " - " & scheduleItems(y).stopTime.ToString()
-                                scheduleLabel.Height = 40
-                                scheduleLabel.Width = 60
-                                scheduleLabel.Margin = New Padding(0, 0, 0, 0)
-                                scheduleLabel.TextAlign = ContentAlignment.MiddleCenter
-                                tlpSchedule.Controls.Add(scheduleLabel, 2 + scheduleItems(y).startTime / 100, y)
+                currentRow = 0
+                For currentDay As Integer = 0 To days.Length() - 1 'loops through each day in a week
+                    For currentID As Integer = 0 To validIDs.Length() - 1 'loops through all the ids that are in the schedule
+                        If days(currentDay) > 0 Then ' checks for the rows on a day, if there are any will add the names to that row
+                            Dim currentEmployeeData() As DataRow = frmMain.Jamils_Good_Old_FunDataSet.EmployeeSchedule.Select("EmployeeID =" & validIDs(currentID) & " AND " & "dayID = " & currentDay)
+                            Dim currentEmployeeName() As DataRow = frmMain.Jamils_Good_Old_FunDataSet.EmployeeData.Select("ID =" & validIDs(currentID))
+                            If (currentEmployeeData.Length() > 0) Then
+                                For currentTimeItem As Integer = 0 To currentEmployeeData.Length() - 1
+
+                                    'finds which column a time item should go in, accounts for diference caused by not having excess beginning boxes
+                                    Dim column As Integer = ((currentEmployeeData(currentTimeItem)(3) - scheduleStartTime) / 100)
+                                    'fixes times that don't start at 0 so that they end up in the right column
+                                    If (column <> 0) Then
+                                        column -= 1
+                                    End If
+                                    'fills in the cell columns, prevents crashes from empty items by catching the error
+                                    Try
+                                        dgvScheduleView.Rows(currentRow).Cells(0).Value = dayNames(currentDay)
+                                        dgvScheduleView.Rows(currentRow).Cells(1).Value = currentEmployeeName(0)(1) & " " & currentEmployeeName(0)(2)
+                                        dgvScheduleView.Rows(currentRow).Cells(2 + column).Value = currentEmployeeData(currentTimeItem)(5)
+                                    Catch ex As Exception
+                                    End Try
+                                Next
+                            Else
+                                currentRow -= 1 ' subtracts a one so that blank rows aren't created in the schedule
                             End If
-                        Next
+                        End If
+                        currentRow += 1
                     Next
                 Next
 
@@ -233,35 +193,23 @@ Public Class frmScheduleViewer
                 Dim currentRow As Integer = 1
                 For i As Integer = 0 To days.Length() - 1
                     If (days(i) > 0) Then
-                        tlpSchedule.RowStyles.Add(New RowStyle(SizeType.Absolute, 40))
-                        Dim singleDay As New Label
-                        singleDay.Name = "txt" + dayNames(i)
-                        singleDay.Text = dayNames(i)
-                        singleDay.Height = 42
-                        singleDay.Margin = New Padding(0, 0, 0, 0)
-                        singleDay.TextAlign = ContentAlignment.MiddleCenter
-                        tlpSchedule.Controls.Add(singleDay, 0, currentRow)
+                        'dgvScheduleView.Rows(currentRow).Cells(0).Value = dayNames(i)
+
                         currentRow += 1
                     End If
                 Next
-                Dim endBox As New Label
-                endBox.Name = "txtEndBox"
-                endBox.Height = 1
-                tlpSchedule.Controls.Add(endBox, 0, currentRow)
             End If
 
         Else
-            Dim L As New Label
-            L.Name = "txtNoItems"
-            L.Text = "No Scheduled Items For This Employee"
-            L.Width = 1120
-            L.Height = 400
-            L.TextAlign = ContentAlignment.MiddleCenter
-            L.Margin = New Padding(0, 0, 0, 0)
-            L.Font = New Font("Microsoft Sans Serif", 70)
-            tlpSchedule.Controls.Add(L, 0, 0)
+            'Dim L As New Label
+            'L.Name = "txtNoItems"
+            'L.Text = "No Scheduled Items For This Employee"
+            'L.Width = 1120
+            'L.Height = 400
+            'L.TextAlign = ContentAlignment.MiddleCenter
+            'L.Margin = New Padding(0, 0, 0, 0)
+            'L.Font = New Font("Microsoft Sans Serif", 70)
         End If
-        tlpSchedule.Visible = True
     End Sub
 
     Private Sub cbxAllEmployees_CheckedChanged(sender As Object, e As EventArgs) Handles cbxAllEmployees.CheckedChanged

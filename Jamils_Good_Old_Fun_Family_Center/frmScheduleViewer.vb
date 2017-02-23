@@ -176,15 +176,13 @@ Public Class frmScheduleViewer
                                         itemStartTime = itemStartTime - (itemStartTime Mod 100)
                                         Dim additionalColumnsNeeded As Integer = ((itemStopTime - itemStartTime) / 100) - 1
 
+                                        'only uses for loop for multi column items
                                         If (additionalColumnsNeeded > 0) Then
                                             For i As Integer = 0 To additionalColumnsNeeded
-                                                'done this way so that the new time is added to the bottom of the existing time in the cell
-
                                                 dgvScheduleView.Rows(currentRow).Cells(2 + column + i).Value = currentEmployeeData(currentTimeItem)(5) + ": " + currentEmployeeData(currentTimeItem)(3).ToString() + " - " + currentEmployeeData(currentTimeItem)(4).ToString() + vbNewLine + dgvScheduleView.Rows(currentRow).Cells(2 + column + i).Value
-
                                             Next
                                         Else
-                                            Console.Write(dgvScheduleView.Rows(currentRow).Cells(2 + column).Value)
+
                                             dgvScheduleView.Rows(currentRow).Cells(2 + column).Value = currentEmployeeData(currentTimeItem)(5) + ": " + currentEmployeeData(currentTimeItem)(3).ToString() + " - " + currentEmployeeData(currentTimeItem)(4).ToString() + vbNewLine + dgvScheduleView.Rows(currentRow).Cells(2 + column).Value
                                         End If
                                     Catch ex As Exception
@@ -247,5 +245,9 @@ Public Class frmScheduleViewer
     Private Sub cbxAllEmployees_CheckedChanged(sender As Object, e As EventArgs) Handles cbxAllEmployees.CheckedChanged
         cbxEmployeeSelect.Enabled = Not cbxEmployeeSelect.Enabled
         singleEmployee = Not cbxAllEmployees.Checked
+    End Sub
+
+    Private Sub btnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click
+
     End Sub
 End Class

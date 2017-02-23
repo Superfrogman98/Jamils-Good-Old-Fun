@@ -54,8 +54,12 @@ Public Class frmScheduleViewer
             End If
         Next
         Dim scheduleItems(itemCount - 1) As scheduleItem ' array to hold all the valid schedule items structures
-        'only trys to fill grid if there are items, if not will just put a message
-        If (itemCount > 0) Then
+
+        'clears all old values from the schedule
+        dgvScheduleView.Rows().Clear()
+        If (itemCount > 0) Then  'only trys to fill grid if there are items, if not will just put a message
+
+            'sets some propeties back to normal after a blank selection may have changed them
             dgvScheduleView.Font = New Font("Microsoft Sans Serif", 8.25)
             dgvScheduleView.ColumnHeadersVisible = True
             Dim currentRowCounter As Integer = 0 ' variable to go through rows in the schedule table in the database
@@ -119,6 +123,7 @@ Public Class frmScheduleViewer
 
             'checks if view all employees is true
             If (singleEmployee = False) Then
+
                 scheduleItems = scheduleItems.OrderBy(Function(c) c.employeeID).ToArray 'sorts the schedule items by the employeeid ascending
                 'puts all the employee IDs into an array from the structures
                 Dim currentIDIndex As Integer = 1
@@ -148,7 +153,9 @@ Public Class frmScheduleViewer
                 For currentDay As Integer = 0 To days.Length() - 1 'loops through each day in a week
                     For currentID As Integer = 0 To validIDs.Length() - 1 'loops through all the ids that are in the schedule
                         If days(currentDay) > 0 Then ' checks for the rows on a day, if there are any will add the names to that row
+
                             Dim currentEmployeeData() As DataRow = frmMain.Jamils_Good_Old_FunDataSet.EmployeeSchedule.Select("EmployeeID =" & validIDs(currentID) & " AND " & "dayID = " & currentDay)
+
                             Dim currentEmployeeName() As DataRow = frmMain.Jamils_Good_Old_FunDataSet.EmployeeData.Select("ID =" & validIDs(currentID))
                             If (currentEmployeeData.Length() > 0) Then
                                 For currentTimeItem As Integer = 0 To currentEmployeeData.Length() - 1
@@ -159,7 +166,27 @@ Public Class frmScheduleViewer
                                     Try
                                         dgvScheduleView.Rows(currentRow).Cells(0).Value = dayNames(currentDay)
                                         dgvScheduleView.Rows(currentRow).Cells(1).Value = currentEmployeeName(0)(1) & " " & currentEmployeeName(0)(2)
-                                        dgvScheduleView.Rows(currentRow).Cells(2 + column).Value = currentEmployeeData(currentTimeItem)(5)
+                                        'loops through the stop time of an item - the start time to get how many columns it should span
+                                        Dim itemStopTime As Integer = currentEmployeeData(currentTimeItem)(4)
+                                        Dim itemStartTime As Integer = currentEmployeeData(currentTimeItem)(3)
+                                        If ((itemStopTime Mod 100) <> 0) Then
+                                            itemStopTime = itemStopTime + (100 - (itemStopTime Mod 100))
+                                        End If
+
+                                        itemStartTime = itemStartTime - (itemStartTime Mod 100)
+                                        Dim additionalColumnsNeeded As Integer = ((itemStopTime - itemStartTime) / 100) - 1
+
+                                        If (additionalColumnsNeeded > 0) Then
+                                            For i As Integer = 0 To additionalColumnsNeeded
+                                                'done this way so that the new time is added to the bottom of the existing time in the cell
+
+                                                dgvScheduleView.Rows(currentRow).Cells(2 + column + i).Value = currentEmployeeData(currentTimeItem)(5) + ": " + currentEmployeeData(currentTimeItem)(3).ToString() + " - " + currentEmployeeData(currentTimeItem)(4).ToString() + vbNewLine + dgvScheduleView.Rows(currentRow).Cells(2 + column + i).Value
+
+                                            Next
+                                        Else
+                                            Console.Write(dgvScheduleView.Rows(currentRow).Cells(2 + column).Value)
+                                            dgvScheduleView.Rows(currentRow).Cells(2 + column).Value = currentEmployeeData(currentTimeItem)(5) + ": " + currentEmployeeData(currentTimeItem)(3).ToString() + " - " + currentEmployeeData(currentTimeItem)(4).ToString() + vbNewLine + dgvScheduleView.Rows(currentRow).Cells(2 + column).Value
+                                        End If
                                     Catch ex As Exception
                                         Debug.Write("Cell filling failed with values( dayname: " & dayNames(currentDay) & ", Employee: " & currentEmployeeName(0)(1) & " " & currentEmployeeName(0)(2) & ", Description: " & currentEmployeeData(currentTimeItem)(5) & ") for column: " & column + 2 & "and row: " & currentRow & vbNewLine)
                                     End Try

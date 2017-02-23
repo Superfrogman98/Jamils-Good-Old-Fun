@@ -11,27 +11,27 @@ Features
 
 -create and edit a schedule for each employee
 
-To Do
-
 -Make Schedules viewable in multiple ways
 
-    -Overall, shows all employees and their tasks for the week
-	
-    -By Employee, Already in on the employee page, will also implement into the viewer popout
-	
-    -By Day, shows all the tasks for every employee for one day
-	
--Allow user to print schedules
+    -Every Employee view select, user chooses if they want one employees schedule, or every employees schedule together
+    -Employee select dropdown, when every employee isn't checked, this is used to determine which employee to view
+    -day select drop down, has an option for each day, and the full week
+    
+To Do
 
 -Allow entering of Customer attendence by date, and hour
 
--Allow user to generate report of customer attendence
+-table view of attendance
+
+	-select range of dates to get the attendance from
+	-display time along the top, and date/day in to columns to the left of the times
+
+-graph view of attendance
 
 	-Yearly view, show a graph of attendence over a year using each months averages as plot points
 	-Monthly view, show the attendence over a full month using each days average as plot points
 	-Weekly view, show the view for a single week, using each days average as plot points
-	-Hourly Averages, single day, single week, single month, year
+	-Hourly Averages, single day, single week, single month, year	
 	
+-Allow user to print schedules	
 -Allow User to print the attendence reports
-
--

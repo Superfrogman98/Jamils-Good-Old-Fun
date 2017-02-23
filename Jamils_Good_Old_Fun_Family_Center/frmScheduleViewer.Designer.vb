@@ -24,6 +24,8 @@ Partial Class frmScheduleViewer
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmScheduleViewer))
         Me.cbxViewSelect = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cbxEmployeeSelect = New System.Windows.Forms.ComboBox()
@@ -37,6 +39,8 @@ Partial Class frmScheduleViewer
         Me.btnPrint = New System.Windows.Forms.Button()
         Me.DirectorySearcher1 = New System.DirectoryServices.DirectorySearcher()
         Me.dgvScheduleView = New System.Windows.Forms.DataGridView()
+        Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
+        Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
         CType(Me.EmployeeDataBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Jamils_Good_Old_FunDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -148,6 +152,9 @@ Partial Class frmScheduleViewer
         '
         'dgvScheduleView
         '
+        Me.dgvScheduleView.AllowUserToAddRows = False
+        Me.dgvScheduleView.AllowUserToDeleteRows = False
+        Me.dgvScheduleView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -157,12 +164,30 @@ Partial Class frmScheduleViewer
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgvScheduleView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvScheduleView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvScheduleView.DefaultCellStyle = DataGridViewCellStyle2
         Me.dgvScheduleView.Location = New System.Drawing.Point(6, 47)
         Me.dgvScheduleView.Name = "dgvScheduleView"
         Me.dgvScheduleView.ReadOnly = True
         Me.dgvScheduleView.RowHeadersVisible = False
         Me.dgvScheduleView.Size = New System.Drawing.Size(1141, 554)
         Me.dgvScheduleView.TabIndex = 9
+        '
+        'PrintPreviewDialog1
+        '
+        Me.PrintPreviewDialog1.AutoScrollMargin = New System.Drawing.Size(0, 0)
+        Me.PrintPreviewDialog1.AutoScrollMinSize = New System.Drawing.Size(0, 0)
+        Me.PrintPreviewDialog1.ClientSize = New System.Drawing.Size(400, 300)
+        Me.PrintPreviewDialog1.Enabled = True
+        Me.PrintPreviewDialog1.Icon = CType(resources.GetObject("PrintPreviewDialog1.Icon"), System.Drawing.Icon)
+        Me.PrintPreviewDialog1.Name = "PrintPreviewDialog1"
+        Me.PrintPreviewDialog1.Visible = False
         '
         'frmScheduleViewer
         '
@@ -196,4 +221,6 @@ Partial Class frmScheduleViewer
     Friend WithEvents DirectorySearcher1 As DirectoryServices.DirectorySearcher
     Friend WithEvents cbxAllEmployees As CheckBox
     Friend WithEvents dgvScheduleView As DataGridView
+    Friend WithEvents PrintDocument1 As Printing.PrintDocument
+    Friend WithEvents PrintPreviewDialog1 As PrintPreviewDialog
 End Class

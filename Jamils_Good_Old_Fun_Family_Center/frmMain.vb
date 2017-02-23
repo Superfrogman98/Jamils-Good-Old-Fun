@@ -40,7 +40,7 @@ Public Class frmMain
             Debug.Write("Datatable fill, connection string from settings file- ")
 
             Me.EmployeeDataTableAdapter.Fill(Me.Jamils_Good_Old_FunDataSet.EmployeeData)
-            Debug.Write(" Succeded")
+            Debug.Write(" Succeded" & vbNewLine)
         Catch ex As Exception
             connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|Jamils_Good_Old_Fun.accdb" 'connection string for the debug/release folder
             database = New OleDbConnection(connectionString)

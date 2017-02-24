@@ -70,9 +70,9 @@ Public Class frmAddScheduleItem
             frmMain.EmployeeScheduleTableAdapter.Fill(frmMain.Jamils_Good_Old_FunDataSet.EmployeeSchedule)
             Me.Close()
         ElseIf (uniqueTime = False) Then
-            MessageBox.Show("The schedule item that you have created or changed overlaps with another schedule item, plese correct this!", "Invalid Entry")
+            MessageBox.Show("The schedule item that you have created or changed overlaps with another schedule item, please correct this!", "Invalid Entry")
         ElseIf (txtDescription.Text.Trim = "") Then
-            MessageBox.Show("The schedule item that you have created or changed is missing a description, plese correct this!", "Invalid Entry")
+            MessageBox.Show("The schedule item that you have created or changed is missing a description, please correct this!", "Invalid Entry")
         End If
     End Sub
 
@@ -171,5 +171,10 @@ Public Class frmAddScheduleItem
             btnDelete.Enabled = True
         End If
     End Sub
+
+    Private Sub nudStart_ValueChanged_1(sender As Object, e As EventArgs) Handles nudStart.ValueChanged
+
+    End Sub
+
 
 End Class

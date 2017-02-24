@@ -7,14 +7,14 @@
     <framework targetVersion="4.5.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="Jamils_Good_Old_Fun_Family_Center.exe.manifest" size="4015">
+    <dependentAssembly dependencyType="install" codebase="Jamils_Good_Old_Fun_Family_Center.exe.manifest" size="4016">
       <assemblyIdentity name="Jamils_Good_Old_Fun_Family_Center.exe" version="1.0.0.7" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>td8KAyl68hGw2ks/9j3Ed02PR2XquNMWBQcuthnE4mk=</dsig:DigestValue>
+        <dsig:DigestValue>J8p1yMkXuVBGyMmnvassTJvZlPWR3tj5ct26roR+uHA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

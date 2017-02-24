@@ -191,9 +191,16 @@ Public Class frmMain
     End Sub
 
     Public Sub default_Schedule_Fill()
-        Me.EmployeeScheduleTableAdapter.Fill(Me.Jamils_Good_Old_FunDataSet.EmployeeSchedule)
-        EmployeeScheduleBindingSource.Filter = "EmployeeID = '" & Jamils_Good_Old_FunDataSet.EmployeeData(currentEmployee).ID & "'"
-        EmployeeScheduleBindingSource.Sort = "dayID, [Start Time]" 'default sorts the order by day then by start time
+        Try
+            Me.EmployeeScheduleTableAdapter.Fill(Me.Jamils_Good_Old_FunDataSet.EmployeeSchedule)
+            EmployeeScheduleBindingSource.Filter = "EmployeeID = '" & Jamils_Good_Old_FunDataSet.EmployeeData(currentEmployee).ID & "'"
+            EmployeeScheduleBindingSource.Sort = "dayID, [Start Time]" 'default sorts the order by day then by start time 
+            dgvSchedule.Columns(2).DefaultCellStyle.Format = "0000"
+            dgvSchedule.Columns(3).DefaultCellStyle.Format = "0000"
+        Catch ex As Exception
+            Console.WriteLine("Error In Filling schedule: " & ex.ToString())
+        End Try
+
     End Sub
 
     Private Sub btnEditSchedule_Click(sender As Object, e As EventArgs) Handles btnEditSchedule.Click
@@ -220,7 +227,7 @@ Public Class frmMain
         If (btnEditSchedule.Enabled = False) Then
             If (e.RowIndex > -1) Then
                 selectedScheduleRow = e.RowIndex
-                intDayLocationY = (Me.Location.Y + 271 + 44 - dgvSchedule.VerticalScrollingOffset + (e.RowIndex * 22)) '57 difference to account for title bar and padding
+                intDayLocationY = (Me.Location.Y + 285 + 44 - dgvSchedule.VerticalScrollingOffset + (e.RowIndex * 22)) 'sets the location where the add item pops up to be directly below the selected cell
                 Dim intDayLocationX As Integer = (Me.Location.X + 230) ' 21 differece to account for border and padding
                 Dim pntDay As New Point(intDayLocationX, intDayLocationY)
                 frmAddScheduleItem.Location = pntDay
@@ -244,5 +251,7 @@ Public Class frmMain
     Private Sub ViewReportsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ViewReportsToolStripMenuItem.Click
         objViewReport.ShowDialog()
     End Sub
+
+
 End Class
 

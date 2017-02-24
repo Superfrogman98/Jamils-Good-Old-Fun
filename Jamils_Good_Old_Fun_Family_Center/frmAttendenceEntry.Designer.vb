@@ -23,18 +23,19 @@ Partial Class frmAttendenceEntry
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAttendenceEntry))
         Me.dtpBeginDate = New System.Windows.Forms.DateTimePicker()
         Me.dtpEndDate = New System.Windows.Forms.DateTimePicker()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnRefresh = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.colDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colDay = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Jamils_Good_Old_FunDataSet = New Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSet()
         Me.CustomerAttendanceBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CustomerAttendanceTableAdapter = New Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSetTableAdapters.CustomerAttendanceTableAdapter()
-        Me.colDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colDay = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Jamils_Good_Old_FunDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CustomerAttendanceBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -97,6 +98,16 @@ Partial Class frmAttendenceEntry
         Me.DataGridView1.Size = New System.Drawing.Size(1029, 600)
         Me.DataGridView1.TabIndex = 5
         '
+        'colDate
+        '
+        Me.colDate.HeaderText = "Date"
+        Me.colDate.Name = "colDate"
+        '
+        'colDay
+        '
+        Me.colDay.HeaderText = "Day"
+        Me.colDay.Name = "colDay"
+        '
         'GroupBox1
         '
         Me.GroupBox1.Location = New System.Drawing.Point(-6, -16)
@@ -120,16 +131,6 @@ Partial Class frmAttendenceEntry
         '
         Me.CustomerAttendanceTableAdapter.ClearBeforeFill = True
         '
-        'colDate
-        '
-        Me.colDate.HeaderText = "Date"
-        Me.colDate.Name = "colDate"
-        '
-        'colDay
-        '
-        Me.colDay.HeaderText = "Day"
-        Me.colDay.Name = "colDay"
-        '
         'frmAttendenceEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -142,6 +143,7 @@ Partial Class frmAttendenceEntry
         Me.Controls.Add(Me.dtpEndDate)
         Me.Controls.Add(Me.dtpBeginDate)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmAttendenceEntry"
         Me.Text = "Enter Customer Attendance"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()

@@ -22,6 +22,7 @@ Partial Class frmNewEmployee
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmNewEmployee))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtFirstName = New System.Windows.Forms.TextBox()
         Me.txtLastName = New System.Windows.Forms.TextBox()
@@ -40,6 +41,7 @@ Partial Class frmNewEmployee
         Me.nudZip = New System.Windows.Forms.NumericUpDown()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.txtState = New System.Windows.Forms.TextBox()
         Me.PageSetupDialog1 = New System.Windows.Forms.PageSetupDialog()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
@@ -59,7 +61,6 @@ Partial Class frmNewEmployee
         Me.Label8 = New System.Windows.Forms.Label()
         Me.btnClose = New System.Windows.Forms.Button()
         Me.btnSubmit = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -237,6 +238,14 @@ Partial Class frmNewEmployee
         Me.Label6.TabIndex = 10
         Me.Label6.Text = "State:"
         '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(331, 10)
+        Me.TextBox1.MaxLength = 100
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(48, 20)
+        Me.TextBox1.TabIndex = 11
+        '
         'txtState
         '
         Me.txtState.Location = New System.Drawing.Point(331, 10)
@@ -403,14 +412,6 @@ Partial Class frmNewEmployee
         Me.btnSubmit.Text = "Submit"
         Me.btnSubmit.UseVisualStyleBackColor = True
         '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(331, 10)
-        Me.TextBox1.MaxLength = 100
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(48, 20)
-        Me.TextBox1.TabIndex = 11
-        '
         'frmNewEmployee
         '
         Me.AcceptButton = Me.btnSubmit
@@ -424,6 +425,7 @@ Partial Class frmNewEmployee
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximumSize = New System.Drawing.Size(550, 296)
         Me.Name = "frmNewEmployee"
         Me.Text = "New Employee"

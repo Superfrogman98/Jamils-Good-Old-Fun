@@ -24,6 +24,7 @@ Partial Class frmAttendanceReport
     Private Sub InitializeComponent()
         Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
         Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAttendanceReport))
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -50,6 +51,7 @@ Partial Class frmAttendanceReport
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(739, 439)
         Me.Controls.Add(Me.Chart1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmAttendanceReport"
         Me.Text = "Customer Attendance Reports"
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()

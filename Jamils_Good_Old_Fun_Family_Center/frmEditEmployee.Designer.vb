@@ -22,6 +22,7 @@ Partial Class frmEditEmployee
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmEditEmployee))
         Me.btnSubmit = New System.Windows.Forms.Button()
         Me.btnClose = New System.Windows.Forms.Button()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
@@ -423,6 +424,7 @@ Partial Class frmEditEmployee
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximumSize = New System.Drawing.Size(541, 279)
         Me.Name = "frmEditEmployee"
         Me.Text = "Editing Employee: "

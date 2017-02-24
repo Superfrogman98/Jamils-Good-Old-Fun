@@ -223,7 +223,7 @@ FROM            EmployeeSchedule</CommandText>
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT ID, attendanceDate, attendanceTime, attendanceAmount FROM CustomerAttendance</CommandText>
                     <Parameters />
                   </DbCommand>

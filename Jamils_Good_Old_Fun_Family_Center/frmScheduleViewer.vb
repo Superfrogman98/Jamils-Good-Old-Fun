@@ -100,12 +100,14 @@ Public Class frmScheduleViewer
             dgvScheduleView.Columns(0).Width = 90
             dgvScheduleView.Columns(0).HeaderCell.Value = "Day"
             Dim timeStart As Integer = 1
+            dgvScheduleView.Columns(0).Frozen = True
             'adds a row to the schedule in multi employee mode so that names can be put beside a row
             If (singleEmployee = False) Then
                 dgvScheduleView.ColumnCount += 1
                 dgvScheduleView.Columns(1).HeaderCell.Value = "Employee Name"
                 timeStart += 1
                 timeColumnCount += 1
+                dgvScheduleView.Columns(1).Frozen = True
             End If
 
 
@@ -114,7 +116,6 @@ Public Class frmScheduleViewer
             'for loop to create the time labels
             For i As Integer = timeStart To timeColumnCount
                 dgvScheduleView.Columns(i).Width = 150
-
                 dgvScheduleView.Columns(i).HeaderCell.Value = String.Format("{0:0000}", currentTime) & "-" & String.Format("{0:0000}", currentTime + 100)
                 currentTime += 100
             Next

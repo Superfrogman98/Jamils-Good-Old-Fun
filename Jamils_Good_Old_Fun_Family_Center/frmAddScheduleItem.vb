@@ -76,12 +76,16 @@ Public Class frmAddScheduleItem
         End If
     End Sub
 
+    'handles the user deleting an item from the schedule
     Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
         Dim deleteCommand As OleDbCommand
         Dim confirmRemove As Integer
+        'creates the key that is used to find the item
         Dim key As String = frmMain.Jamils_Good_Old_FunDataSet.EmployeeData(frmMain.currentEmployee).ID & frmMain.dgvSchedule.Rows(frmMain.selectedScheduleRow).Cells(0).Value & frmMain.dgvSchedule.Rows(frmMain.selectedScheduleRow).Cells(2).Value
+        'gets user conformation
         confirmRemove = MessageBox.Show("Are you sure you would Like to remove this schedule item? This action cannot be undone!", "Confirm Action", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
         If confirmRemove = 6 Then
+            'trys useing the delete command, if fails message is shown
             Try
                 deleteCommand = New OleDbCommand("DELETE * FROM EmployeeSchedule WHERE [KEY] = ?", frmMain.database)
                 frmMain.database.Open()

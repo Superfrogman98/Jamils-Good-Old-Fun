@@ -33,11 +33,13 @@ Partial Class frmAttendenceEntry
         Me.colDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colDay = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btnAllowEdits = New System.Windows.Forms.Button()
         Me.Jamils_Good_Old_FunDataSet = New Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSet()
         Me.CustomerAttendanceBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.JamilsGoodOldFunDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CustomerAttendanceTableAdapter = New Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSetTableAdapters.CustomerAttendanceTableAdapter()
         CType(Me.dgvAttendenceEntry, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
         CType(Me.Jamils_Good_Old_FunDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CustomerAttendanceBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.JamilsGoodOldFunDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -96,28 +98,43 @@ Partial Class frmAttendenceEntry
         Me.dgvAttendenceEntry.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colDate, Me.colDay})
         Me.dgvAttendenceEntry.Location = New System.Drawing.Point(12, 45)
         Me.dgvAttendenceEntry.Name = "dgvAttendenceEntry"
+        Me.dgvAttendenceEntry.ReadOnly = True
         Me.dgvAttendenceEntry.RowHeadersVisible = False
         Me.dgvAttendenceEntry.Size = New System.Drawing.Size(1029, 600)
         Me.dgvAttendenceEntry.TabIndex = 5
         '
         'colDate
         '
+        Me.colDate.Frozen = True
         Me.colDate.HeaderText = "Date"
         Me.colDate.Name = "colDate"
+        Me.colDate.ReadOnly = True
         '
         'colDay
         '
+        Me.colDay.Frozen = True
         Me.colDay.HeaderText = "Day"
         Me.colDay.Name = "colDay"
+        Me.colDay.ReadOnly = True
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.btnAllowEdits)
         Me.GroupBox1.Location = New System.Drawing.Point(-6, -16)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(1066, 55)
         Me.GroupBox1.TabIndex = 6
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "GroupBox1"
+        '
+        'btnAllowEdits
+        '
+        Me.btnAllowEdits.Location = New System.Drawing.Point(18, 28)
+        Me.btnAllowEdits.Name = "btnAllowEdits"
+        Me.btnAllowEdits.Size = New System.Drawing.Size(140, 23)
+        Me.btnAllowEdits.TabIndex = 7
+        Me.btnAllowEdits.Text = "Allow Editing"
+        Me.btnAllowEdits.UseVisualStyleBackColor = True
         '
         'Jamils_Good_Old_FunDataSet
         '
@@ -151,9 +168,11 @@ Partial Class frmAttendenceEntry
         Me.Controls.Add(Me.dtpBeginDate)
         Me.Controls.Add(Me.GroupBox1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximumSize = New System.Drawing.Size(1069, 696)
         Me.Name = "frmAttendenceEntry"
         Me.Text = "Enter Customer Attendance"
         CType(Me.dgvAttendenceEntry, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
         CType(Me.Jamils_Good_Old_FunDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CustomerAttendanceBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.JamilsGoodOldFunDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -171,8 +190,9 @@ Partial Class frmAttendenceEntry
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Jamils_Good_Old_FunDataSet As Jamils_Good_Old_FunDataSet
     Friend WithEvents CustomerAttendanceBindingSource As BindingSource
-    Friend WithEvents colDate As DataGridViewTextBoxColumn
-    Friend WithEvents colDay As DataGridViewTextBoxColumn
     Friend WithEvents JamilsGoodOldFunDataSetBindingSource As BindingSource
     Friend WithEvents CustomerAttendanceTableAdapter As Jamils_Good_Old_FunDataSetTableAdapters.CustomerAttendanceTableAdapter
+    Friend WithEvents btnAllowEdits As Button
+    Friend WithEvents colDate As DataGridViewTextBoxColumn
+    Friend WithEvents colDay As DataGridViewTextBoxColumn
 End Class

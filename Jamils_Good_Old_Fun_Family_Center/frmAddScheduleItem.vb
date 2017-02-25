@@ -5,6 +5,7 @@ Imports System.Data.OleDb
 Public Class frmAddScheduleItem
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
         Me.Close()
+        frmMain.dgvSchedule.Rows(frmMain.dgvSchedule.RowCount() - 1).Cells(1).Value = "Click to add item"
     End Sub
 
     Private Sub btnOK_Click(sender As Object, e As EventArgs) Handles btnOK.Click
@@ -74,6 +75,7 @@ Public Class frmAddScheduleItem
         ElseIf (txtDescription.Text.Trim = "") Then
             MessageBox.Show("The schedule item that you have created or changed is missing a description, please correct this!", "Invalid Entry")
         End If
+        frmMain.dgvSchedule.Rows(frmMain.dgvSchedule.RowCount() - 1).Cells(1).Value = "Click to add item"
     End Sub
 
     'handles the user deleting an item from the schedule
@@ -100,40 +102,21 @@ Public Class frmAddScheduleItem
                 MessageBox.Show("Schedule Item Could Not Be Removed", "Action Failure", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End Try
         End If
+        frmMain.dgvSchedule.Rows(frmMain.dgvSchedule.RowCount() - 1).Cells(1).Value = "Click to add item"
     End Sub
 
+    'when the start value box is left sets the min of stop
     Private Sub nudStart_ValueChanged(sender As Object, e As EventArgs) Handles nudStart.Leave
-        Dim valueEnd As Integer
-        'only gets the last two digits from the time
-        If (nudStart.Value.ToString.Length() <= 2) Then
-            valueEnd = nudStart.Value
-        Else
-            valueEnd = Int(nudStart.Value.ToString.Remove(0, nudStart.Value.ToString.Length() - 2))
 
-        End If
-        If (valueEnd > 59 And valueEnd < 99) Then
-            nudStart.Value = nudStart.Value + (100 - valueEnd)
-
-        End If
         nudStop.Minimum = nudStart.Value
     End Sub
 
+    'when the stop value box is left sets the max of the start
     Private Sub nudStop_ValueChanged(sender As Object, e As EventArgs) Handles nudStop.Leave
-
-        Dim valueEnd As Integer
-        'only gets the last two digits from the time
-        If (nudStop.Value.ToString.Length() <= 2) Then
-            valueEnd = nudStop.Value
-        Else
-            valueEnd = Int(nudStop.Value.ToString.Remove(0, nudStop.Value.ToString.Length() - 2))
-        End If
-        If (valueEnd > 59 And valueEnd < 99) Then
-            nudStop.Value = nudStop.Value + (100 - valueEnd)
-        End If
         nudStart.Maximum = nudStop.Value
     End Sub
 
-
+    'sets values for the add box when it loads, default start and stop min/max values, loading in values for editing, and if delete should be true
     Private Sub frmAddScheduleItem_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         nudStart.Maximum = 2359
         nudStop.Maximum = 2359
@@ -171,13 +154,14 @@ Public Class frmAddScheduleItem
         Catch ex As Exception
             nudStop.Value = nudStop.Minimum
         End Try
-        If (frmMain.selectedScheduleRow = frmMain.dgvSchedule.RowCount - 1) Then
+        If (frmMain.selectedScheduleRow = frmMain.dgvSchedule.RowCount - 1) Then ' if the row selected was not  the last one, turns on deleteability of the item
             btnDelete.Enabled = False
         Else
             btnDelete.Enabled = True
         End If
     End Sub
 
+    'when the start value is changed, checks for the end of the value so that the increase by 15 works and jumps for 45 to 100 for 24 hr time to update immediatly for user
     Private Sub nudStart_ValueChanged_1(sender As Object, e As EventArgs) Handles nudStart.ValueChanged
 
         Dim valueEnd As Integer
@@ -196,7 +180,7 @@ Public Class frmAddScheduleItem
         End If
 
     End Sub
-
+    'when the stop value is changed, checks for the end of the value so that the increase by 15 works and jumps for 45 to 100 for 24 hr time to update immediatly for user
     Private Sub nudStop_ValueChanged_1(sender As Object, e As EventArgs) Handles nudStop.ValueChanged
 
         Dim valueEnd As Integer
@@ -206,13 +190,12 @@ Public Class frmAddScheduleItem
         Else
             valueEnd = Int(nudStop.Value.ToString.Remove(0, nudStop.Value.ToString.Length() - 2))
         End If
-        If (valueEnd > 59 And valueEnd < 99 And valueEnd <> 85) Then
+        If (valueEnd > 59 And valueEnd < 99) Then
             If valueEnd = 85 Then
-                MessageBox.Show(valueEnd)
+                nudStop.Value = nudStop.Value - valueEnd + 45
             Else
                 nudStop.Value = nudStop.Value + (100 - valueEnd)
             End If
-
         End If
     End Sub
 End Class

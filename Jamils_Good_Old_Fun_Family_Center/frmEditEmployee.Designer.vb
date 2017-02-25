@@ -202,11 +202,11 @@ Partial Class frmEditEmployee
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(255, 16)
+        Me.Label9.Location = New System.Drawing.Point(232, 16)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(95, 13)
+        Me.Label9.Size = New System.Drawing.Size(118, 13)
         Me.Label9.TabIndex = 16
-        Me.Label9.Text = "Secondary Phone:"
+        Me.Label9.Text = "Secondary Phone(Opt):"
         '
         'txtMainPhone1
         '

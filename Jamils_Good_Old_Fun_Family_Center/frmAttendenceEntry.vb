@@ -8,12 +8,15 @@ Public Class frmAttendenceEntry
 
     Private Sub frmAttendenceEntry_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'fills the table adapter with values so they can be used to customly programatically populate the datatable
+        Me.CustomerAttendanceTableAdapter.Connection = frmMain.database
         Me.CustomerAttendanceTableAdapter.Fill(Me.Jamils_Good_Old_FunDataSet.CustomerAttendance)
         dtpEndDate.MaxDate = Today
         dtpEndDate.Value = Today
         dtpBeginDate.Value = New DateTime(Today.Year, Today.Month, Today.Day - 7)
         dtpBeginDate.MaxDate = Today
     End Sub
+
+
 
     'changes edit to false on form close to prevent crash
     Private Sub frmAttendenceEntry_Close(sender As Object, e As EventArgs) Handles MyBase.Closing
@@ -24,6 +27,9 @@ Public Class frmAttendenceEntry
 
 
     Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click, MyBase.Load
+        Me.CustomerAttendanceTableAdapter.ClearBeforeFill = True 'resets the connection so that the user entered data will properly fill the table
+        Me.CustomerAttendanceTableAdapter.Fill(Me.Jamils_Good_Old_FunDataSet.CustomerAttendance)
+
         allowEdits = False
         Dim currentDate As Date = dtpBeginDate.Value
         dgvAttendenceEntry.ColumnCount = 26
@@ -48,7 +54,6 @@ Public Class frmAttendenceEntry
             Dim currentHour As Integer = Math.Floor(CustomerAttendanceBindingSource(x)(2) / 100) + 2
             dgvAttendenceEntry.Rows(DateDiff(DateInterval.Day, startRowDate, currentItemDate)).Cells(currentHour).Value = CustomerAttendanceBindingSource(x)(3)
         Next
-
         If btnAllowEdits.Text = "Disable Editing" Then
             allowEdits = True
         End If
@@ -72,10 +77,17 @@ Public Class frmAttendenceEntry
         'variables used for what to update in database
         Dim currentTime As Integer
         Dim dateTime As DateTime
-
+        Dim attendenceAmt As Integer
         If (allowEdits = True) Then
 
-            Dim attendenceAmt As Integer = dgvAttendenceEntry.Rows(e.RowIndex()).Cells(e.ColumnIndex()).Value
+            Try
+                attendenceAmt = dgvAttendenceEntry.Rows(e.RowIndex()).Cells(e.ColumnIndex()).Value
+            Catch ex As Exception
+                MessageBox.Show("Attendence Amount Should be a Number")
+                attendenceAmt = 0
+                dgvAttendenceEntry.Rows(e.RowIndex()).Cells(e.ColumnIndex()).Value = 0
+            End Try
+
             If attendenceAmt > 0 Then ' if positive number is entered, either updates of inserts to the database
                 currentTime = (e.ColumnIndex() - 2) * 100
                 dateTime = DateTime.Parse(dgvAttendenceEntry.Rows(e.RowIndex()).Cells(0).Value)

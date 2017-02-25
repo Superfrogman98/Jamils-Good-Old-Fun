@@ -48,6 +48,7 @@ Public Class frmMain
             Try
                 Me.EmployeeDataTableAdapter.Connection = database
                 Me.EmployeeScheduleTableAdapter.Connection = database
+
                 Me.EmployeeDataTableAdapter.Fill(Me.Jamils_Good_Old_FunDataSet.EmployeeData)
             Catch ex2 As Exception
                 MessageBox.Show("Database Not Found, try setting connection manualy")
@@ -56,7 +57,7 @@ Public Class frmMain
     End Sub
 
     'searches the datatable for the employee that is put into the field
-    Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click, txtSearch.LostFocus
+    Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click, txtSearch.LostFocus, txtSearch.TextChanged
         Dim strFilter As String
         If txtSearch.Text.Trim <> "" Then
             strFilter = txtSearch.Text.Trim
@@ -70,6 +71,8 @@ Public Class frmMain
             EmployeeDataBindingSource.RemoveFilter()
         End If
     End Sub
+
+
 
     'when the user clicks on a cell, updates the data on the side
     Private Sub dgvEmployees_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvEmployees.CellEnter
@@ -125,6 +128,10 @@ Public Class frmMain
                 lblDOH.Text = "Not Found"
             End Try
         End If
+        If btnEditSchedule.Enabled = False Then
+            dgvSchedule.Rows(dgvSchedule.RowCount() - 1).Cells(1).Value = "Click to add item"
+        End If
+
     End Sub
     'opens the form to enter a new employees data
     Private Sub NewEmployeeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NewEmployeeToolStripMenuItem.Click
@@ -180,6 +187,7 @@ Public Class frmMain
         select_New_Database()
     End Sub
 
+    'used to change to order that the grid is sorted for the day view, sort with both day and start time
     Private Sub dgvSchedual_ColumnHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgvSchedule.ColumnHeaderMouseClick
 
         If (e.ColumnIndex = 0 And colOneSortOrder = True) Then
@@ -191,6 +199,7 @@ Public Class frmMain
         End If
     End Sub
 
+    'fills the schedule with a default sort of ascending day and time
     Public Sub default_Schedule_Fill()
         Try
             Me.EmployeeScheduleTableAdapter.Fill(Me.Jamils_Good_Old_FunDataSet.EmployeeSchedule)
@@ -204,6 +213,7 @@ Public Class frmMain
 
     End Sub
 
+    'allows the schedule to be edited
     Private Sub btnEditSchedule_Click(sender As Object, e As EventArgs) Handles btnEditSchedule.Click
         btnEditSchedule.Enabled = False
         btnEditSchedule.Text = "Editing"
@@ -212,8 +222,12 @@ Public Class frmMain
         dgvSchedule.AllowUserToAddRows = True
         dgvSchedule.Columns(0).ReadOnly = True
         dgvSchedule.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        dgvSchedule.Rows(dgvSchedule.RowCount() - 1).Cells(1).Value = "Click to add item"
+
     End Sub
 
+
+    'turns off the editing of the schedule
     Private Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
         btnEditSchedule.Enabled = True
         btnEditSchedule.Text = "Edit Schedule"
@@ -223,6 +237,7 @@ Public Class frmMain
         dgvSchedule.SelectionMode = DataGridViewSelectionMode.CellSelect
     End Sub
 
+    'opens up the add schedule item form directly below the row selected
     Private Sub dgvSchedule_CellBeginEdit(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSchedule.CellClick
         Dim intDayLocationY As Integer
         If (btnEditSchedule.Enabled = False) Then
@@ -237,6 +252,7 @@ Public Class frmMain
             End If
     End Sub
 
+    'all four functions below open up forms from the tool strip, viewSchedule, Help, Enter Attendence, and View Reports
     Private Sub viewScheduleToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles viewScheduleToolStripMenuItem.Click
         objViewSchedule.showDialog()
     End Sub

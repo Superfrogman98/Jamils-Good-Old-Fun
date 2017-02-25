@@ -101,6 +101,7 @@ Public Class frmScheduleViewer
             dgvScheduleView.Columns(0).HeaderCell.Value = "Day"
             Dim timeStart As Integer = 1
             dgvScheduleView.Columns(0).Frozen = True
+            dgvScheduleView.Columns(1).Frozen = False
             'adds a row to the schedule in multi employee mode so that names can be put beside a row
             If (singleEmployee = False) Then
                 dgvScheduleView.ColumnCount += 1
@@ -218,14 +219,30 @@ Public Class frmScheduleViewer
                     If days(currentDay) > 0 Then ' checks for the rows on a day, if there are any will add the names to that row
                         For i As Integer = 0 To scheduleItems.Length() - 1
                             If (scheduleItems(i).dayID = currentDay) Then
-                                Dim column As Integer = ((scheduleItems(i).startTime - scheduleStartTime) / 100)
                                 dgvScheduleView.Rows(currentRow).Cells(0).Value = frmMain.dayNames(currentDay)
-                                dgvScheduleView.Rows(currentRow).Cells(1 + column).Value = scheduleItems(i).description
+                                Dim column As Integer = ((scheduleItems(i).startTime - scheduleStartTime) / 100)
+                                Dim itemStopTime As Integer = scheduleItems(i).stopTime
+                                Dim itemStartTime As Integer = scheduleItems(i).startTime
+                                If ((itemStopTime Mod 100) <> 0) Then
+                                    itemStopTime = itemStopTime + (100 - (itemStopTime Mod 100))
+                                End If
+
+                                itemStartTime = itemStartTime - (itemStartTime Mod 100)
+                                Dim additionalColumnsNeeded As Integer = ((itemStopTime - itemStartTime) / 100) - 1
+
+                                'only uses for loop for multi column items
+                                If (additionalColumnsNeeded > 0) Then
+                                    For additionalColumn As Integer = 0 To additionalColumnsNeeded
+                                        dgvScheduleView.Rows(currentRow).Cells(1 + column + additionalColumn).Value = scheduleItems(i).description + ": " + String.Format("{0:0000}", scheduleItems(i).startTime) + " - " + String.Format("{0:0000}", scheduleItems(i).stopTime) + vbNewLine + dgvScheduleView.Rows(currentRow).Cells(1 + column + additionalColumn).Value
+                                    Next
+                                Else
+
+                                    dgvScheduleView.Rows(currentRow).Cells(1 + column).Value = scheduleItems(i).description + ": " + String.Format("{0:0000}", scheduleItems(i).startTime) + " - " + String.Format("{0:0000}", scheduleItems(i).stopTime) + vbNewLine + dgvScheduleView.Rows(currentRow).Cells(1 + column).Value
+                                End If
                             End If
                         Next
                         currentRow += 1
                     Else
-                        'currentRow -= 1 ' subtracts a one so that blank rows aren't created in the schedule
                     End If
                 Next
             End If

@@ -142,20 +142,20 @@ Partial Class frmMain
         '
         Me.AttendenceToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EnterAttendenceToolStripMenuItem, Me.ViewReportsToolStripMenuItem})
         Me.AttendenceToolStripMenuItem.Name = "AttendenceToolStripMenuItem"
-        Me.AttendenceToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
+        Me.AttendenceToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.AttendenceToolStripMenuItem.Text = "Attendence"
         '
         'EnterAttendenceToolStripMenuItem
         '
         Me.EnterAttendenceToolStripMenuItem.Name = "EnterAttendenceToolStripMenuItem"
-        Me.EnterAttendenceToolStripMenuItem.Size = New System.Drawing.Size(165, 22)
+        Me.EnterAttendenceToolStripMenuItem.Size = New System.Drawing.Size(171, 22)
         Me.EnterAttendenceToolStripMenuItem.Text = "Enter Attendence"
         '
         'ViewReportsToolStripMenuItem
         '
         Me.ViewReportsToolStripMenuItem.Name = "ViewReportsToolStripMenuItem"
-        Me.ViewReportsToolStripMenuItem.Size = New System.Drawing.Size(165, 22)
-        Me.ViewReportsToolStripMenuItem.Text = "View Reports"
+        Me.ViewReportsToolStripMenuItem.Size = New System.Drawing.Size(171, 22)
+        Me.ViewReportsToolStripMenuItem.Text = "View Daily Reports"
         '
         'ScedualsToolStripMenuItem
         '
@@ -167,7 +167,7 @@ Partial Class frmMain
         'viewScheduleToolStripMenuItem
         '
         Me.viewScheduleToolStripMenuItem.Name = "viewScheduleToolStripMenuItem"
-        Me.viewScheduleToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.viewScheduleToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.viewScheduleToolStripMenuItem.Text = "View Schedule"
         '
         'HelpToolStripMenuItem

@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmAttendenceEntry
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmAttendenceEntry
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAttendenceEntry))
@@ -38,6 +38,7 @@ Partial Class frmAttendenceEntry
         Me.CustomerAttendanceBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.JamilsGoodOldFunDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CustomerAttendanceTableAdapter = New Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSetTableAdapters.CustomerAttendanceTableAdapter()
+        Me.btnPrint = New System.Windows.Forms.Button()
         CType(Me.dgvAttendenceEntry, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.Jamils_Good_Old_FunDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -47,7 +48,7 @@ Partial Class frmAttendenceEntry
         '
         'dtpBeginDate
         '
-        Me.dtpBeginDate.Location = New System.Drawing.Point(297, 14)
+        Me.dtpBeginDate.Location = New System.Drawing.Point(297, 19)
         Me.dtpBeginDate.MaxDate = New Date(2017, 2, 23, 0, 0, 0, 0)
         Me.dtpBeginDate.MinDate = New Date(1900, 1, 1, 0, 0, 0, 0)
         Me.dtpBeginDate.Name = "dtpBeginDate"
@@ -57,7 +58,7 @@ Partial Class frmAttendenceEntry
         '
         'dtpEndDate
         '
-        Me.dtpEndDate.Location = New System.Drawing.Point(568, 14)
+        Me.dtpEndDate.Location = New System.Drawing.Point(568, 19)
         Me.dtpEndDate.MaxDate = New Date(2017, 2, 23, 0, 0, 0, 0)
         Me.dtpEndDate.MinDate = New Date(1900, 1, 1, 0, 0, 0, 0)
         Me.dtpEndDate.Name = "dtpEndDate"
@@ -68,7 +69,7 @@ Partial Class frmAttendenceEntry
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(509, 18)
+        Me.Label1.Location = New System.Drawing.Point(509, 23)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(47, 13)
         Me.Label1.TabIndex = 2
@@ -77,7 +78,7 @@ Partial Class frmAttendenceEntry
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(227, 18)
+        Me.Label2.Location = New System.Drawing.Point(227, 23)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(64, 13)
         Me.Label2.TabIndex = 3
@@ -85,7 +86,7 @@ Partial Class frmAttendenceEntry
         '
         'btnRefresh
         '
-        Me.btnRefresh.Location = New System.Drawing.Point(783, 11)
+        Me.btnRefresh.Location = New System.Drawing.Point(783, 18)
         Me.btnRefresh.Name = "btnRefresh"
         Me.btnRefresh.Size = New System.Drawing.Size(75, 23)
         Me.btnRefresh.TabIndex = 4
@@ -94,13 +95,16 @@ Partial Class frmAttendenceEntry
         '
         'dgvAttendenceEntry
         '
+        Me.dgvAttendenceEntry.AllowUserToAddRows = False
+        Me.dgvAttendenceEntry.AllowUserToDeleteRows = False
         Me.dgvAttendenceEntry.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvAttendenceEntry.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colDate, Me.colDay})
-        Me.dgvAttendenceEntry.Location = New System.Drawing.Point(12, 45)
+        Me.dgvAttendenceEntry.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.dgvAttendenceEntry.Location = New System.Drawing.Point(0, 61)
         Me.dgvAttendenceEntry.Name = "dgvAttendenceEntry"
         Me.dgvAttendenceEntry.ReadOnly = True
         Me.dgvAttendenceEntry.RowHeadersVisible = False
-        Me.dgvAttendenceEntry.Size = New System.Drawing.Size(1029, 600)
+        Me.dgvAttendenceEntry.Size = New System.Drawing.Size(1053, 596)
         Me.dgvAttendenceEntry.TabIndex = 5
         '
         'colDate
@@ -119,17 +123,19 @@ Partial Class frmAttendenceEntry
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.btnPrint)
         Me.GroupBox1.Controls.Add(Me.btnAllowEdits)
-        Me.GroupBox1.Location = New System.Drawing.Point(-6, -16)
+        Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1066, 55)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 0, 0, 3)
+        Me.GroupBox1.Size = New System.Drawing.Size(1053, 55)
         Me.GroupBox1.TabIndex = 6
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "GroupBox1"
         '
         'btnAllowEdits
         '
-        Me.btnAllowEdits.Location = New System.Drawing.Point(18, 28)
+        Me.btnAllowEdits.Location = New System.Drawing.Point(12, 18)
         Me.btnAllowEdits.Name = "btnAllowEdits"
         Me.btnAllowEdits.Size = New System.Drawing.Size(140, 23)
         Me.btnAllowEdits.TabIndex = 7
@@ -144,7 +150,7 @@ Partial Class frmAttendenceEntry
         'CustomerAttendanceBindingSource
         '
         Me.CustomerAttendanceBindingSource.DataMember = "CustomerAttendance"
-        Me.CustomerAttendanceBindingSource.DataSource = Me.Jamils_Good_Old_FunDataSet
+        Me.CustomerAttendanceBindingSource.DataSource = Me.JamilsGoodOldFunDataSetBindingSource
         '
         'JamilsGoodOldFunDataSetBindingSource
         '
@@ -154,6 +160,15 @@ Partial Class frmAttendenceEntry
         'CustomerAttendanceTableAdapter
         '
         Me.CustomerAttendanceTableAdapter.ClearBeforeFill = True
+        '
+        'btnPrint
+        '
+        Me.btnPrint.Location = New System.Drawing.Point(966, 18)
+        Me.btnPrint.Name = "btnPrint"
+        Me.btnPrint.Size = New System.Drawing.Size(75, 23)
+        Me.btnPrint.TabIndex = 7
+        Me.btnPrint.Text = "Print"
+        Me.btnPrint.UseVisualStyleBackColor = True
         '
         'frmAttendenceEntry
         '
@@ -168,7 +183,7 @@ Partial Class frmAttendenceEntry
         Me.Controls.Add(Me.dtpBeginDate)
         Me.Controls.Add(Me.GroupBox1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MaximumSize = New System.Drawing.Size(1069, 696)
+        Me.MaximumSize = New System.Drawing.Size(2600, 696)
         Me.Name = "frmAttendenceEntry"
         Me.Text = "Enter Customer Attendance"
         CType(Me.dgvAttendenceEntry, System.ComponentModel.ISupportInitialize).EndInit()
@@ -195,4 +210,5 @@ Partial Class frmAttendenceEntry
     Friend WithEvents btnAllowEdits As Button
     Friend WithEvents colDate As DataGridViewTextBoxColumn
     Friend WithEvents colDay As DataGridViewTextBoxColumn
+    Friend WithEvents btnPrint As Button
 End Class

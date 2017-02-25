@@ -100,6 +100,7 @@ Public Class frmAddScheduleItem
 
     Private Sub nudStart_ValueChanged(sender As Object, e As EventArgs) Handles nudStart.Leave
         Dim valueEnd As Integer
+        'only gets the last two digits from the time
         If (nudStart.Value.ToString.Length() <= 2) Then
             valueEnd = nudStart.Value
         Else
@@ -116,6 +117,7 @@ Public Class frmAddScheduleItem
     Private Sub nudStop_ValueChanged(sender As Object, e As EventArgs) Handles nudStop.Leave
 
         Dim valueEnd As Integer
+        'only gets the last two digits from the time
         If (nudStop.Value.ToString.Length() <= 2) Then
             valueEnd = nudStop.Value
         Else
@@ -174,7 +176,39 @@ Public Class frmAddScheduleItem
 
     Private Sub nudStart_ValueChanged_1(sender As Object, e As EventArgs) Handles nudStart.ValueChanged
 
+        Dim valueEnd As Integer
+        If (nudStart.Value.ToString.Length() <= 2) Then
+            valueEnd = nudStart.Value
+        Else
+            valueEnd = Int(nudStart.Value.ToString.Remove(0, nudStart.Value.ToString.Length() - 2))
+        End If
+        If (valueEnd > 59 And valueEnd < 99) Then
+
+            If valueEnd = 85 Then
+                nudStart.Value = nudStart.Value - valueEnd + 45
+            Else
+                nudStart.Value = nudStart.Value + (100 - valueEnd)
+            End If
+        End If
+
     End Sub
 
+    Private Sub nudStop_ValueChanged_1(sender As Object, e As EventArgs) Handles nudStop.ValueChanged
 
+        Dim valueEnd As Integer
+        'only gets the last two digits from the time
+        If (nudStop.Value.ToString.Length() <= 2) Then
+            valueEnd = nudStop.Value
+        Else
+            valueEnd = Int(nudStop.Value.ToString.Remove(0, nudStop.Value.ToString.Length() - 2))
+        End If
+        If (valueEnd > 59 And valueEnd < 99 And valueEnd <> 85) Then
+            If valueEnd = 85 Then
+                MessageBox.Show(valueEnd)
+            Else
+                nudStop.Value = nudStop.Value + (100 - valueEnd)
+            End If
+
+        End If
+    End Sub
 End Class

@@ -8,7 +8,8 @@ Public Class frmMain
     Dim connectionString As String = My.Settings.Database 'default is connection string for the database that the program comes with
     Public database As OleDbConnection
     Public dataAdapter As OleDbDataAdapter = New OleDbDataAdapter()
-
+    'holds the day names for easy access in for loops in schedule viewer and attendence
+    Public dayNames() As String = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"}
     'variable to keep track of the current viewed employee
     Public currentEmployee As Integer = 0
     'tracks the day column sort order

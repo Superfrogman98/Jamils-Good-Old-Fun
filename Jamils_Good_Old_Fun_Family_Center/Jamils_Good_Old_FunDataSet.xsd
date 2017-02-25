@@ -223,7 +223,7 @@ FROM            EmployeeSchedule</CommandText>
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT ID, attendanceDate, attendanceTime, attendanceAmount FROM CustomerAttendance</CommandText>
                     <Parameters />
                   </DbCommand>
@@ -263,7 +263,7 @@ FROM            EmployeeSchedule</CommandText>
   <xs:element name="Jamils_Good_Old_FunDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="Jamils_Good_Old_FunDataSet" msprop:Generator_UserDSName="Jamils_Good_Old_FunDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="EmployeeData" msprop:Generator_TableClassName="EmployeeDataDataTable" msprop:Generator_TableVarName="tableEmployeeData" msprop:Generator_TablePropName="EmployeeData" msprop:Generator_RowDeletingName="EmployeeDataRowDeleting" msprop:Generator_RowChangingName="EmployeeDataRowChanging" msprop:Generator_RowEvHandlerName="EmployeeDataRowChangeEventHandler" msprop:Generator_RowDeletedName="EmployeeDataRowDeleted" msprop:Generator_UserTableName="EmployeeData" msprop:Generator_RowChangedName="EmployeeDataRowChanged" msprop:Generator_RowEvArgName="EmployeeDataRowChangeEvent" msprop:Generator_RowClassName="EmployeeDataRow">
+        <xs:element name="EmployeeData" msprop:Generator_TableClassName="EmployeeDataDataTable" msprop:Generator_TableVarName="tableEmployeeData" msprop:Generator_RowChangedName="EmployeeDataRowChanged" msprop:Generator_TablePropName="EmployeeData" msprop:Generator_RowDeletingName="EmployeeDataRowDeleting" msprop:Generator_RowChangingName="EmployeeDataRowChanging" msprop:Generator_RowEvHandlerName="EmployeeDataRowChangeEventHandler" msprop:Generator_RowDeletedName="EmployeeDataRowDeleted" msprop:Generator_RowClassName="EmployeeDataRow" msprop:Generator_UserTableName="EmployeeData" msprop:Generator_RowEvArgName="EmployeeDataRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -327,7 +327,7 @@ FROM            EmployeeSchedule</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="EmployeeSchedule" msprop:Generator_TableClassName="EmployeeScheduleDataTable" msprop:Generator_TableVarName="tableEmployeeSchedule" msprop:Generator_RowChangedName="EmployeeScheduleRowChanged" msprop:Generator_TablePropName="EmployeeSchedule" msprop:Generator_RowDeletingName="EmployeeScheduleRowDeleting" msprop:Generator_RowChangingName="EmployeeScheduleRowChanging" msprop:Generator_RowEvHandlerName="EmployeeScheduleRowChangeEventHandler" msprop:Generator_RowDeletedName="EmployeeScheduleRowDeleted" msprop:Generator_RowClassName="EmployeeScheduleRow" msprop:Generator_UserTableName="EmployeeSchedule" msprop:Generator_RowEvArgName="EmployeeScheduleRowChangeEvent">
+        <xs:element name="EmployeeSchedule" msprop:Generator_TableClassName="EmployeeScheduleDataTable" msprop:Generator_TableVarName="tableEmployeeSchedule" msprop:Generator_TablePropName="EmployeeSchedule" msprop:Generator_RowDeletingName="EmployeeScheduleRowDeleting" msprop:Generator_RowChangingName="EmployeeScheduleRowChanging" msprop:Generator_RowEvHandlerName="EmployeeScheduleRowChangeEventHandler" msprop:Generator_RowDeletedName="EmployeeScheduleRowDeleted" msprop:Generator_UserTableName="EmployeeSchedule" msprop:Generator_RowChangedName="EmployeeScheduleRowChanged" msprop:Generator_RowEvArgName="EmployeeScheduleRowChangeEvent" msprop:Generator_RowClassName="EmployeeScheduleRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -359,7 +359,7 @@ FROM            EmployeeSchedule</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CustomerAttendance" msprop:Generator_TableClassName="CustomerAttendanceDataTable" msprop:Generator_TableVarName="tableCustomerAttendance" msprop:Generator_RowChangedName="CustomerAttendanceRowChanged" msprop:Generator_TablePropName="CustomerAttendance" msprop:Generator_RowDeletingName="CustomerAttendanceRowDeleting" msprop:Generator_RowChangingName="CustomerAttendanceRowChanging" msprop:Generator_RowEvHandlerName="CustomerAttendanceRowChangeEventHandler" msprop:Generator_RowDeletedName="CustomerAttendanceRowDeleted" msprop:Generator_RowClassName="CustomerAttendanceRow" msprop:Generator_UserTableName="CustomerAttendance" msprop:Generator_RowEvArgName="CustomerAttendanceRowChangeEvent">
+        <xs:element name="CustomerAttendance" msprop:Generator_TableClassName="CustomerAttendanceDataTable" msprop:Generator_TableVarName="tableCustomerAttendance" msprop:Generator_TablePropName="CustomerAttendance" msprop:Generator_RowDeletingName="CustomerAttendanceRowDeleting" msprop:Generator_RowChangingName="CustomerAttendanceRowChanging" msprop:Generator_RowEvHandlerName="CustomerAttendanceRowChangeEventHandler" msprop:Generator_RowDeletedName="CustomerAttendanceRowDeleted" msprop:Generator_UserTableName="CustomerAttendance" msprop:Generator_RowChangedName="CustomerAttendanceRowChanged" msprop:Generator_RowEvArgName="CustomerAttendanceRowChangeEvent" msprop:Generator_RowClassName="CustomerAttendanceRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />

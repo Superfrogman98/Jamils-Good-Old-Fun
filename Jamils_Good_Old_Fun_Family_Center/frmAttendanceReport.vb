@@ -74,16 +74,15 @@ Public Class frmAttendanceReport
     End Sub
 
     Private Sub btnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click
-
-        Dim confirmRemove As Integer
-        'code for printing the chart
         Dim pd As New System.Drawing.Printing.PrintDocument()
         pd.DefaultPageSettings.Landscape = True
         AddHandler pd.PrintPage, AddressOf pd_PrintPage
-        confirmRemove = MessageBox.Show("Print chart", "Confirm Action", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
-        If confirmRemove = 6 Then
-            pd.Print()
-        End If
+
+        Dim dlgPrintPreview As New EnhancedPrintPreviewDialog
+        dlgPrintPreview.ClientSize = New System.Drawing.Size(600, 600)
+        dlgPrintPreview.Document = pd ' Previews print
+        dlgPrintPreview.ShowDialog()
+
     End Sub
     Private Sub pd_PrintPage(ByVal sender As Object, ByVal ev As PrintPageEventArgs)
         ' Create and initialize print font 

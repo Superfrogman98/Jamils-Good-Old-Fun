@@ -1,7 +1,13 @@
 ﻿'Programmer: Max Buckel
 'Date: 2017-2-25
 'function: display the total attendance of the center by days and total amount
+
+Imports System.Drawing
+Imports System.Drawing.Printing
+
 Public Class frmAttendanceReport
+
+
     'handles the loading of form, fills the data source and sets the range max values
     Private Sub frmAttendanceReport_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'Jamils_Good_Old_FunDataSet.CustomerAttendance' table. You can move, or remove it, as needed.
@@ -66,4 +72,27 @@ Public Class frmAttendanceReport
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
         Me.Close()
     End Sub
+
+    Private Sub btnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click
+
+        Dim confirmRemove As Integer
+        'code for printing the chart
+        Dim pd As New System.Drawing.Printing.PrintDocument()
+        pd.DefaultPageSettings.Landscape = True
+        AddHandler pd.PrintPage, AddressOf pd_PrintPage
+        confirmRemove = MessageBox.Show("Print chart", "Confirm Action", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+        If confirmRemove = 6 Then
+            pd.Print()
+        End If
+    End Sub
+    Private Sub pd_PrintPage(ByVal sender As Object, ByVal ev As PrintPageEventArgs)
+        ' Create and initialize print font 
+        Dim printFont As New System.Drawing.Font("Arial", 10)
+        ' Create Rectangle structure, used to set the position of the chart 
+        Dim myRec As New System.Drawing.Rectangle(10, 30, 1000, 750)
+
+        ' Draw  the chart
+        chrAttendance.Printing.PrintPaint(ev.Graphics, myRec)
+    End Sub
+
 End Class

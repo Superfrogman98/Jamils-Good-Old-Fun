@@ -32,12 +32,13 @@ Partial Class frmAttendanceReport
         Me.Jamils_Good_Old_FunDataSet = New Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSet()
         Me.CustomerAttendanceTableAdapter = New Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSetTableAdapters.CustomerAttendanceTableAdapter()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btnClose = New System.Windows.Forms.Button()
         Me.btnPrint = New System.Windows.Forms.Button()
         Me.btnRefresh = New System.Windows.Forms.Button()
         Me.dtpBeginDate = New System.Windows.Forms.DateTimePicker()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.lblNoItems = New System.Windows.Forms.Label()
-        Me.btnClose = New System.Windows.Forms.Button()
+        Me.ppdChart = New System.Windows.Forms.PrintPreviewDialog()
         CType(Me.chrAttendance, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CustomerAttendanceBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.JamilsGoodOldFunDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -93,6 +94,16 @@ Partial Class frmAttendanceReport
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         '
+        'btnClose
+        '
+        Me.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.btnClose.Location = New System.Drawing.Point(870, 16)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(75, 23)
+        Me.btnClose.TabIndex = 9
+        Me.btnClose.Text = "Close"
+        Me.btnClose.UseVisualStyleBackColor = True
+        '
         'btnPrint
         '
         Me.btnPrint.Location = New System.Drawing.Point(789, 16)
@@ -141,15 +152,15 @@ Partial Class frmAttendanceReport
         Me.lblNoItems.Text = "No Attendence This Week"
         Me.lblNoItems.Visible = False
         '
-        'btnClose
+        'ppdChart
         '
-        Me.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnClose.Location = New System.Drawing.Point(870, 16)
-        Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(75, 23)
-        Me.btnClose.TabIndex = 9
-        Me.btnClose.Text = "Close"
-        Me.btnClose.UseVisualStyleBackColor = True
+        Me.ppdChart.AutoScrollMargin = New System.Drawing.Size(0, 0)
+        Me.ppdChart.AutoScrollMinSize = New System.Drawing.Size(0, 0)
+        Me.ppdChart.ClientSize = New System.Drawing.Size(400, 300)
+        Me.ppdChart.Enabled = True
+        Me.ppdChart.Icon = CType(resources.GetObject("ppdChart.Icon"), System.Drawing.Icon)
+        Me.ppdChart.Name = "ppdChart"
+        Me.ppdChart.Visible = False
         '
         'frmAttendanceReport
         '
@@ -187,4 +198,5 @@ Partial Class frmAttendanceReport
     Friend WithEvents lblNoItems As Label
     Friend WithEvents btnPrint As Button
     Friend WithEvents btnClose As Button
+    Friend WithEvents ppdChart As PrintPreviewDialog
 End Class

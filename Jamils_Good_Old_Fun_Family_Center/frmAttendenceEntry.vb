@@ -4,6 +4,9 @@
 Imports System.Data.OleDb
 Public Class frmAttendenceEntry
 
+
+
+    'variable for checking if the user is allowed to edit
     Public allowEdits As Boolean = False
 
     Private Sub frmAttendenceEntry_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -158,5 +161,11 @@ Public Class frmAttendenceEntry
 
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
         Me.Close()
+    End Sub
+
+    'handles the printing of the table
+    Private Sub btnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click
+
+
     End Sub
 End Class

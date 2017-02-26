@@ -279,7 +279,7 @@ Public Class frmMain
             Dim name As String = InputBox("Name of New Database: ", "Create New Database", "Jamils_Good_Old_Fun_New",) & ".accdb" ' gets the name from the user
             Dim folder As String = "C:\Temp\"
             If name <> ".accdb" Then ' checks that the user didn't cancel the input box
-                FileCopy("../../My Project/Resources/Jamils_Good_Old_Fun_Template.accdb", folder & name)
+                FileCopy("My Project/Resources/Jamils_Good_Old_Fun_Template.accdb", folder & name)
                 MessageBox.Show("New Database Created in: " & folder)
             End If
         Catch ex As Exception 'if the file could not be created, writes to the console

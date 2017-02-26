@@ -33,13 +33,13 @@ Partial Class frmAttendenceEntry
         Me.colDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colDay = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btnClose = New System.Windows.Forms.Button()
         Me.btnPrint = New System.Windows.Forms.Button()
         Me.btnAllowEdits = New System.Windows.Forms.Button()
         Me.Jamils_Good_Old_FunDataSet = New Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSet()
         Me.CustomerAttendanceBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.JamilsGoodOldFunDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CustomerAttendanceTableAdapter = New Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSetTableAdapters.CustomerAttendanceTableAdapter()
-        Me.btnClose = New System.Windows.Forms.Button()
         CType(Me.dgvAttendenceEntry, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.Jamils_Good_Old_FunDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -135,6 +135,16 @@ Partial Class frmAttendenceEntry
         Me.GroupBox1.TabIndex = 4
         Me.GroupBox1.TabStop = False
         '
+        'btnClose
+        '
+        Me.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.btnClose.Location = New System.Drawing.Point(945, 18)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(75, 23)
+        Me.btnClose.TabIndex = 8
+        Me.btnClose.Text = "Close"
+        Me.btnClose.UseVisualStyleBackColor = True
+        '
         'btnPrint
         '
         Me.btnPrint.Location = New System.Drawing.Point(864, 18)
@@ -171,16 +181,6 @@ Partial Class frmAttendenceEntry
         'CustomerAttendanceTableAdapter
         '
         Me.CustomerAttendanceTableAdapter.ClearBeforeFill = True
-        '
-        'btnClose
-        '
-        Me.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnClose.Location = New System.Drawing.Point(945, 18)
-        Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(75, 23)
-        Me.btnClose.TabIndex = 8
-        Me.btnClose.Text = "Close"
-        Me.btnClose.UseVisualStyleBackColor = True
         '
         'frmAttendenceEntry
         '

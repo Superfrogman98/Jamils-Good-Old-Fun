@@ -73,3 +73,4 @@ C:\Users\241848.STHS\Source\Repos\Jamils-Good-Old-Fun\Jamils_Good_Old_Fun_Family
 C:\Users\241848.STHS\Source\Repos\Jamils-Good-Old-Fun\Jamils_Good_Old_Fun_Family_Center\obj\Debug\Jamils_Good_Old_Fun_Family_Center.vbproj.GenerateResource.Cache
 C:\Users\241848.STHS\Source\Repos\Jamils-Good-Old-Fun\Jamils_Good_Old_Fun_Family_Center\obj\Debug\Jamils_Good_Old_Fun_Family_Center.exe.manifest
 C:\Users\241848.STHS\Source\Repos\Jamils-Good-Old-Fun\Jamils_Good_Old_Fun_Family_Center\obj\Debug\Jamils_Good_Old_Fun_Family_Center.application
+C:\Users\Leana\Source\Repos\Jamils-Good-Old-Fun\Jamils_Good_Old_Fun_Family_Center\bin\Debug\My Project\Resources\Jamils_Good_Old_Fun_Template.accdb

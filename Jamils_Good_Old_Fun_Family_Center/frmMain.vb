@@ -150,7 +150,7 @@ Public Class frmMain
             openFileDialog1.Title = "Select Database File"
             openFileDialog1.Filter = "MS-Access Files|*.accdb"
             openFileDialog1.FileName = ""
-            openFileDialog1.InitialDirectory = "C:\Temp"  'Suggested path for where the file could exist
+            openFileDialog1.InitialDirectory = "|DataDirectory|"  'Suggested path for where the file could exist
             openFileDialog1.ShowDialog()
 
             'if no file is selected then message will be displayed
@@ -159,6 +159,7 @@ Public Class frmMain
             Else
                 Dim dbNameWithPath As String = openFileDialog1.FileName 'openFileDialog1.FileName is where the selected file is stored
                 connectionString = "Provider=Microsoft.ace.OLEDB.12.0;Data Source=" & dbNameWithPath
+                Console.Write(dbNameWithPath)
                 My.Settings.Database = connectionString 'sets the settings of the program to persist with the selected file across multiple instances
 
                 database = New OleDbConnection(connectionString)
@@ -166,6 +167,7 @@ Public Class frmMain
                 Me.EmployeeDataTableAdapter.Connection = database
                 Me.EmployeeScheduleTableAdapter.Connection = database
                 Me.EmployeeDataTableAdapter.Fill(Me.Jamils_Good_Old_FunDataSet.EmployeeData)
+                Me.EmployeeScheduleTableAdapter.Fill(Me.Jamils_Good_Old_FunDataSet.EmployeeSchedule)
             End If
         Catch ex As Exception
             MessageBox.Show("New database connection failed")
@@ -247,9 +249,9 @@ Public Class frmMain
                 Dim intDayLocationX As Integer = (Me.Location.X + 230) ' 21 differece to account for border and padding
                 Dim pntDay As New Point(intDayLocationX, intDayLocationY)
                 frmAddScheduleItem.Location = pntDay
-                    frmAddScheduleItem.ShowDialog()
-                End If
+                frmAddScheduleItem.ShowDialog()
             End If
+        End If
     End Sub
 
     'all four functions below open up forms from the tool strip, viewSchedule, Help, Enter Attendence, and View Reports
@@ -269,6 +271,21 @@ Public Class frmMain
         objViewReport.ShowDialog()
     End Sub
 
+    'opens up dialog for user to creat a new database with a name
+    Private Sub CreateNewDatabaseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CreateNewDatabaseToolStripMenuItem.Click
 
+
+        Try
+            Dim name As String = InputBox("Name of New Database: ", "Create New Database", "Jamils_Good_Old_Fun_New",) & ".accdb" ' gets the name from the user
+
+            If name <> ".accdb" Then ' checks that the user didn't cancel the input box
+                FileCopy("../../My Project/Resources/Jamils_Good_Old_Fun_Template.accdb", name)
+                Console.Write("New Database Created")
+            End If
+        Catch ex As Exception 'if the file could not be created, writes to the console
+            Console.Write("File could not be created: " & ex.ToString())
+        End Try
+
+    End Sub
 End Class
 

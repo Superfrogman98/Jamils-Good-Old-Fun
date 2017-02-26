@@ -27,7 +27,6 @@ Partial Class frmMain
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ChangeDatabaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CloseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EmployeesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NewEmployeeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -79,6 +78,9 @@ Partial Class frmMain
         Me.EmployeeScheduleBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.EmployeeDataTableAdapter = New Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSetTableAdapters.EmployeeDataTableAdapter()
         Me.EmployeeScheduleTableAdapter = New Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSetTableAdapters.EmployeeScheduleTableAdapter()
+        Me.DatebaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ChangeDatabaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CreateNewDatabaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.gpbEmployees.SuspendLayout()
         CType(Me.dgvSchedule, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -102,21 +104,15 @@ Partial Class frmMain
         '
         'FileToolStripMenuItem
         '
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ChangeDatabaseToolStripMenuItem, Me.CloseToolStripMenuItem})
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DatebaseToolStripMenuItem, Me.CloseToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
         Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
         Me.FileToolStripMenuItem.Text = "File"
         '
-        'ChangeDatabaseToolStripMenuItem
-        '
-        Me.ChangeDatabaseToolStripMenuItem.Name = "ChangeDatabaseToolStripMenuItem"
-        Me.ChangeDatabaseToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
-        Me.ChangeDatabaseToolStripMenuItem.Text = "Change Database"
-        '
         'CloseToolStripMenuItem
         '
         Me.CloseToolStripMenuItem.Name = "CloseToolStripMenuItem"
-        Me.CloseToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
+        Me.CloseToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.CloseToolStripMenuItem.Text = "Close"
         '
         'EmployeesToolStripMenuItem
@@ -569,6 +565,25 @@ Partial Class frmMain
         '
         Me.EmployeeScheduleTableAdapter.ClearBeforeFill = True
         '
+        'DatebaseToolStripMenuItem
+        '
+        Me.DatebaseToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ChangeDatabaseToolStripMenuItem, Me.CreateNewDatabaseToolStripMenuItem})
+        Me.DatebaseToolStripMenuItem.Name = "DatebaseToolStripMenuItem"
+        Me.DatebaseToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.DatebaseToolStripMenuItem.Text = "Datebase"
+        '
+        'ChangeDatabaseToolStripMenuItem
+        '
+        Me.ChangeDatabaseToolStripMenuItem.Name = "ChangeDatabaseToolStripMenuItem"
+        Me.ChangeDatabaseToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
+        Me.ChangeDatabaseToolStripMenuItem.Text = "Change Database"
+        '
+        'CreateNewDatabaseToolStripMenuItem
+        '
+        Me.CreateNewDatabaseToolStripMenuItem.Name = "CreateNewDatabaseToolStripMenuItem"
+        Me.CreateNewDatabaseToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
+        Me.CreateNewDatabaseToolStripMenuItem.Text = "Create New Database"
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -635,7 +650,6 @@ Partial Class frmMain
     Friend WithEvents lblDOH As Label
     Friend WithEvents Label9 As Label
     Friend WithEvents btnEdit As Button
-    Friend WithEvents ChangeDatabaseToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Label7 As Label
     Friend WithEvents EmployeeScheduleBindingSource As BindingSource
     Friend WithEvents EmployeeScheduleTableAdapter As Jamils_Good_Old_FunDataSetTableAdapters.EmployeeScheduleTableAdapter
@@ -652,4 +666,7 @@ Partial Class frmMain
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
     Friend WithEvents dayID As DataGridViewTextBoxColumn
+    Friend WithEvents DatebaseToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ChangeDatabaseToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CreateNewDatabaseToolStripMenuItem As ToolStripMenuItem
 End Class

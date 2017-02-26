@@ -2,9 +2,9 @@
 'date: 2017-2-24
 'function: allows the user to enter attendence data and view it in a table format
 Imports System.Data.OleDb
+Imports System.Drawing.Printing
+
 Public Class frmAttendenceEntry
-
-
 
     'variable for checking if the user is allowed to edit
     Public allowEdits As Boolean = False
@@ -163,9 +163,12 @@ Public Class frmAttendenceEntry
         Me.Close()
     End Sub
 
-    'handles the printing of the table
+    'handles the printing of the table, calls on the data grid view printer module, module is from https://www.planet-source-code.com/vb/scripts/ShowCode.asp?txtCodeId=7777&lngWId=10
+
     Private Sub btnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click
 
-
+        DataGridViewPrinter.StartPrint(dgvAttendenceEntry, True, True, "Customer Attendence Records: " & dtpBeginDate.Value & " Through " & dtpEndDate.Value, "Jamils_Good_Old_Fun")
     End Sub
+
+
 End Class

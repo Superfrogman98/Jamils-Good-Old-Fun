@@ -40,6 +40,8 @@ Partial Class frmAttendenceEntry
         Me.CustomerAttendanceBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.JamilsGoodOldFunDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CustomerAttendanceTableAdapter = New Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSetTableAdapters.CustomerAttendanceTableAdapter()
+        Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
+        Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
         CType(Me.dgvAttendenceEntry, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.Jamils_Good_Old_FunDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -49,7 +51,7 @@ Partial Class frmAttendenceEntry
         '
         'dtpBeginDate
         '
-        Me.dtpBeginDate.Location = New System.Drawing.Point(297, 19)
+        Me.dtpBeginDate.Location = New System.Drawing.Point(228, 19)
         Me.dtpBeginDate.MaxDate = New Date(2017, 2, 23, 0, 0, 0, 0)
         Me.dtpBeginDate.MinDate = New Date(1900, 1, 1, 0, 0, 0, 0)
         Me.dtpBeginDate.Name = "dtpBeginDate"
@@ -59,7 +61,7 @@ Partial Class frmAttendenceEntry
         '
         'dtpEndDate
         '
-        Me.dtpEndDate.Location = New System.Drawing.Point(568, 19)
+        Me.dtpEndDate.Location = New System.Drawing.Point(487, 19)
         Me.dtpEndDate.MaxDate = New Date(2017, 2, 23, 0, 0, 0, 0)
         Me.dtpEndDate.MinDate = New Date(1900, 1, 1, 0, 0, 0, 0)
         Me.dtpEndDate.Name = "dtpEndDate"
@@ -70,7 +72,7 @@ Partial Class frmAttendenceEntry
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(509, 23)
+        Me.Label1.Location = New System.Drawing.Point(434, 23)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(47, 13)
         Me.Label1.TabIndex = 0
@@ -79,7 +81,7 @@ Partial Class frmAttendenceEntry
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(227, 23)
+        Me.Label2.Location = New System.Drawing.Point(158, 23)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(64, 13)
         Me.Label2.TabIndex = 0
@@ -87,7 +89,7 @@ Partial Class frmAttendenceEntry
         '
         'btnRefresh
         '
-        Me.btnRefresh.Location = New System.Drawing.Point(783, 18)
+        Me.btnRefresh.Location = New System.Drawing.Point(693, 19)
         Me.btnRefresh.Name = "btnRefresh"
         Me.btnRefresh.Size = New System.Drawing.Size(75, 23)
         Me.btnRefresh.TabIndex = 3
@@ -125,8 +127,13 @@ Partial Class frmAttendenceEntry
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.btnClose)
+        Me.GroupBox1.Controls.Add(Me.btnRefresh)
         Me.GroupBox1.Controls.Add(Me.btnPrint)
+        Me.GroupBox1.Controls.Add(Me.dtpEndDate)
+        Me.GroupBox1.Controls.Add(Me.Label1)
+        Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.btnAllowEdits)
+        Me.GroupBox1.Controls.Add(Me.dtpBeginDate)
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox1.Name = "GroupBox1"
@@ -138,7 +145,7 @@ Partial Class frmAttendenceEntry
         'btnClose
         '
         Me.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnClose.Location = New System.Drawing.Point(945, 18)
+        Me.btnClose.Location = New System.Drawing.Point(891, 20)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(75, 23)
         Me.btnClose.TabIndex = 8
@@ -147,11 +154,11 @@ Partial Class frmAttendenceEntry
         '
         'btnPrint
         '
-        Me.btnPrint.Location = New System.Drawing.Point(864, 18)
+        Me.btnPrint.Location = New System.Drawing.Point(774, 20)
         Me.btnPrint.Name = "btnPrint"
-        Me.btnPrint.Size = New System.Drawing.Size(75, 23)
+        Me.btnPrint.Size = New System.Drawing.Size(111, 23)
         Me.btnPrint.TabIndex = 6
-        Me.btnPrint.Text = "Print"
+        Me.btnPrint.Text = "Print Attendance"
         Me.btnPrint.UseVisualStyleBackColor = True
         '
         'btnAllowEdits
@@ -182,6 +189,16 @@ Partial Class frmAttendenceEntry
         '
         Me.CustomerAttendanceTableAdapter.ClearBeforeFill = True
         '
+        'PrintPreviewDialog1
+        '
+        Me.PrintPreviewDialog1.AutoScrollMargin = New System.Drawing.Size(0, 0)
+        Me.PrintPreviewDialog1.AutoScrollMinSize = New System.Drawing.Size(0, 0)
+        Me.PrintPreviewDialog1.ClientSize = New System.Drawing.Size(400, 300)
+        Me.PrintPreviewDialog1.Enabled = True
+        Me.PrintPreviewDialog1.Icon = CType(resources.GetObject("PrintPreviewDialog1.Icon"), System.Drawing.Icon)
+        Me.PrintPreviewDialog1.Name = "PrintPreviewDialog1"
+        Me.PrintPreviewDialog1.Visible = False
+        '
         'frmAttendenceEntry
         '
         Me.AcceptButton = Me.btnRefresh
@@ -190,11 +207,6 @@ Partial Class frmAttendenceEntry
         Me.CancelButton = Me.btnClose
         Me.ClientSize = New System.Drawing.Size(1053, 657)
         Me.Controls.Add(Me.dgvAttendenceEntry)
-        Me.Controls.Add(Me.btnRefresh)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.dtpEndDate)
-        Me.Controls.Add(Me.dtpBeginDate)
         Me.Controls.Add(Me.GroupBox1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximumSize = New System.Drawing.Size(2600, 696)
@@ -202,11 +214,11 @@ Partial Class frmAttendenceEntry
         Me.Text = "Enter Customer Attendance"
         CType(Me.dgvAttendenceEntry, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         CType(Me.Jamils_Good_Old_FunDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CustomerAttendanceBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.JamilsGoodOldFunDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
@@ -226,4 +238,6 @@ Partial Class frmAttendenceEntry
     Friend WithEvents colDay As DataGridViewTextBoxColumn
     Friend WithEvents btnPrint As Button
     Friend WithEvents btnClose As Button
+    Friend WithEvents PrintDocument1 As Printing.PrintDocument
+    Friend WithEvents PrintPreviewDialog1 As PrintPreviewDialog
 End Class

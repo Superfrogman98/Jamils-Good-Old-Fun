@@ -265,8 +265,17 @@ Public Class frmScheduleViewer
         singleEmployee = Not cbxAllEmployees.Checked
     End Sub
 
+    'handles the printing of the table, calls on the data grid view printer module, module is from https://www.planet-source-code.com/vb/scripts/ShowCode.asp?txtCodeId=7777&lngWId=10
     Private Sub btnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click
+        'gets string values for the table header
+        Dim employee As String = cbxEmployeeSelect.SelectedValue
+        If (cbxAllEmployees.Checked) Then
+            employee = "All Employees"
+        End If
 
+        Dim schedule As String = cbxViewSelect.SelectedValue
+
+        DataGridViewPrinter.StartPrint(dgvScheduleView, True, True, schedule & "View- Employee Schedule for " & employee, "Jamils_Good_Old_Fun")
     End Sub
 
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click

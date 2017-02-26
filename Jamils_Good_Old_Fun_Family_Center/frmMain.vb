@@ -217,27 +217,25 @@ Public Class frmMain
 
     'allows the schedule to be edited
     Private Sub btnEditSchedule_Click(sender As Object, e As EventArgs) Handles btnEditSchedule.Click
-        btnEditSchedule.Enabled = False
-        btnEditSchedule.Text = "Editing"
-        btnSubmit.Visible = True
-        dgvSchedule.ReadOnly = False
-        dgvSchedule.AllowUserToAddRows = True
-        dgvSchedule.Columns(0).ReadOnly = True
-        dgvSchedule.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        dgvSchedule.Rows(dgvSchedule.RowCount() - 1).Cells(1).Value = "Click to add item"
+        If btnEditSchedule.Text = "Edit Schedule" Then
+            btnEditSchedule.Text = "Stop Editing"
+            dgvSchedule.ReadOnly = False
+            dgvSchedule.AllowUserToAddRows = True
+            dgvSchedule.Columns(0).ReadOnly = True
+            dgvSchedule.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+            dgvSchedule.Rows(dgvSchedule.RowCount() - 1).Cells(1).Value = "Click to add item"
+        Else ' turns offschedule editing
+            btnEditSchedule.Text = "Edit Schedule"
+            dgvSchedule.ReadOnly = True
+            dgvSchedule.AllowUserToAddRows = False
+            dgvSchedule.SelectionMode = DataGridViewSelectionMode.CellSelect
+        End If
+
 
     End Sub
 
 
-    'turns off the editing of the schedule
-    Private Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
-        btnEditSchedule.Enabled = True
-        btnEditSchedule.Text = "Edit Schedule"
-        btnSubmit.Visible = False
-        dgvSchedule.ReadOnly = True
-        dgvSchedule.AllowUserToAddRows = False
-        dgvSchedule.SelectionMode = DataGridViewSelectionMode.CellSelect
-    End Sub
+
 
     'opens up the add schedule item form directly below the row selected
     Private Sub dgvSchedule_CellBeginEdit(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSchedule.CellClick
@@ -286,6 +284,10 @@ Public Class frmMain
             Console.Write("File could not be created: " & ex.ToString())
         End Try
 
+    End Sub
+    'handles the printing of the table, calls on the data grid view printer module, module is from https://www.planet-source-code.com/vb/scripts/ShowCode.asp?txtCodeId=7777&lngWId=10
+    Private Sub btnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click
+        DataGridViewPrinter.StartPrint(dgvSchedule, True, True, "Schedule for " & lblEmployeeName.Text, "Jamils_Good_Old_Fun")
     End Sub
 End Class
 

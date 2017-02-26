@@ -49,7 +49,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>g0x7f22h7T/UoS811WuhP/uipCH75h2PspTzIEEIVWM=</dsig:DigestValue>
+        <dsig:DigestValue>Xfq1wUK5EMW1303Tx/AV2DWWft69xFRMh2seTe/3Le8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -59,7 +59,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>RW7SF6rZ9+P5ZvtgXVODHV3MCMDAXnyTZtjAJxFaglE=</dsig:DigestValue>
+      <dsig:DigestValue>E2ksgGs2X1E4jXUVv1AbaMdK/HHs79rbk73Ujoqr1/Y=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Jamils_Good_Old_Fun_Family_Center.exe.config" size="1891">

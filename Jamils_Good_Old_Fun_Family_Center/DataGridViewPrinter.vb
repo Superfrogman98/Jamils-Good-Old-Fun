@@ -186,10 +186,13 @@ Module DataGridViewPrinter
                         Try
                             If oColumnTypes(i) Is GetType(DataGridViewTextBoxColumn) OrElse oColumnTypes(i) Is GetType(DataGridViewLinkColumn) Then
 
-                                e.Graphics.DrawString(oCell.Value.ToString, oCell.InheritedStyle.Font, New SolidBrush(oCell.InheritedStyle.ForeColor), New RectangleF(oColumnLefts(i), nTop, oColumnWidths(i), nHeight), oStringFormat)
-
+                                'checks for schedule datagridview so its values can be formated
+                                If DataGridViewToPrint.Name.ToString = "dgvSchedule" And (oCell.ColumnIndex = 2 Or oCell.ColumnIndex = 3) Then
+                                    e.Graphics.DrawString(String.Format("{0:0000}", oCell.Value), oCell.InheritedStyle.Font, New SolidBrush(oCell.InheritedStyle.ForeColor), New RectangleF(oColumnLefts(i), nTop, oColumnWidths(i), nHeight), oStringFormat)
+                                Else
+                                    e.Graphics.DrawString(oCell.Value.ToString, oCell.InheritedStyle.Font, New SolidBrush(oCell.InheritedStyle.ForeColor), New RectangleF(oColumnLefts(i), nTop, oColumnWidths(i), nHeight), oStringFormat)
+                                End If
                             ElseIf oColumnTypes(i) Is GetType(DataGridViewButtonColumn) Then
-
                                 oButton.Text = oCell.Value.ToString
                                 oButton.Size = New Size(oColumnWidths(i), nHeight)
                                 Dim oBitmap As New Bitmap(oButton.Width, oButton.Height)
@@ -225,6 +228,7 @@ Module DataGridViewPrinter
                             e.Graphics.DrawRectangle(Pens.Black, New Rectangle(oColumnLefts(i), nTop, oColumnWidths(i), nHeight))
 
                         Catch ex As Exception
+                            Console.Write("Null Cell Drawn")
                             oButton.Text = " "
                             oButton.Size = New Size(oColumnWidths(i), nHeight)
                             Dim oBitmap As New Bitmap(oButton.Width, oButton.Height)

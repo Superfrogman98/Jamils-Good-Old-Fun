@@ -41,7 +41,7 @@ Partial Class frmMain
         Me.viewScheduleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.gpbEmployees = New System.Windows.Forms.GroupBox()
-        Me.btnSubmit = New System.Windows.Forms.Button()
+        Me.btnPrint = New System.Windows.Forms.Button()
         Me.btnEditSchedule = New System.Windows.Forms.Button()
         Me.dgvSchedule = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -195,7 +195,7 @@ Partial Class frmMain
         'gpbEmployees
         '
         Me.gpbEmployees.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.gpbEmployees.Controls.Add(Me.btnSubmit)
+        Me.gpbEmployees.Controls.Add(Me.btnPrint)
         Me.gpbEmployees.Controls.Add(Me.btnEditSchedule)
         Me.gpbEmployees.Controls.Add(Me.dgvSchedule)
         Me.gpbEmployees.Controls.Add(Me.Label7)
@@ -226,15 +226,14 @@ Partial Class frmMain
         Me.gpbEmployees.TabIndex = 0
         Me.gpbEmployees.TabStop = False
         '
-        'btnSubmit
+        'btnPrint
         '
-        Me.btnSubmit.Location = New System.Drawing.Point(238, 185)
-        Me.btnSubmit.Name = "btnSubmit"
-        Me.btnSubmit.Size = New System.Drawing.Size(114, 23)
-        Me.btnSubmit.TabIndex = 6
-        Me.btnSubmit.Text = "Stop Editing"
-        Me.btnSubmit.UseVisualStyleBackColor = True
-        Me.btnSubmit.Visible = False
+        Me.btnPrint.Location = New System.Drawing.Point(238, 185)
+        Me.btnPrint.Name = "btnPrint"
+        Me.btnPrint.Size = New System.Drawing.Size(114, 23)
+        Me.btnPrint.TabIndex = 6
+        Me.btnPrint.Text = "Print Schedule"
+        Me.btnPrint.UseVisualStyleBackColor = True
         '
         'btnEditSchedule
         '
@@ -656,7 +655,6 @@ Partial Class frmMain
     Friend WithEvents EmployeeScheduleTableAdapter As Jamils_Good_Old_FunDataSetTableAdapters.EmployeeScheduleTableAdapter
     Friend WithEvents dgvSchedule As DataGridView
     Friend WithEvents btnEditSchedule As Button
-    Friend WithEvents btnSubmit As Button
     Friend WithEvents EmployeeScheduleBindingSource1 As BindingSource
     Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents FirstNameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
@@ -670,4 +668,5 @@ Partial Class frmMain
     Friend WithEvents DatebaseToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ChangeDatabaseToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CreateNewDatabaseToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents btnPrint As Button
 End Class

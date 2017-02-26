@@ -23,8 +23,8 @@ Partial Class frmScheduleViewer
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmScheduleViewer))
         Me.cbxViewSelect = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -35,6 +35,7 @@ Partial Class frmScheduleViewer
         Me.EmployeeDataTableAdapter = New Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSetTableAdapters.EmployeeDataTableAdapter()
         Me.btnRefresh = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btnClose = New System.Windows.Forms.Button()
         Me.cbxAllEmployees = New System.Windows.Forms.CheckBox()
         Me.btnPrint = New System.Windows.Forms.Button()
         Me.DirectorySearcher1 = New System.DirectoryServices.DirectorySearcher()
@@ -55,7 +56,7 @@ Partial Class frmScheduleViewer
         Me.cbxViewSelect.Location = New System.Drawing.Point(81, 17)
         Me.cbxViewSelect.Name = "cbxViewSelect"
         Me.cbxViewSelect.Size = New System.Drawing.Size(121, 21)
-        Me.cbxViewSelect.TabIndex = 0
+        Me.cbxViewSelect.TabIndex = 1
         '
         'Label1
         '
@@ -63,7 +64,7 @@ Partial Class frmScheduleViewer
         Me.Label1.Location = New System.Drawing.Point(6, 20)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(69, 13)
-        Me.Label1.TabIndex = 1
+        Me.Label1.TabIndex = 0
         Me.Label1.Text = "View Select: "
         '
         'cbxEmployeeSelect
@@ -94,7 +95,7 @@ Partial Class frmScheduleViewer
         Me.Label2.Location = New System.Drawing.Point(217, 22)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(92, 13)
-        Me.Label2.TabIndex = 3
+        Me.Label2.TabIndex = 0
         Me.Label2.Text = "Employee Select: "
         '
         'EmployeeDataTableAdapter
@@ -112,6 +113,7 @@ Partial Class frmScheduleViewer
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.btnClose)
         Me.GroupBox1.Controls.Add(Me.cbxAllEmployees)
         Me.GroupBox1.Controls.Add(Me.btnRefresh)
         Me.GroupBox1.Controls.Add(Me.Label1)
@@ -122,8 +124,18 @@ Partial Class frmScheduleViewer
         Me.GroupBox1.Location = New System.Drawing.Point(-3, -11)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(1196, 52)
-        Me.GroupBox1.TabIndex = 5
+        Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
+        '
+        'btnClose
+        '
+        Me.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.btnClose.Location = New System.Drawing.Point(1023, 16)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(75, 23)
+        Me.btnClose.TabIndex = 9
+        Me.btnClose.Text = "Close"
+        Me.btnClose.UseVisualStyleBackColor = True
         '
         'cbxAllEmployees
         '
@@ -131,16 +143,16 @@ Partial Class frmScheduleViewer
         Me.cbxAllEmployees.Location = New System.Drawing.Point(442, 20)
         Me.cbxAllEmployees.Name = "cbxAllEmployees"
         Me.cbxAllEmployees.Size = New System.Drawing.Size(117, 17)
-        Me.cbxAllEmployees.TabIndex = 7
+        Me.cbxAllEmployees.TabIndex = 3
         Me.cbxAllEmployees.Text = "View All Employees"
         Me.cbxAllEmployees.UseVisualStyleBackColor = True
         '
         'btnPrint
         '
-        Me.btnPrint.Location = New System.Drawing.Point(1053, 15)
+        Me.btnPrint.Location = New System.Drawing.Point(920, 16)
         Me.btnPrint.Name = "btnPrint"
         Me.btnPrint.Size = New System.Drawing.Size(97, 23)
-        Me.btnPrint.TabIndex = 6
+        Me.btnPrint.TabIndex = 5
         Me.btnPrint.Text = "Print Schedule"
         Me.btnPrint.UseVisualStyleBackColor = True
         '
@@ -155,29 +167,29 @@ Partial Class frmScheduleViewer
         Me.dgvScheduleView.AllowUserToAddRows = False
         Me.dgvScheduleView.AllowUserToDeleteRows = False
         Me.dgvScheduleView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvScheduleView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvScheduleView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.dgvScheduleView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft
-        DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvScheduleView.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvScheduleView.DefaultCellStyle = DataGridViewCellStyle4
         Me.dgvScheduleView.Location = New System.Drawing.Point(6, 47)
         Me.dgvScheduleView.Name = "dgvScheduleView"
         Me.dgvScheduleView.ReadOnly = True
         Me.dgvScheduleView.RowHeadersVisible = False
         Me.dgvScheduleView.Size = New System.Drawing.Size(1141, 554)
-        Me.dgvScheduleView.TabIndex = 9
+        Me.dgvScheduleView.TabIndex = 10
         '
         'PrintPreviewDialog1
         '
@@ -194,6 +206,7 @@ Partial Class frmScheduleViewer
         Me.AcceptButton = Me.btnRefresh
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.CancelButton = Me.btnClose
         Me.ClientSize = New System.Drawing.Size(1154, 613)
         Me.Controls.Add(Me.dgvScheduleView)
         Me.Controls.Add(Me.GroupBox1)
@@ -225,4 +238,5 @@ Partial Class frmScheduleViewer
     Friend WithEvents dgvScheduleView As DataGridView
     Friend WithEvents PrintDocument1 As Printing.PrintDocument
     Friend WithEvents PrintPreviewDialog1 As PrintPreviewDialog
+    Friend WithEvents btnClose As Button
 End Class

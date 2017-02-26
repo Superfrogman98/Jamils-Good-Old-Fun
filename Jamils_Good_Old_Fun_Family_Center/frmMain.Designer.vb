@@ -96,7 +96,8 @@ Partial Class frmMain
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(728, 24)
-        Me.MenuStrip1.TabIndex = 0
+        Me.MenuStrip1.TabIndex = 8
+        Me.MenuStrip1.TabStop = True
         Me.MenuStrip1.Text = "MenuStrip1"
         '
         'FileToolStripMenuItem
@@ -142,7 +143,7 @@ Partial Class frmMain
         '
         Me.AttendenceToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EnterAttendenceToolStripMenuItem, Me.ViewReportsToolStripMenuItem})
         Me.AttendenceToolStripMenuItem.Name = "AttendenceToolStripMenuItem"
-        Me.AttendenceToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AttendenceToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
         Me.AttendenceToolStripMenuItem.Text = "Attendence"
         '
         'EnterAttendenceToolStripMenuItem
@@ -167,7 +168,7 @@ Partial Class frmMain
         'viewScheduleToolStripMenuItem
         '
         Me.viewScheduleToolStripMenuItem.Name = "viewScheduleToolStripMenuItem"
-        Me.viewScheduleToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.viewScheduleToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
         Me.viewScheduleToolStripMenuItem.Text = "View Schedule"
         '
         'HelpToolStripMenuItem
@@ -215,7 +216,7 @@ Partial Class frmMain
         Me.btnSubmit.Location = New System.Drawing.Point(238, 185)
         Me.btnSubmit.Name = "btnSubmit"
         Me.btnSubmit.Size = New System.Drawing.Size(114, 23)
-        Me.btnSubmit.TabIndex = 1
+        Me.btnSubmit.TabIndex = 6
         Me.btnSubmit.Text = "Stop Editing"
         Me.btnSubmit.UseVisualStyleBackColor = True
         Me.btnSubmit.Visible = False
@@ -228,7 +229,7 @@ Partial Class frmMain
         Me.btnEditSchedule.Location = New System.Drawing.Point(564, 185)
         Me.btnEditSchedule.Name = "btnEditSchedule"
         Me.btnEditSchedule.Size = New System.Drawing.Size(114, 23)
-        Me.btnEditSchedule.TabIndex = 1
+        Me.btnEditSchedule.TabIndex = 4
         Me.btnEditSchedule.Text = "Edit Schedule"
         Me.btnEditSchedule.UseVisualStyleBackColor = False
         '
@@ -252,7 +253,7 @@ Partial Class frmMain
         Me.dgvSchedule.RowHeadersVisible = False
         Me.dgvSchedule.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dgvSchedule.Size = New System.Drawing.Size(489, 290)
-        Me.dgvSchedule.TabIndex = 27
+        Me.dgvSchedule.TabIndex = 5
         '
         'DataGridViewTextBoxColumn1
         '
@@ -320,7 +321,7 @@ Partial Class frmMain
         Me.Label7.Name = "Label7"
         Me.Label7.Padding = New System.Windows.Forms.Padding(160, 0, 160, 6)
         Me.Label7.Size = New System.Drawing.Size(489, 28)
-        Me.Label7.TabIndex = 26
+        Me.Label7.TabIndex = 0
         Me.Label7.Text = "Employee Schedule"
         '
         'btnEdit
@@ -328,7 +329,7 @@ Partial Class frmMain
         Me.btnEdit.Location = New System.Drawing.Point(564, 27)
         Me.btnEdit.Name = "btnEdit"
         Me.btnEdit.Size = New System.Drawing.Size(103, 23)
-        Me.btnEdit.TabIndex = 24
+        Me.btnEdit.TabIndex = 7
         Me.btnEdit.Text = "Edit Employee"
         Me.btnEdit.UseVisualStyleBackColor = True
         '
@@ -338,7 +339,7 @@ Partial Class frmMain
         Me.lblDOH.Location = New System.Drawing.Point(299, 121)
         Me.lblDOH.Name = "lblDOH"
         Me.lblDOH.Size = New System.Drawing.Size(102, 13)
-        Me.lblDOH.TabIndex = 23
+        Me.lblDOH.TabIndex = 0
         Me.lblDOH.Text = "                              "
         '
         'Label9
@@ -347,7 +348,7 @@ Partial Class frmMain
         Me.Label9.Location = New System.Drawing.Point(235, 121)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(58, 13)
-        Me.Label9.TabIndex = 22
+        Me.Label9.TabIndex = 0
         Me.Label9.Text = "Hire Date: "
         '
         'lblEmail
@@ -356,7 +357,7 @@ Partial Class frmMain
         Me.lblEmail.Location = New System.Drawing.Point(511, 121)
         Me.lblEmail.Name = "lblEmail"
         Me.lblEmail.Size = New System.Drawing.Size(167, 13)
-        Me.lblEmail.TabIndex = 21
+        Me.lblEmail.TabIndex = 0
         Me.lblEmail.Text = "                              "
         '
         'Label12
@@ -365,7 +366,7 @@ Partial Class frmMain
         Me.Label12.Location = New System.Drawing.Point(419, 121)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(76, 13)
-        Me.Label12.TabIndex = 20
+        Me.Label12.TabIndex = 0
         Me.Label12.Text = "Email Address:"
         '
         'lblSecondary
@@ -374,7 +375,7 @@ Partial Class frmMain
         Me.lblSecondary.Location = New System.Drawing.Point(511, 95)
         Me.lblSecondary.Name = "lblSecondary"
         Me.lblSecondary.Size = New System.Drawing.Size(167, 13)
-        Me.lblSecondary.TabIndex = 19
+        Me.lblSecondary.TabIndex = 0
         Me.lblSecondary.Text = "                              "
         '
         'Label10
@@ -383,7 +384,7 @@ Partial Class frmMain
         Me.Label10.Location = New System.Drawing.Point(419, 95)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(95, 13)
-        Me.Label10.TabIndex = 18
+        Me.Label10.TabIndex = 0
         Me.Label10.Text = "Secondary Phone:"
         '
         'lblMain
@@ -392,7 +393,7 @@ Partial Class frmMain
         Me.lblMain.Location = New System.Drawing.Point(511, 71)
         Me.lblMain.Name = "lblMain"
         Me.lblMain.Size = New System.Drawing.Size(167, 13)
-        Me.lblMain.TabIndex = 17
+        Me.lblMain.TabIndex = 0
         Me.lblMain.Text = "                              "
         '
         'Label8
@@ -401,7 +402,7 @@ Partial Class frmMain
         Me.Label8.Location = New System.Drawing.Point(419, 71)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(67, 13)
-        Me.Label8.TabIndex = 16
+        Me.Label8.TabIndex = 0
         Me.Label8.Text = "Main Phone:"
         '
         'Label4
@@ -420,7 +421,7 @@ Partial Class frmMain
         Me.lblAddress.Location = New System.Drawing.Point(281, 143)
         Me.lblAddress.Name = "lblAddress"
         Me.lblAddress.Size = New System.Drawing.Size(120, 29)
-        Me.lblAddress.TabIndex = 15
+        Me.lblAddress.TabIndex = 0
         Me.lblAddress.Text = "                              "
         '
         'Label6
@@ -429,7 +430,7 @@ Partial Class frmMain
         Me.Label6.Location = New System.Drawing.Point(236, 143)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(48, 13)
-        Me.Label6.TabIndex = 14
+        Me.Label6.TabIndex = 0
         Me.Label6.Text = "Address:"
         '
         'lblPosition
@@ -438,7 +439,7 @@ Partial Class frmMain
         Me.lblPosition.Location = New System.Drawing.Point(280, 95)
         Me.lblPosition.Name = "lblPosition"
         Me.lblPosition.Size = New System.Drawing.Size(121, 13)
-        Me.lblPosition.TabIndex = 13
+        Me.lblPosition.TabIndex = 0
         Me.lblPosition.Text = "                              "
         '
         'Label5
@@ -447,7 +448,7 @@ Partial Class frmMain
         Me.Label5.Location = New System.Drawing.Point(236, 95)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(47, 13)
-        Me.Label5.TabIndex = 12
+        Me.Label5.TabIndex = 0
         Me.Label5.Text = "Position:"
         '
         'dgvEmployees
@@ -465,7 +466,7 @@ Partial Class frmMain
         Me.dgvEmployees.RowHeadersVisible = False
         Me.dgvEmployees.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvEmployees.Size = New System.Drawing.Size(200, 451)
-        Me.dgvEmployees.TabIndex = 11
+        Me.dgvEmployees.TabIndex = 3
         '
         'FirstNameDataGridViewTextBoxColumn
         '
@@ -502,7 +503,7 @@ Partial Class frmMain
         Me.lblEmployeeName.Location = New System.Drawing.Point(279, 71)
         Me.lblEmployeeName.Name = "lblEmployeeName"
         Me.lblEmployeeName.Size = New System.Drawing.Size(121, 13)
-        Me.lblEmployeeName.TabIndex = 10
+        Me.lblEmployeeName.TabIndex = 0
         Me.lblEmployeeName.Text = "                              "
         '
         'Label3
@@ -511,7 +512,7 @@ Partial Class frmMain
         Me.Label3.Location = New System.Drawing.Point(235, 71)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(38, 13)
-        Me.Label3.TabIndex = 9
+        Me.Label3.TabIndex = 0
         Me.Label3.Text = "Name:"
         '
         'Label2
@@ -529,7 +530,7 @@ Partial Class frmMain
         Me.btnSearch.Location = New System.Drawing.Point(121, 30)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(79, 23)
-        Me.btnSearch.TabIndex = 7
+        Me.btnSearch.TabIndex = 2
         Me.btnSearch.Text = "Search"
         Me.btnSearch.UseVisualStyleBackColor = True
         '
@@ -539,7 +540,7 @@ Partial Class frmMain
         Me.txtSearch.Name = "txtSearch"
         Me.txtSearch.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.txtSearch.Size = New System.Drawing.Size(115, 20)
-        Me.txtSearch.TabIndex = 8
+        Me.txtSearch.TabIndex = 1
         '
         'Label1
         '
@@ -552,7 +553,7 @@ Partial Class frmMain
         Me.Label1.Name = "Label1"
         Me.Label1.Padding = New System.Windows.Forms.Padding(51, 0, 51, 6)
         Me.Label1.Size = New System.Drawing.Size(200, 28)
-        Me.Label1.TabIndex = 5
+        Me.Label1.TabIndex = 16
         Me.Label1.Text = "Employees"
         '
         'EmployeeScheduleBindingSource1
@@ -581,7 +582,6 @@ Partial Class frmMain
         Me.MaximumSize = New System.Drawing.Size(744, 582)
         Me.MinimumSize = New System.Drawing.Size(744, 582)
         Me.Name = "frmMain"
-        Me.Text = "Jamil's Good Old Fun Family Center"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.gpbEmployees.ResumeLayout(False)

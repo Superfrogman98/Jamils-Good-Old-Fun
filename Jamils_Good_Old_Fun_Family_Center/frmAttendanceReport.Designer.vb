@@ -32,11 +32,12 @@ Partial Class frmAttendanceReport
         Me.Jamils_Good_Old_FunDataSet = New Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSet()
         Me.CustomerAttendanceTableAdapter = New Jamils_Good_Old_Fun_Family_Center.Jamils_Good_Old_FunDataSetTableAdapters.CustomerAttendanceTableAdapter()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btnPrint = New System.Windows.Forms.Button()
         Me.btnRefresh = New System.Windows.Forms.Button()
         Me.dtpBeginDate = New System.Windows.Forms.DateTimePicker()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.lblNoItems = New System.Windows.Forms.Label()
-        Me.btnPrint = New System.Windows.Forms.Button()
+        Me.btnClose = New System.Windows.Forms.Button()
         CType(Me.chrAttendance, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CustomerAttendanceBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.JamilsGoodOldFunDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -54,7 +55,7 @@ Partial Class frmAttendanceReport
         Me.chrAttendance.Location = New System.Drawing.Point(0, 61)
         Me.chrAttendance.Name = "chrAttendance"
         Me.chrAttendance.Size = New System.Drawing.Size(1046, 491)
-        Me.chrAttendance.TabIndex = 10
+        Me.chrAttendance.TabIndex = 0
         Title1.Name = "chartTitle"
         Me.chrAttendance.Titles.Add(Title1)
         '
@@ -79,6 +80,7 @@ Partial Class frmAttendanceReport
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.btnClose)
         Me.GroupBox1.Controls.Add(Me.btnPrint)
         Me.GroupBox1.Controls.Add(Me.btnRefresh)
         Me.GroupBox1.Controls.Add(Me.dtpBeginDate)
@@ -88,15 +90,24 @@ Partial Class frmAttendanceReport
         Me.GroupBox1.MaximumSize = New System.Drawing.Size(1066, 55)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(1046, 55)
-        Me.GroupBox1.TabIndex = 11
+        Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
+        '
+        'btnPrint
+        '
+        Me.btnPrint.Location = New System.Drawing.Point(789, 16)
+        Me.btnPrint.Name = "btnPrint"
+        Me.btnPrint.Size = New System.Drawing.Size(75, 23)
+        Me.btnPrint.TabIndex = 3
+        Me.btnPrint.Text = "Print"
+        Me.btnPrint.UseVisualStyleBackColor = True
         '
         'btnRefresh
         '
         Me.btnRefresh.Location = New System.Drawing.Point(708, 16)
         Me.btnRefresh.Name = "btnRefresh"
         Me.btnRefresh.Size = New System.Drawing.Size(75, 23)
-        Me.btnRefresh.TabIndex = 16
+        Me.btnRefresh.TabIndex = 2
         Me.btnRefresh.Text = "Refresh"
         Me.btnRefresh.UseVisualStyleBackColor = True
         '
@@ -107,7 +118,7 @@ Partial Class frmAttendanceReport
         Me.dtpBeginDate.MinDate = New Date(1900, 1, 1, 0, 0, 0, 0)
         Me.dtpBeginDate.Name = "dtpBeginDate"
         Me.dtpBeginDate.Size = New System.Drawing.Size(200, 20)
-        Me.dtpBeginDate.TabIndex = 12
+        Me.dtpBeginDate.TabIndex = 1
         Me.dtpBeginDate.Value = New Date(2017, 2, 23, 0, 0, 0, 0)
         '
         'Label2
@@ -116,7 +127,7 @@ Partial Class frmAttendanceReport
         Me.Label2.Location = New System.Drawing.Point(338, 21)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(79, 13)
-        Me.Label2.TabIndex = 15
+        Me.Label2.TabIndex = 0
         Me.Label2.Text = "View Week Of:"
         '
         'lblNoItems
@@ -126,23 +137,25 @@ Partial Class frmAttendanceReport
         Me.lblNoItems.Location = New System.Drawing.Point(135, 262)
         Me.lblNoItems.Name = "lblNoItems"
         Me.lblNoItems.Size = New System.Drawing.Size(777, 73)
-        Me.lblNoItems.TabIndex = 12
+        Me.lblNoItems.TabIndex = 0
         Me.lblNoItems.Text = "No Attendence This Week"
         Me.lblNoItems.Visible = False
         '
-        'btnPrint
+        'btnClose
         '
-        Me.btnPrint.Location = New System.Drawing.Point(959, 16)
-        Me.btnPrint.Name = "btnPrint"
-        Me.btnPrint.Size = New System.Drawing.Size(75, 23)
-        Me.btnPrint.TabIndex = 17
-        Me.btnPrint.Text = "Print"
-        Me.btnPrint.UseVisualStyleBackColor = True
+        Me.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.btnClose.Location = New System.Drawing.Point(870, 16)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(75, 23)
+        Me.btnClose.TabIndex = 9
+        Me.btnClose.Text = "Close"
+        Me.btnClose.UseVisualStyleBackColor = True
         '
         'frmAttendanceReport
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.CancelButton = Me.btnClose
         Me.ClientSize = New System.Drawing.Size(1046, 552)
         Me.Controls.Add(Me.lblNoItems)
         Me.Controls.Add(Me.GroupBox1)
@@ -173,4 +186,5 @@ Partial Class frmAttendanceReport
     Friend WithEvents Label2 As Label
     Friend WithEvents lblNoItems As Label
     Friend WithEvents btnPrint As Button
+    Friend WithEvents btnClose As Button
 End Class

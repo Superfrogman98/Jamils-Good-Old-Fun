@@ -39,7 +39,7 @@ Partial Class frmAddScheduleItem
         Me.btnOK.Location = New System.Drawing.Point(321, 24)
         Me.btnOK.Name = "btnOK"
         Me.btnOK.Size = New System.Drawing.Size(75, 23)
-        Me.btnOK.TabIndex = 0
+        Me.btnOK.TabIndex = 5
         Me.btnOK.Text = "Ok"
         Me.btnOK.UseVisualStyleBackColor = True
         '
@@ -48,7 +48,7 @@ Partial Class frmAddScheduleItem
         Me.btnCancel.Location = New System.Drawing.Point(400, 24)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(75, 23)
-        Me.btnCancel.TabIndex = 1
+        Me.btnCancel.TabIndex = 0
         Me.btnCancel.Text = "Cancel"
         Me.btnCancel.UseVisualStyleBackColor = True
         '
@@ -67,7 +67,7 @@ Partial Class frmAddScheduleItem
         Me.txtDescription.Multiline = True
         Me.txtDescription.Name = "txtDescription"
         Me.txtDescription.Size = New System.Drawing.Size(180, 36)
-        Me.txtDescription.TabIndex = 3
+        Me.txtDescription.TabIndex = 2
         '
         'nudStart
         '
@@ -76,7 +76,7 @@ Partial Class frmAddScheduleItem
         Me.nudStart.Maximum = New Decimal(New Integer() {2359, 0, 0, 0})
         Me.nudStart.Name = "nudStart"
         Me.nudStart.Size = New System.Drawing.Size(100, 20)
-        Me.nudStart.TabIndex = 4
+        Me.nudStart.TabIndex = 3
         '
         'nudStop
         '
@@ -85,7 +85,7 @@ Partial Class frmAddScheduleItem
         Me.nudStop.Maximum = New Decimal(New Integer() {2359, 0, 0, 0})
         Me.nudStop.Name = "nudStop"
         Me.nudStop.Size = New System.Drawing.Size(100, 20)
-        Me.nudStop.TabIndex = 5
+        Me.nudStop.TabIndex = 4
         '
         'cbxDay
         '
@@ -95,14 +95,14 @@ Partial Class frmAddScheduleItem
         Me.cbxDay.Location = New System.Drawing.Point(3, 2)
         Me.cbxDay.Name = "cbxDay"
         Me.cbxDay.Size = New System.Drawing.Size(100, 21)
-        Me.cbxDay.TabIndex = 2
+        Me.cbxDay.TabIndex = 1
         '
         'btnDelete
         '
         Me.btnDelete.Location = New System.Drawing.Point(3, 24)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(75, 23)
-        Me.btnDelete.TabIndex = 6
+        Me.btnDelete.TabIndex = 0
         Me.btnDelete.Text = "Delete"
         Me.btnDelete.UseVisualStyleBackColor = True
         '

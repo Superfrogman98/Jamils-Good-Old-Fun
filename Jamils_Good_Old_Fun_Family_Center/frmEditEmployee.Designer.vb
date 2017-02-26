@@ -72,7 +72,7 @@ Partial Class frmEditEmployee
         Me.btnSubmit.Location = New System.Drawing.Point(292, 205)
         Me.btnSubmit.Name = "btnSubmit"
         Me.btnSubmit.Size = New System.Drawing.Size(137, 23)
-        Me.btnSubmit.TabIndex = 20
+        Me.btnSubmit.TabIndex = 16
         Me.btnSubmit.Text = "Submit Changes"
         Me.btnSubmit.UseVisualStyleBackColor = True
         '
@@ -81,7 +81,7 @@ Partial Class frmEditEmployee
         Me.btnClose.Location = New System.Drawing.Point(435, 205)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(75, 23)
-        Me.btnClose.TabIndex = 21
+        Me.btnClose.TabIndex = 17
         Me.btnClose.Text = "Close"
         Me.btnClose.UseVisualStyleBackColor = True
         '
@@ -104,7 +104,7 @@ Partial Class frmEditEmployee
         Me.GroupBox4.Location = New System.Drawing.Point(2, 135)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(519, 64)
-        Me.GroupBox4.TabIndex = 19
+        Me.GroupBox4.TabIndex = 4
         Me.GroupBox4.TabStop = False
         '
         'Label13
@@ -131,7 +131,7 @@ Partial Class frmEditEmployee
         Me.txtSecondary3.MaxLength = 4
         Me.txtSecondary3.Name = "txtSecondary3"
         Me.txtSecondary3.Size = New System.Drawing.Size(47, 20)
-        Me.txtSecondary3.TabIndex = 20
+        Me.txtSecondary3.TabIndex = 14
         '
         'txtSecondary2
         '
@@ -139,7 +139,7 @@ Partial Class frmEditEmployee
         Me.txtSecondary2.MaxLength = 3
         Me.txtSecondary2.Name = "txtSecondary2"
         Me.txtSecondary2.Size = New System.Drawing.Size(31, 20)
-        Me.txtSecondary2.TabIndex = 19
+        Me.txtSecondary2.TabIndex = 13
         '
         'txtSecondary1
         '
@@ -147,7 +147,7 @@ Partial Class frmEditEmployee
         Me.txtSecondary1.MaxLength = 3
         Me.txtSecondary1.Name = "txtSecondary1"
         Me.txtSecondary1.Size = New System.Drawing.Size(31, 20)
-        Me.txtSecondary1.TabIndex = 18
+        Me.txtSecondary1.TabIndex = 12
         '
         'Label12
         '
@@ -173,7 +173,7 @@ Partial Class frmEditEmployee
         Me.txtMainPhone3.MaxLength = 4
         Me.txtMainPhone3.Name = "txtMainPhone3"
         Me.txtMainPhone3.Size = New System.Drawing.Size(47, 20)
-        Me.txtMainPhone3.TabIndex = 17
+        Me.txtMainPhone3.TabIndex = 11
         '
         'txtMainPhone2
         '
@@ -181,14 +181,14 @@ Partial Class frmEditEmployee
         Me.txtMainPhone2.MaxLength = 3
         Me.txtMainPhone2.Name = "txtMainPhone2"
         Me.txtMainPhone2.Size = New System.Drawing.Size(31, 20)
-        Me.txtMainPhone2.TabIndex = 16
+        Me.txtMainPhone2.TabIndex = 10
         '
         'txtEmail
         '
         Me.txtEmail.Location = New System.Drawing.Point(74, 39)
         Me.txtEmail.Name = "txtEmail"
         Me.txtEmail.Size = New System.Drawing.Size(145, 20)
-        Me.txtEmail.TabIndex = 21
+        Me.txtEmail.TabIndex = 15
         '
         'Label10
         '
@@ -214,7 +214,7 @@ Partial Class frmEditEmployee
         Me.txtMainPhone1.MaxLength = 3
         Me.txtMainPhone1.Name = "txtMainPhone1"
         Me.txtMainPhone1.Size = New System.Drawing.Size(31, 20)
-        Me.txtMainPhone1.TabIndex = 15
+        Me.txtMainPhone1.TabIndex = 9
         '
         'Label8
         '
@@ -238,7 +238,7 @@ Partial Class frmEditEmployee
         Me.GroupBox3.Location = New System.Drawing.Point(2, 91)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(519, 38)
-        Me.GroupBox3.TabIndex = 18
+        Me.GroupBox3.TabIndex = 3
         Me.GroupBox3.TabStop = False
         '
         'nudZip
@@ -247,7 +247,7 @@ Partial Class frmEditEmployee
         Me.nudZip.Maximum = New Decimal(New Integer() {99999, 0, 0, 0})
         Me.nudZip.Name = "nudZip"
         Me.nudZip.Size = New System.Drawing.Size(75, 20)
-        Me.nudZip.TabIndex = 14
+        Me.nudZip.TabIndex = 8
         '
         'Label7
         '
@@ -255,7 +255,7 @@ Partial Class frmEditEmployee
         Me.Label7.Location = New System.Drawing.Point(385, 13)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(49, 13)
-        Me.Label7.TabIndex = 12
+        Me.Label7.TabIndex = 0
         Me.Label7.Text = "Zipcode:"
         '
         'Label6
@@ -264,7 +264,7 @@ Partial Class frmEditEmployee
         Me.Label6.Location = New System.Drawing.Point(298, 13)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(35, 13)
-        Me.Label6.TabIndex = 10
+        Me.Label6.TabIndex = 0
         Me.Label6.Text = "State:"
         '
         'txtState
@@ -273,7 +273,7 @@ Partial Class frmEditEmployee
         Me.txtState.MaxLength = 100
         Me.txtState.Name = "txtState"
         Me.txtState.Size = New System.Drawing.Size(48, 20)
-        Me.txtState.TabIndex = 11
+        Me.txtState.TabIndex = 7
         '
         'Label4
         '
@@ -290,7 +290,7 @@ Partial Class frmEditEmployee
         Me.txtStreet.MaxLength = 100
         Me.txtStreet.Name = "txtStreet"
         Me.txtStreet.Size = New System.Drawing.Size(100, 20)
-        Me.txtStreet.TabIndex = 7
+        Me.txtStreet.TabIndex = 5
         '
         'lblCity
         '
@@ -298,7 +298,7 @@ Partial Class frmEditEmployee
         Me.lblCity.Location = New System.Drawing.Point(159, 13)
         Me.lblCity.Name = "lblCity"
         Me.lblCity.Size = New System.Drawing.Size(27, 13)
-        Me.lblCity.TabIndex = 8
+        Me.lblCity.TabIndex = 6
         Me.lblCity.Text = "City:"
         '
         'txtCity
@@ -307,7 +307,7 @@ Partial Class frmEditEmployee
         Me.txtCity.MaxLength = 100
         Me.txtCity.Name = "txtCity"
         Me.txtCity.Size = New System.Drawing.Size(100, 20)
-        Me.txtCity.TabIndex = 9
+        Me.txtCity.TabIndex = 6
         '
         'GroupBox2
         '
@@ -318,7 +318,7 @@ Partial Class frmEditEmployee
         Me.GroupBox2.Location = New System.Drawing.Point(2, 47)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(519, 38)
-        Me.GroupBox2.TabIndex = 17
+        Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
         '
         'dtpDateOfHire
@@ -328,7 +328,7 @@ Partial Class frmEditEmployee
         Me.dtpDateOfHire.Location = New System.Drawing.Point(250, 10)
         Me.dtpDateOfHire.Name = "dtpDateOfHire"
         Me.dtpDateOfHire.Size = New System.Drawing.Size(100, 20)
-        Me.dtpDateOfHire.TabIndex = 7
+        Me.dtpDateOfHire.TabIndex = 4
         '
         'Label5
         '
@@ -354,7 +354,7 @@ Partial Class frmEditEmployee
         Me.txtPosition.MaxLength = 100
         Me.txtPosition.Name = "txtPosition"
         Me.txtPosition.Size = New System.Drawing.Size(100, 20)
-        Me.txtPosition.TabIndex = 5
+        Me.txtPosition.TabIndex = 3
         '
         'GroupBox1
         '
@@ -365,7 +365,7 @@ Partial Class frmEditEmployee
         Me.GroupBox1.Location = New System.Drawing.Point(2, 12)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(519, 39)
-        Me.GroupBox1.TabIndex = 16
+        Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         '
         'Label1
@@ -400,14 +400,14 @@ Partial Class frmEditEmployee
         Me.txtLastName.MaxLength = 100
         Me.txtLastName.Name = "txtLastName"
         Me.txtLastName.Size = New System.Drawing.Size(100, 20)
-        Me.txtLastName.TabIndex = 3
+        Me.txtLastName.TabIndex = 2
         '
         'btnRemove
         '
         Me.btnRemove.Location = New System.Drawing.Point(11, 205)
         Me.btnRemove.Name = "btnRemove"
         Me.btnRemove.Size = New System.Drawing.Size(75, 23)
-        Me.btnRemove.TabIndex = 22
+        Me.btnRemove.TabIndex = 18
         Me.btnRemove.Text = "Remove Employee"
         Me.btnRemove.UseVisualStyleBackColor = True
         '

@@ -16,22 +16,27 @@ Features
     -Every Employee view select, user chooses if they want one employees schedule, or every employees schedule together
     -Employee select dropdown, when every employee isn't checked, this is used to determine which employee to view
     -day select drop down, has an option for each day, and the full week
-    
-To Do
-
 -Allow entering of Customer attendence by date, and hour
 
--table view of attendance
+	-table view of attendance
 
-	-select range of dates to get the attendance from
-	-display time along the top, and date/day in to columns to the left of the times
-
+		-select range of dates to get the attendance from
+		-display time along the top, and date/day in to columns to the left of the times
 -graph view of attendance
-
-	-Yearly view, show a graph of attendence over a year using each months averages as plot points
-	-Monthly view, show the attendence over a full month using each days average as plot points
-	-Weekly view, show the view for a single week, using each days average as plot points
-	-Hourly Averages, single day, single week, single month, year	
 	
+	-displays a bar graph view of one week days and the total attendence on each
+
+Needed Features 
 -Allow user to print schedules	
 -Allow User to print the attendence reports
+	
+	-From Day Time Reports
+	-From Graph View
+
+Discused Features
+-graph view of attendance
+
+	-average per day for user set length of time
+	-average per time for user set length
+	-Total per week for user set length
+	-total per month for user set length

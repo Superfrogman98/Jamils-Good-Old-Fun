@@ -26,14 +26,19 @@ Features
 	
 	-displays a bar graph view of one week days and the total attendence on each
 
-Needed Features 
 -Allow user to print schedules	
 -Allow User to print the attendence reports
 	
 	-From Day Time Reports
 	-From Graph View
 
-Discused Features
+
+To Refine
+
+Schedule printing, cell sizes cause data to be formatted badly
+
+
+Discused Future Features
 -graph view of attendance
 
 	-average per day for user set length of time

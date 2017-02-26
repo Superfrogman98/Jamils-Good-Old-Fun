@@ -41,7 +41,6 @@ Partial Class frmNewEmployee
         Me.nudZip = New System.Windows.Forms.NumericUpDown()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.txtState = New System.Windows.Forms.TextBox()
         Me.PageSetupDialog1 = New System.Windows.Forms.PageSetupDialog()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
@@ -200,7 +199,6 @@ Partial Class frmNewEmployee
         Me.GroupBox3.Controls.Add(Me.nudZip)
         Me.GroupBox3.Controls.Add(Me.Label7)
         Me.GroupBox3.Controls.Add(Me.Label6)
-        Me.GroupBox3.Controls.Add(Me.TextBox1)
         Me.GroupBox3.Controls.Add(Me.txtState)
         Me.GroupBox3.Controls.Add(Me.Label4)
         Me.GroupBox3.Controls.Add(Me.txtStreet)
@@ -238,21 +236,13 @@ Partial Class frmNewEmployee
         Me.Label6.TabIndex = 10
         Me.Label6.Text = "State:"
         '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(331, 10)
-        Me.TextBox1.MaxLength = 100
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(48, 20)
-        Me.TextBox1.TabIndex = 7
-        '
         'txtState
         '
         Me.txtState.Location = New System.Drawing.Point(331, 10)
         Me.txtState.MaxLength = 100
         Me.txtState.Name = "txtState"
         Me.txtState.Size = New System.Drawing.Size(48, 20)
-        Me.txtState.TabIndex = 11
+        Me.txtState.TabIndex = 7
         '
         'GroupBox4
         '
@@ -479,5 +469,4 @@ Partial Class frmNewEmployee
     Friend WithEvents Label11 As Label
     Friend WithEvents txtMainPhone3 As TextBox
     Friend WithEvents txtMainPhone2 As TextBox
-    Friend WithEvents TextBox1 As TextBox
 End Class

@@ -38,6 +38,7 @@ Public Class frmNewEmployee
                                                 strAddress = txtStreet.Text & "," & txtCity.Text & "," & txtState.Text & "," & strZipcode
                                                 Try
                                                     frmMain.database.Open()
+
                                                     Dim addNewEmployee As New OleDbCommand("insert into EmployeeData([First Name], [Last Name],[Position], Email, [Main Phone], [Secondary Phone],Address,DOH)values('" & txtFirstName.Text.Trim & "','" & txtLastName.Text.Trim & "','" & txtPosition.Text.Trim & "','" & txtEmail.Text.Trim & "','" & strMainPhone & "' ,'" & strSecondaryPhone & "','" & strAddress & "','" & dateOfHire & "')", frmMain.database)
                                                     addNewEmployee.ExecuteNonQuery()
                                                     MessageBox.Show("Employee Added to database")

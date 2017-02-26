@@ -102,6 +102,7 @@ Public Class frmAttendenceEntry
                     Dim updated As Integer = updateCommand.ExecuteNonQuery() ' gives a 0 if nothing is updated, used to tell insert command to be used instead
 
                     If (updated = 0) Then
+#Disable Warning
                         insertCommand = New OleDbCommand("Insert into CustomerAttendance(attendanceDate , attendanceTime , attendanceAmount )values('" & dateTime & "','" & currentTime & "','" & attendenceAmt & "')", frmMain.database)
                         updated = insertCommand.ExecuteNonQuery()
                     End If

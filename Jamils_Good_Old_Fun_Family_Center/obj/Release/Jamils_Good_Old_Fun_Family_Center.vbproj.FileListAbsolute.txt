@@ -1,0 +1,26 @@
+C:\Users\Leana\Source\Repos\Jamils-Good-Old-Fun\Jamils_Good_Old_Fun_Family_Center\bin\Release\Jamils_Good_Old_Fun_Family_Center.exe.config
+C:\Users\Leana\Source\Repos\Jamils-Good-Old-Fun\Jamils_Good_Old_Fun_Family_Center\obj\Release\Interop.DAO.dll
+C:\Users\Leana\Source\Repos\Jamils-Good-Old-Fun\Jamils_Good_Old_Fun_Family_Center\obj\Release\Jamils_Good_Old_Fun_Family_Center.vbproj.ResolveComReference.cache
+C:\Users\Leana\Source\Repos\Jamils-Good-Old-Fun\Jamils_Good_Old_Fun_Family_Center\bin\Release\Jamils_Good_Old_Fun.accdb
+C:\Users\Leana\Source\Repos\Jamils-Good-Old-Fun\Jamils_Good_Old_Fun_Family_Center\bin\Release\My Project\Resources\Jamils_Good_Old_Fun_Template.accdb
+C:\Users\Leana\Source\Repos\Jamils-Good-Old-Fun\Jamils_Good_Old_Fun_Family_Center\bin\Release\Jamils_Good_Old_Fun_Family_Center.exe.manifest
+C:\Users\Leana\Source\Repos\Jamils-Good-Old-Fun\Jamils_Good_Old_Fun_Family_Center\bin\Release\Jamils_Good_Old_Fun_Family_Center.application
+C:\Users\Leana\Source\Repos\Jamils-Good-Old-Fun\Jamils_Good_Old_Fun_Family_Center\bin\Release\Jamils_Good_Old_Fun_Family_Center.exe
+C:\Users\Leana\Source\Repos\Jamils-Good-Old-Fun\Jamils_Good_Old_Fun_Family_Center\bin\Release\Jamils_Good_Old_Fun_Family_Center.pdb
+C:\Users\Leana\Source\Repos\Jamils-Good-Old-Fun\Jamils_Good_Old_Fun_Family_Center\bin\Release\Jamils_Good_Old_Fun_Family_Center.xml
+C:\Users\Leana\Source\Repos\Jamils-Good-Old-Fun\Jamils_Good_Old_Fun_Family_Center\obj\Release\Jamils_Good_Old_Fun_Family_Center.frmAddScheduleItem.resources
+C:\Users\Leana\Source\Repos\Jamils-Good-Old-Fun\Jamils_Good_Old_Fun_Family_Center\obj\Release\Jamils_Good_Old_Fun_Family_Center.frmAttendanceReport.resources
+C:\Users\Leana\Source\Repos\Jamils-Good-Old-Fun\Jamils_Good_Old_Fun_Family_Center\obj\Release\Jamils_Good_Old_Fun_Family_Center.frmAttendenceEntry.resources
+C:\Users\Leana\Source\Repos\Jamils-Good-Old-Fun\Jamils_Good_Old_Fun_Family_Center\obj\Release\Jamils_Good_Old_Fun_Family_Center.frmEditEmployee.resources
+C:\Users\Leana\Source\Repos\Jamils-Good-Old-Fun\Jamils_Good_Old_Fun_Family_Center\obj\Release\Jamils_Good_Old_Fun_Family_Center.frmHelp.resources
+C:\Users\Leana\Source\Repos\Jamils-Good-Old-Fun\Jamils_Good_Old_Fun_Family_Center\obj\Release\Jamils_Good_Old_Fun_Family_Center.frmMain.resources
+C:\Users\Leana\Source\Repos\Jamils-Good-Old-Fun\Jamils_Good_Old_Fun_Family_Center\obj\Release\Jamils_Good_Old_Fun_Family_Center.frmNewEmployee.resources
+C:\Users\Leana\Source\Repos\Jamils-Good-Old-Fun\Jamils_Good_Old_Fun_Family_Center\obj\Release\Jamils_Good_Old_Fun_Family_Center.frmScheduleViewer.resources
+C:\Users\Leana\Source\Repos\Jamils-Good-Old-Fun\Jamils_Good_Old_Fun_Family_Center\obj\Release\Jamils_Good_Old_Fun_Family_Center.Resources.resources
+C:\Users\Leana\Source\Repos\Jamils-Good-Old-Fun\Jamils_Good_Old_Fun_Family_Center\obj\Release\Jamils_Good_Old_Fun_Family_Center.vbproj.GenerateResource.Cache
+C:\Users\Leana\Source\Repos\Jamils-Good-Old-Fun\Jamils_Good_Old_Fun_Family_Center\obj\Release\Jamils_Good_Old_Fun_Family_Center.exe.manifest
+C:\Users\Leana\Source\Repos\Jamils-Good-Old-Fun\Jamils_Good_Old_Fun_Family_Center\obj\Release\Jamils_Good_Old_Fun_Family_Center.application
+C:\Users\Leana\Source\Repos\Jamils-Good-Old-Fun\Jamils_Good_Old_Fun_Family_Center\obj\Release\Jamils_Good_Old_Fun_Family_Center.exe
+C:\Users\Leana\Source\Repos\Jamils-Good-Old-Fun\Jamils_Good_Old_Fun_Family_Center\obj\Release\Jamils_Good_Old_Fun_Family_Center.xml
+C:\Users\Leana\Source\Repos\Jamils-Good-Old-Fun\Jamils_Good_Old_Fun_Family_Center\obj\Release\Jamils_Good_Old_Fun_Family_Center.pdb
+C:\Users\Leana\Source\Repos\Jamils-Good-Old-Fun\Jamils_Good_Old_Fun_Family_Center\obj\Release\Jamils_Good_Old_Fun_Family_Center.vbprojResolveAssemblyReference.cache
